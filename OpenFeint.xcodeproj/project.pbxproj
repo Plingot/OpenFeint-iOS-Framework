@@ -17,9 +17,21 @@
 				357CDD8A129879FB0097750D /* Copy Resources */,
 			);
 			dependencies = (
+				357CDDB412987E100097750D /* PBXTargetDependency */,
 			);
 			name = "OpenFeint-iOS";
 			productName = "OpenFeint-iOS";
+		};
+		357CDDAE12987DF00097750D /* Cleanup OpenFeint-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 357CDDB612987E180097750D /* Build configuration list for PBXAggregateTarget "Cleanup OpenFeint-iOS" */;
+			buildPhases = (
+				357CDDB212987DFE0097750D /* Cleanup */,
+			);
+			dependencies = (
+			);
+			name = "Cleanup OpenFeint-iOS";
+			productName = "Cleanup OpenFeint-iOS";
 		};
 /* End PBXAggregateTarget section */
 
@@ -1449,6 +1461,16 @@
 		AA747D9F0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		357CDDB312987E100097750D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 357CDDAE12987DF00097750D /* Cleanup OpenFeint-iOS */;
+			remoteInfo = "Cleanup OpenFeint-iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		357CDBA2129879A60097750D /* Copy Headers */ = {
@@ -7463,6 +7485,7 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* OpenFeint-iOS-Static */,
+				357CDDAE12987DF00097750D /* Cleanup OpenFeint-iOS */,
 				357CDB9A1298793E0097750D /* OpenFeint-iOS */,
 			);
 		};
@@ -7510,6 +7533,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Paths\nPROJECT_RESOURCE_DIR=\"${PROJECT_DIR}/OpenFeint/resources\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\"\nRESOURCE_DIR=\"${FRAMEWORK}/Resources\"\n\nrsync -azp \"${PROJECT_RESOURCE_DIR}/\" \"${RESOURCE_DIR}/\"";
+		};
+		357CDDB212987DFE0097750D /* Cleanup */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Cleanup;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Paths\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PROJECT_NAME}-iOS.framework\"\n\n# Cleanup\nrm -rf \"${FRAMEWORK}\" &>/dev/null\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -7966,6 +8003,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		357CDDB412987E100097750D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 357CDDAE12987DF00097750D /* Cleanup OpenFeint-iOS */;
+			targetProxy = 357CDDB312987E100097750D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1DEB921F08733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -8051,6 +8096,27 @@
 			};
 			name = Release;
 		};
+		357CDDAF12987DF10097750D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Cleanup OpenFeint-iOS";
+			};
+			name = Debug;
+		};
+		357CDDB012987DF10097750D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Cleanup OpenFeint-iOS";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -8077,6 +8143,15 @@
 			buildConfigurations = (
 				357CDB9B1298793E0097750D /* Debug */,
 				357CDB9C1298793E0097750D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		357CDDB612987E180097750D /* Build configuration list for PBXAggregateTarget "Cleanup OpenFeint-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				357CDDAF12987DF10097750D /* Debug */,
+				357CDDB012987DF10097750D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
