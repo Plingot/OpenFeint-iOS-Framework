@@ -6,6 +6,23 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		357CDB9A1298793E0097750D /* OpenFeint-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 357CDBA3129879A60097750D /* Build configuration list for PBXAggregateTarget "OpenFeint-iOS" */;
+			buildPhases = (
+				357CDB9E129879510097750D /* Build static lib */,
+				357CDBA01298796A0097750D /* Build universal lib */,
+				357CDBA2129879A60097750D /* Copy Headers */,
+				357CDD8A129879FB0097750D /* Copy Resources */,
+			);
+			dependencies = (
+			);
+			name = "OpenFeint-iOS";
+			productName = "OpenFeint-iOS";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		357CD5FB129873410097750D /* OFAchievementService.h in Headers */ = {isa = PBXBuildFile; fileRef = 357CCF7A1298733B0097750D /* OFAchievementService.h */; };
 		357CD5FC129873410097750D /* OFAchievementService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 357CCF7B1298733B0097750D /* OFAchievementService.mm */; };
@@ -944,9 +961,992 @@
 		357CDB0D1298759F0097750D /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357CDB0C1298759F0097750D /* AddressBookUI.framework */; };
 		357CDB11129875A60097750D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357CDB10129875A60097750D /* MapKit.framework */; };
 		357CDB15129875B30097750D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357CDB14129875B30097750D /* CoreLocation.framework */; };
+		357CDBA4129879B90097750D /* OpenFeint_iOS_Prefix.pch in Copy Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch */; };
+		357CDBA5129879B90097750D /* OFAchievementService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF7A1298733B0097750D /* OFAchievementService.h */; };
+		357CDBA6129879B90097750D /* OFUnlockedAchievementNotificationData.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF7C1298733B0097750D /* OFUnlockedAchievementNotificationData.h */; };
+		357CDBA7129879B90097750D /* OFAnnouncementService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF7F1298733B0097750D /* OFAnnouncementService.h */; };
+		357CDBA8129879B90097750D /* OFApplicationDescription.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF821298733B0097750D /* OFApplicationDescription.h */; };
+		357CDBA9129879B90097750D /* OFApplicationDescriptionService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF841298733B0097750D /* OFApplicationDescriptionService.h */; };
+		357CDBAA129879B90097750D /* OFChallengeService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF871298733B0097750D /* OFChallengeService+Private.h */; };
+		357CDBAB129879B90097750D /* OFChallengeService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF891298733B0097750D /* OFChallengeService.h */; };
+		357CDBAC129879B90097750D /* OFReceivedChallengeNotificationData.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF8B1298733B0097750D /* OFReceivedChallengeNotificationData.h */; };
+		357CDBAD129879B90097750D /* OFChallengeDefinitionService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF8E1298733B0097750D /* OFChallengeDefinitionService.h */; };
+		357CDBAE129879B90097750D /* OFChallengeDefinitionStats.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF901298733B0097750D /* OFChallengeDefinitionStats.h */; };
+		357CDBAF129879B90097750D /* OFChatMessage.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF931298733B0097750D /* OFChatMessage.h */; };
+		357CDBB0129879B90097750D /* OFChatMessageService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF951298733B0097750D /* OFChatMessageService.h */; };
+		357CDBB1129879B90097750D /* OFChatRoomDefinition.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF981298733B0097750D /* OFChatRoomDefinition.h */; };
+		357CDBB2129879B90097750D /* OFChatRoomDefinitionService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF9A1298733B0097750D /* OFChatRoomDefinitionService.h */; };
+		357CDBB3129879B90097750D /* OFChatRoomInstance.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF9C1298733B0097750D /* OFChatRoomInstance.h */; };
+		357CDBB4129879B90097750D /* OFChatRoomInstanceService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCF9E1298733B0097750D /* OFChatRoomInstanceService.h */; };
+		357CDBB5129879B90097750D /* OFClientApplicationService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFA11298733B0097750D /* OFClientApplicationService.h */; };
+		357CDBB6129879B90097750D /* OFGameProfilePageComparisonInfo.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFA31298733B0097750D /* OFGameProfilePageComparisonInfo.h */; };
+		357CDBB7129879B90097750D /* OFGameProfilePageInfo.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFA51298733B0097750D /* OFGameProfilePageInfo.h */; };
+		357CDBB8129879B90097750D /* OFCloudStorageBlob.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFA81298733B0097750D /* OFCloudStorageBlob.h */; };
+		357CDBB9129879B90097750D /* OFCloudStorageService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFAA1298733B0097750D /* OFCloudStorageService.h */; };
+		357CDBBA129879B90097750D /* OFCloudStorageStatus.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFAC1298733B0097750D /* OFCloudStorageStatus.h */; };
+		357CDBBB129879B90097750D /* OFCompressableData.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFAE1298733B0097750D /* OFCompressableData.h */; };
+		357CDBBC129879B90097750D /* OFS3Response.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFB01298733B0097750D /* OFS3Response.h */; };
+		357CDBBD129879B90097750D /* OFS3UploadParameters.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFB21298733B0097750D /* OFS3UploadParameters.h */; };
+		357CDBBE129879B90097750D /* OFForumService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFB51298733B0097750D /* OFForumService.h */; };
+		357CDBBF129879B90097750D /* OFForumThread.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFB71298733B0097750D /* OFForumThread.h */; };
+		357CDBC0129879B90097750D /* OFForumTopic.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFB91298733B0097750D /* OFForumTopic.h */; };
+		357CDBC1129879B90097750D /* OFOnlineStatus.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFBB1298733B0097750D /* OFOnlineStatus.h */; };
+		357CDBC2129879B90097750D /* OFGamePlayer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFBF1298733B0097750D /* OFGamePlayer.h */; };
+		357CDBC3129879B90097750D /* OFFriendsService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFC11298733B0097750D /* OFFriendsService.h */; };
+		357CDBC4129879B90097750D /* OFHighScoreBatchEntry.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFC41298733B0097750D /* OFHighScoreBatchEntry.h */; };
+		357CDBC5129879B90097750D /* OFHighScoreService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFC61298733B0097750D /* OFHighScoreService.h */; };
+		357CDBC6129879B90097750D /* OFFBDialog.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFCA1298733B0097750D /* OFFBDialog.h */; };
+		357CDBC7129879B90097750D /* UITableViewCellContentView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFCC1298733B0097750D /* UITableViewCellContentView.h */; };
+		357CDBC8129879B90097750D /* OFDependencies.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFCE1298733B0097750D /* OFDependencies.h */; };
+		357CDBC9129879B90097750D /* OFAchievementNotificationView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFD11298733B0097750D /* OFAchievementNotificationView.h */; };
+		357CDBCA129879B90097750D /* OFChallengeNotificationView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFD31298733B0097750D /* OFChallengeNotificationView.h */; };
+		357CDBCB129879B90097750D /* OFDashboardNotificationView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFD51298733B0097750D /* OFDashboardNotificationView.h */; };
+		357CDBCC129879B90097750D /* OFInputResponseOpenDashboard.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFD71298733B0097750D /* OFInputResponseOpenDashboard.h */; };
+		357CDBCD129879B90097750D /* OFInputResponsePerformSelector.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFD91298733B0097750D /* OFInputResponsePerformSelector.h */; };
+		357CDBCE129879B90097750D /* OFInputResponsePushController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFDB1298733B0097750D /* OFInputResponsePushController.h */; };
+		357CDBCF129879B90097750D /* OFNotification.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFDD1298733B0097750D /* OFNotification.h */; };
+		357CDBD0129879B90097750D /* OFNotificationData.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFDF1298733C0097750D /* OFNotificationData.h */; };
+		357CDBD1129879B90097750D /* OFNotificationInputResponse.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFE11298733C0097750D /* OFNotificationInputResponse.h */; };
+		357CDBD2129879B90097750D /* OFNotificationStatus.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFE21298733C0097750D /* OFNotificationStatus.h */; };
+		357CDBD3129879B90097750D /* OFNotificationView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFE41298733C0097750D /* OFNotificationView.h */; };
+		357CDBD4129879B90097750D /* OFServerNotification.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFE61298733C0097750D /* OFServerNotification.h */; };
+		357CDBD5129879B90097750D /* OFServerNotificationView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFE81298733C0097750D /* OFServerNotificationView.h */; };
+		357CDBD6129879B90097750D /* OFChoiceList.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFEA1298733C0097750D /* OFChoiceList.h */; };
+		357CDBD7129879B90097750D /* OFLocation.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFEC1298733C0097750D /* OFLocation.h */; };
+		357CDBD8129879B90097750D /* OpenFeint+AddOns.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFEE1298733C0097750D /* OpenFeint+AddOns.h */; };
+		357CDBD9129879B90097750D /* OpenFeint+Dashboard.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFF01298733C0097750D /* OpenFeint+Dashboard.h */; };
+		357CDBDA129879B90097750D /* OpenFeint+GameCenter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFF21298733C0097750D /* OpenFeint+GameCenter.h */; };
+		357CDBDB129879B90097750D /* OpenFeint+NSNotification.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFF41298733C0097750D /* OpenFeint+NSNotification.h */; };
+		357CDBDC129879B90097750D /* OpenFeint+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFF61298733C0097750D /* OpenFeint+Private.h */; };
+		357CDBDD129879B90097750D /* OpenFeint+Settings.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFF81298733C0097750D /* OpenFeint+Settings.h */; };
+		357CDBDE129879B90097750D /* OpenFeint+UserOptions.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFFA1298733C0097750D /* OpenFeint+UserOptions.h */; };
+		357CDBDF129879B90097750D /* OpenFeint+UserStats.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFFC1298733C0097750D /* OpenFeint+UserStats.h */; };
+		357CDBE0129879B90097750D /* OpenFeintAddOn.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CCFFF1298733C0097750D /* OpenFeintAddOn.h */; };
+		357CDBE1129879B90097750D /* OFPoller.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0021298733C0097750D /* OFPoller.h */; };
+		357CDBE2129879B90097750D /* OFPollerResourceType.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0041298733C0097750D /* OFPollerResourceType.h */; };
+		357CDBE3129879B90097750D /* OFAsyncSocket.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0071298733C0097750D /* OFAsyncSocket.h */; };
+		357CDBE4129879B90097750D /* OFCRVStompClient.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0091298733C0097750D /* OFCRVStompClient.h */; };
+		357CDBE5129879B90097750D /* OFPresenceQueue.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD00B1298733C0097750D /* OFPresenceQueue.h */; };
+		357CDBE6129879B90097750D /* OFPresenceService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD00D1298733C0097750D /* OFPresenceService.h */; };
+		357CDBE7129879B90097750D /* OFActionRequest.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0101298733C0097750D /* OFActionRequest.h */; };
+		357CDBE8129879B90097750D /* OFActionRequestType.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0121298733C0097750D /* OFActionRequestType.h */; };
+		357CDBE9129879B90097750D /* OFProvider.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0131298733C0097750D /* OFProvider.h */; };
+		357CDBEA129879B90097750D /* OFProviderProtocol.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0151298733C0097750D /* OFProviderProtocol.h */; };
+		357CDBEB129879B90097750D /* OFReachabilityObserver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0161298733C0097750D /* OFReachabilityObserver.h */; };
+		357CDBEC129879B90097750D /* OFAchievementService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD01A1298733C0097750D /* OFAchievementService+Private.h */; };
+		357CDBED129879B90097750D /* OFUnlockedAchievement.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD01C1298733C0097750D /* OFUnlockedAchievement.h */; };
+		357CDBEE129879B90097750D /* OFAnnouncementService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD01F1298733C0097750D /* OFAnnouncementService+Private.h */; };
+		357CDBEF129879B90097750D /* OFResource+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0221298733C0097750D /* OFResource+Overridables.h */; };
+		357CDBF0129879B90097750D /* OFResource.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0241298733C0097750D /* OFResource.h */; };
+		357CDBF1129879B90097750D /* OFService+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0261298733C0097750D /* OFService+Overridables.h */; };
+		357CDBF2129879B90097750D /* OFService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0281298733C0097750D /* OFService+Private.h */; };
+		357CDBF3129879B90097750D /* OFService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD02A1298733C0097750D /* OFService.h */; };
+		357CDBF4129879B90097750D /* OFXmlResourceWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD02C1298733C0097750D /* OFXmlResourceWriter.h */; };
+		357CDBF5129879B90097750D /* OFBootstrap.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD02F1298733C0097750D /* OFBootstrap.h */; };
+		357CDBF6129879B90097750D /* OFBootstrapService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0311298733C0097750D /* OFBootstrapService.h */; };
+		357CDBF7129879B90097750D /* OFClientApplicationService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0341298733C0097750D /* OFClientApplicationService+Private.h */; };
+		357CDBF8129879B90097750D /* OFConversation.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0371298733C0097750D /* OFConversation.h */; };
+		357CDBF9129879B90097750D /* OFConversationService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0391298733C0097750D /* OFConversationService+Private.h */; };
+		357CDBFA129879B90097750D /* OFGameDiscoveryCategory.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD03C1298733C0097750D /* OFGameDiscoveryCategory.h */; };
+		357CDBFB129879B90097750D /* OFGameDiscoveryImageHyperlink.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD03E1298733C0097750D /* OFGameDiscoveryImageHyperlink.h */; };
+		357CDBFC129879B90097750D /* OFGameDiscoveryNewsItem.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0401298733C0097750D /* OFGameDiscoveryNewsItem.h */; };
+		357CDBFD129879B90097750D /* OFGameDiscoveryService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0421298733C0097750D /* OFGameDiscoveryService.h */; };
+		357CDBFE129879B90097750D /* OFForumService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0451298733C0097750D /* OFForumService+Private.h */; };
+		357CDBFF129879B90097750D /* OFHighScoreService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0481298733C0097750D /* OFHighScoreService+Private.h */; };
+		357CDC00129879B90097750D /* OFLeaderboard+Sync.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD04B1298733C0097750D /* OFLeaderboard+Sync.h */; };
+		357CDC01129879B90097750D /* OFLeaderboardAggregation.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD04D1298733C0097750D /* OFLeaderboardAggregation.h */; };
+		357CDC02129879B90097750D /* OFLeaderboardService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD04F1298733C0097750D /* OFLeaderboardService+Private.h */; };
+		357CDC03129879B90097750D /* OFOffline.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0521298733C0097750D /* OFOffline.h */; };
+		357CDC04129879B90097750D /* OFOfflineService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0541298733C0097750D /* OFOfflineService.h */; };
+		357CDC05129879B90097750D /* OFGameCenterAchievement.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0561298733C0097750D /* OFGameCenterAchievement.h */; };
+		357CDC06129879B90097750D /* OFGameCenterHighScore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0581298733C0097750D /* OFGameCenterHighScore.h */; };
+		357CDC07129879B90097750D /* OFPaginatedSeries.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD05B1298733C0097750D /* OFPaginatedSeries.h */; };
+		357CDC08129879B90097750D /* OFPaginatedSeriesHeader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD05D1298733C0097750D /* OFPaginatedSeriesHeader.h */; };
+		357CDC09129879B90097750D /* OFTableSectionDescription+ResourceAdditions.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0601298733C0097750D /* OFTableSectionDescription+ResourceAdditions.h */; };
+		357CDC0A129879B90097750D /* OFServerNotificationService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0631298733C0097750D /* OFServerNotificationService.h */; };
+		357CDC0B129879B90097750D /* OFSocialNotificationService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0661298733C0097750D /* OFSocialNotificationService+Private.h */; };
+		357CDC0C129879B90097750D /* OFSubscription.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0691298733C0097750D /* OFSubscription.h */; };
+		357CDC0D129879B90097750D /* OFSubscriptionService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD06B1298733C0097750D /* OFSubscriptionService+Private.h */; };
+		357CDC0E129879B90097750D /* OFUserService+Private.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD06E1298733C0097750D /* OFUserService+Private.h */; };
+		357CDC0F129879B90097750D /* OFAbuseReporter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0721298733C0097750D /* OFAbuseReporter.h */; };
+		357CDC10129879B90097750D /* OFBase.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0761298733C0097750D /* OFBase.h */; };
+		357CDC11129879B90097750D /* OFCallbackable.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0771298733C0097750D /* OFCallbackable.h */; };
+		357CDC12129879B90097750D /* OFDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0781298733C0097750D /* OFDelegate.h */; };
+		357CDC13129879B90097750D /* OFDelegateChained.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD07A1298733C0097750D /* OFDelegateChained.h */; };
+		357CDC14129879B90097750D /* OFHashedString.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD07C1298733C0097750D /* OFHashedString.h */; };
+		357CDC15129879B90097750D /* OFLog.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD07E1298733C0097750D /* OFLog.h */; };
+		357CDC16129879B90097750D /* OFPointer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0801298733C0097750D /* OFPointer.h */; };
+		357CDC17129879B90097750D /* OFRetainedPtr.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0811298733C0097750D /* OFRetainedPtr.h */; };
+		357CDC18129879B90097750D /* OFRTTI.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0821298733C0097750D /* OFRTTI.h */; };
+		357CDC19129879B90097750D /* OFRTTIRepository.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0841298733C0097750D /* OFRTTIRepository.h */; };
+		357CDC1A129879B90097750D /* OFSmartObject.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0861298733C0097750D /* OFSmartObject.h */; };
+		357CDC1B129879B90097750D /* OFStringUtility.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0891298733C0097750D /* OFStringUtility.h */; };
+		357CDC1C129879B90097750D /* OFBinaryKeyed.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD08D1298733C0097750D /* OFBinaryKeyed.h */; };
+		357CDC1D129879B90097750D /* OFBinaryKeyedReader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD08E1298733C0097750D /* OFBinaryKeyedReader.h */; };
+		357CDC1E129879B90097750D /* OFBinaryKeyedWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0901298733C0097750D /* OFBinaryKeyedWriter.h */; };
+		357CDC1F129879B90097750D /* OFBinaryReader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0921298733C0097750D /* OFBinaryReader.h */; };
+		357CDC20129879B90097750D /* OFBinarySdbmKeyedReader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0931298733C0097750D /* OFBinarySdbmKeyedReader.h */; };
+		357CDC21129879B90097750D /* OFBinarySdbmKeyedWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0951298733C0097750D /* OFBinarySdbmKeyedWriter.h */; };
+		357CDC22129879B90097750D /* OFBinarySink.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0971298733C0097750D /* OFBinarySink.h */; };
+		357CDC23129879B90097750D /* OFBinarySource.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0991298733C0097750D /* OFBinarySource.h */; };
+		357CDC24129879B90097750D /* OFBinaryWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD09B1298733C0097750D /* OFBinaryWriter.h */; };
+		357CDC25129879B90097750D /* OFDictionaryWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD09C1298733C0097750D /* OFDictionaryWriter.h */; };
+		357CDC26129879B90097750D /* OFHttpNestedQueryStringWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD09E1298733C0097750D /* OFHttpNestedQueryStringWriter.h */; };
+		357CDC27129879B90097750D /* OFHttpQueryParameter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A01298733C0097750D /* OFHttpQueryParameter.h */; };
+		357CDC28129879B90097750D /* OFHttpQueryStringWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A21298733C0097750D /* OFHttpQueryStringWriter.h */; };
+		357CDC29129879B90097750D /* OFInputSerializer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A31298733C0097750D /* OFInputSerializer.h */; };
+		357CDC2A129879B90097750D /* OFISerializer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A51298733C0097750D /* OFISerializer.h */; };
+		357CDC2B129879B90097750D /* OFISerializerKey.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A81298733C0097750D /* OFISerializerKey.h */; };
+		357CDC2C129879B90097750D /* OFKeyValuePair.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A91298733C0097750D /* OFKeyValuePair.h */; };
+		357CDC2D129879B90097750D /* OFOutputSerializer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0AB1298733C0097750D /* OFOutputSerializer.h */; };
+		357CDC2E129879B90097750D /* OFSdbmSerializerKey.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0AD1298733C0097750D /* OFSdbmSerializerKey.h */; };
+		357CDC2F129879B90097750D /* OFTransactionalSaveFile.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0AE1298733C0097750D /* OFTransactionalSaveFile.h */; };
+		357CDC30129879B90097750D /* OFXmlReader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0B01298733C0097750D /* OFXmlReader.h */; };
+		357CDC31129879B90097750D /* OFXmlWriter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0B21298733C0097750D /* OFXmlWriter.h */; };
+		357CDC32129879B90097750D /* OFBlobDownloadObserver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0B51298733C0097750D /* OFBlobDownloadObserver.h */; };
+		357CDC33129879B90097750D /* OFHttpRequest.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0B71298733C0097750D /* OFHttpRequest.h */; };
+		357CDC34129879B90097750D /* OFHttpRequestObserver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0B91298733C0097750D /* OFHttpRequestObserver.h */; };
+		357CDC35129879B90097750D /* OFHttpService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0BA1298733C0097750D /* OFHttpService.h */; };
+		357CDC36129879B90097750D /* OFHttpServiceObserver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0BC1298733C0097750D /* OFHttpServiceObserver.h */; };
+		357CDC37129879B90097750D /* OFHttpServiceRequestContainer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0BD1298733C0097750D /* OFHttpServiceRequestContainer.h */; };
+		357CDC38129879B90097750D /* OFIReachabilityObserver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0BF1298733C0097750D /* OFIReachabilityObserver.h */; };
+		357CDC39129879B90097750D /* OFReachability.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0C11298733C0097750D /* OFReachability.h */; };
+		357CDC3A129879B90097750D /* OFSettings.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0C41298733C0097750D /* OFSettings.h */; };
+		357CDC3B129879B90097750D /* OFSqlQuery.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0C71298733C0097750D /* OFSqlQuery.h */; };
+		357CDC3C129879B90097750D /* OFXmlDocument.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0CA1298733C0097750D /* OFXmlDocument.h */; };
+		357CDC3D129879B90097750D /* OFXmlElement.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0CC1298733C0097750D /* OFXmlElement.h */; };
+		357CDC3E129879B90097750D /* OFFormControllerHelper+EditingSupport.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0D01298733C0097750D /* OFFormControllerHelper+EditingSupport.h */; };
+		357CDC3F129879B90097750D /* OFFormControllerHelper+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0D21298733C0097750D /* OFFormControllerHelper+Overridables.h */; };
+		357CDC40129879B90097750D /* OFFormControllerHelper+Submit.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0D41298733C0097750D /* OFFormControllerHelper+Submit.h */; };
+		357CDC41129879B90097750D /* OFFormControllerHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0D61298733C0097750D /* OFFormControllerHelper.h */; };
+		357CDC42129879B90097750D /* OFFormControllerHttpServiceObserver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0D81298733C0097750D /* OFFormControllerHttpServiceObserver.h */; };
+		357CDC43129879B90097750D /* OFCustomBottomView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0DB1298733C0097750D /* OFCustomBottomView.h */; };
+		357CDC44129879B90097750D /* OFNavigationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0DC1298733C0097750D /* OFNavigationController.h */; };
+		357CDC45129879B90097750D /* OFControllerHelpersCommon.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0DE1298733C0097750D /* OFControllerHelpersCommon.h */; };
+		357CDC46129879B90097750D /* OFViewController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0DF1298733C0097750D /* OFViewController.h */; };
+		357CDC47129879B90097750D /* OFViewHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0E11298733C0097750D /* OFViewHelper.h */; };
+		357CDC48129879B90097750D /* OFResourceViewHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0E41298733C0097750D /* OFResourceViewHelper.h */; };
+		357CDC49129879B90097750D /* OFTableCellBackgroundView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0E71298733C0097750D /* OFTableCellBackgroundView.h */; };
+		357CDC4A129879B90097750D /* OFTableCellHelper+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0E91298733C0097750D /* OFTableCellHelper+Overridables.h */; };
+		357CDC4B129879B90097750D /* OFTableCellHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0EB1298733C0097750D /* OFTableCellHelper.h */; };
+		357CDC4C129879B90097750D /* OFTableCellHelperActionCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0ED1298733C0097750D /* OFTableCellHelperActionCell.h */; };
+		357CDC4D129879B90097750D /* OFTableControllerHeader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0F01298733C0097750D /* OFTableControllerHeader.h */; };
+		357CDC4E129879B90097750D /* OFTableControllerHelper+DataSource.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0F11298733C0097750D /* OFTableControllerHelper+DataSource.h */; };
+		357CDC4F129879B90097750D /* OFTableControllerHelper+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0F31298733C0097750D /* OFTableControllerHelper+Overridables.h */; };
+		357CDC50129879B90097750D /* OFTableControllerHelper+ViewDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0F51298733C0097750D /* OFTableControllerHelper+ViewDelegate.h */; };
+		357CDC51129879B90097750D /* OFTableControllerHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0F71298733C0097750D /* OFTableControllerHelper.h */; };
+		357CDC52129879B90097750D /* OFTableSectionCellDescription.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0F91298733C0097750D /* OFTableSectionCellDescription.h */; };
+		357CDC53129879B90097750D /* OFTableSectionDescription.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0FB1298733C0097750D /* OFTableSectionDescription.h */; };
+		357CDC54129879B90097750D /* OFTableView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0FD1298733C0097750D /* OFTableView.h */; };
+		357CDC55129879B90097750D /* OFTableSequenceControllerHelper+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1001298733C0097750D /* OFTableSequenceControllerHelper+Overridables.h */; };
+		357CDC56129879B90097750D /* OFTableSequenceControllerHelper+ViewDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1021298733C0097750D /* OFTableSequenceControllerHelper+ViewDelegate.h */; };
+		357CDC57129879B90097750D /* OFTableSequenceControllerHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1041298733C0097750D /* OFTableSequenceControllerHelper.h */; };
+		357CDC58129879B90097750D /* OFTableSequenceControllerHelper+Pagination.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1071298733C0097750D /* OFTableSequenceControllerHelper+Pagination.h */; };
+		357CDC59129879B90097750D /* OFTableSequenceControllerLoadMoreCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1091298733C0097750D /* OFTableSequenceControllerLoadMoreCell.h */; };
+		357CDC5A129879B90097750D /* OFTableSingleController+ViewDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD10C1298733C0097750D /* OFTableSingleController+ViewDelegate.h */; };
+		357CDC5B129879B90097750D /* OFTableSingleControllerHelper+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD10E1298733C0097750D /* OFTableSingleControllerHelper+Overridables.h */; };
+		357CDC5C129879B90097750D /* OFTableSingleControllerHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1101298733C0097750D /* OFTableSingleControllerHelper.h */; };
+		357CDC5D129879B90097750D /* OFTableStaticControllerHelper+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1131298733C0097750D /* OFTableStaticControllerHelper+Overridables.h */; };
+		357CDC5E129879B90097750D /* OFTableStaticControllerHelper.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1151298733C0097750D /* OFTableStaticControllerHelper.h */; };
+		357CDC5F129879B90097750D /* OFControllerLoader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1181298733C0097750D /* OFControllerLoader.h */; };
+		357CDC60129879B90097750D /* OFBadgeButton.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD11B1298733C0097750D /* OFBadgeButton.h */; };
+		357CDC61129879B90097750D /* OFBadgeView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD11D1298733C0097750D /* OFBadgeView.h */; };
+		357CDC62129879B90097750D /* OFButtonPanel.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD11F1298733C0097750D /* OFButtonPanel.h */; };
+		357CDC63129879B90097750D /* OFDefaultButton.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1211298733C0097750D /* OFDefaultButton.h */; };
+		357CDC64129879B90097750D /* OFDefaultTextField.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1231298733C0097750D /* OFDefaultTextField.h */; };
+		357CDC65129879B90097750D /* OFDefaultTextView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1251298733C0097750D /* OFDefaultTextView.h */; };
+		357CDC66129879B90097750D /* OFExpandableSinglelineTextField.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1271298733C0097750D /* OFExpandableSinglelineTextField.h */; };
+		357CDC67129879B90097750D /* OFImageView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1291298733C0097750D /* OFImageView.h */; };
+		357CDC68129879B90097750D /* OFMultilineTextField.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD12B1298733C0097750D /* OFMultilineTextField.h */; };
+		357CDC69129879B90097750D /* OFPageSelectionView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD12D1298733C0097750D /* OFPageSelectionView.h */; };
+		357CDC6A129879B90097750D /* OFPatternedGradientView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD12F1298733C0097750D /* OFPatternedGradientView.h */; };
+		357CDC6B129879B90097750D /* OFRoundedRectView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1311298733C0097750D /* OFRoundedRectView.h */; };
+		357CDC6C129879B90097750D /* OFSegmentedView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1331298733C0097750D /* OFSegmentedView.h */; };
+		357CDC6D129879B90097750D /* OFTabBar.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1361298733C0097750D /* OFTabBar.h */; };
+		357CDC6E129879B90097750D /* OFTabBarContainer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1381298733C0097750D /* OFTabBarContainer.h */; };
+		357CDC6F129879B90097750D /* OFTabBarController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD13A1298733C0097750D /* OFTabBarController.h */; };
+		357CDC70129879B90097750D /* OFTabBarControllerDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD13C1298733C0097750D /* OFTabBarControllerDelegate.h */; };
+		357CDC71129879B90097750D /* OFTabBarDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD13D1298733C0097750D /* OFTabBarDelegate.h */; };
+		357CDC72129879B90097750D /* OFTabBarItem.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD13E1298733C0097750D /* OFTabBarItem.h */; };
+		357CDC73129879B90097750D /* UIViewController+TabBar.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1401298733C0097750D /* UIViewController+TabBar.h */; };
+		357CDC74129879B90097750D /* OFTabbedPageHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1421298733C0097750D /* OFTabbedPageHeaderController.h */; };
+		357CDC75129879B90097750D /* OFToggleControl.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1441298733C0097750D /* OFToggleControl.h */; };
+		357CDC76129879B90097750D /* OFTouchReceiverView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1461298733C0097750D /* OFTouchReceiverView.h */; };
+		357CDC77129879B90097750D /* OFUserRelationshipIndicator.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1481298733C0097750D /* OFUserRelationshipIndicator.h */; };
+		357CDC78129879B90097750D /* OFSelectUserWidget.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD14B1298733C0097750D /* OFSelectUserWidget.h */; };
+		357CDC79129879B90097750D /* IPhoneOSIntrospection.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD14E1298733C0097750D /* IPhoneOSIntrospection.h */; };
+		357CDC7A129879B90097750D /* NSObject+WeakLinking.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1501298733C0097750D /* NSObject+WeakLinking.h */; };
+		357CDC7B129879B90097750D /* OFTimerHeartbeat.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1531298733C0097750D /* OFTimerHeartbeat.h */; };
+		357CDC7C129879B90097750D /* OFImageCache.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1561298733C0097750D /* OFImageCache.h */; };
+		357CDC7D129879B90097750D /* OFImageLoader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1581298733C0097750D /* OFImageLoader.h */; };
+		357CDC7E129879B90097750D /* OFMagicDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD15B1298733C0097750D /* OFMagicDelegate.h */; };
+		357CDC7F129879B90097750D /* CLLocation+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD15E1298733C0097750D /* CLLocation+OpenFeint.h */; };
+		357CDC80129879B90097750D /* NSDateFormatter+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1601298733C0097750D /* NSDateFormatter+OpenFeint.h */; };
+		357CDC81129879B90097750D /* NSInvocation+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1621298733C0097750D /* NSInvocation+OpenFeint.h */; };
+		357CDC82129879B90097750D /* UIApplication+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1641298733C0097750D /* UIApplication+OpenFeint.h */; };
+		357CDC83129879B90097750D /* UIButton+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1661298733C0097750D /* UIButton+OpenFeint.h */; };
+		357CDC84129879B90097750D /* UILabel+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1681298733C0097750D /* UILabel+OpenFeint.h */; };
+		357CDC85129879B90097750D /* UINavigationController+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD16A1298733C0097750D /* UINavigationController+OpenFeint.h */; };
+		357CDC86129879B90097750D /* UIViewController+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD16C1298733C0097750D /* UIViewController+OpenFeint.h */; };
+		357CDC87129879B90097750D /* UIWindow+OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD16E1298733C0097750D /* UIWindow+OpenFeint.h */; };
+		357CDC88129879B90097750D /* OFResourceLoader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1711298733C0097750D /* OFResourceLoader.h */; };
+		357CDC89129879B90097750D /* OFResourceControllerMap.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1741298733C0097750D /* OFResourceControllerMap.h */; };
+		357CDC8A129879B90097750D /* OFResourceDataMap.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1761298733C0097750D /* OFResourceDataMap.h */; };
+		357CDC8B129879B90097750D /* OFResourceNameMap.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1781298733C0097750D /* OFResourceNameMap.h */; };
+		357CDC8C129879B90097750D /* OFViewDataGetter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD17B1298733C0097750D /* OFViewDataGetter.h */; };
+		357CDC8D129879B90097750D /* OFViewDataMap.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD17D1298733C0097750D /* OFViewDataMap.h */; };
+		357CDC8E129879B90097750D /* OFViewDataSetter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD17F1298733C0097750D /* OFViewDataSetter.h */; };
+		357CDC8F129879B90097750D /* FBConnect.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1841298733C0097750D /* FBConnect.h */; };
+		357CDC90129879B90097750D /* FBConnectGlobal.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1851298733C0097750D /* FBConnectGlobal.h */; };
+		357CDC91129879B90097750D /* FBDialog.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1871298733C0097750D /* FBDialog.h */; };
+		357CDC92129879B90097750D /* FBLoginButton.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1891298733C0097750D /* FBLoginButton.h */; };
+		357CDC93129879B90097750D /* FBLoginDialog.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD18B1298733C0097750D /* FBLoginDialog.h */; };
+		357CDC94129879B90097750D /* FBNativeStringUploader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD18D1298733C0097750D /* FBNativeStringUploader.h */; };
+		357CDC95129879B90097750D /* FBPermissionDialog.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD18F1298733C0097750D /* FBPermissionDialog.h */; };
+		357CDC96129879B90097750D /* FBRequest.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1911298733C0097750D /* FBRequest.h */; };
+		357CDC97129879B90097750D /* FBSession.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1931298733C0097750D /* FBSession.h */; };
+		357CDC98129879B90097750D /* FBStreamDialog.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1951298733C0097750D /* FBStreamDialog.h */; };
+		357CDC99129879B90097750D /* FBTranslationsLoader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1971298733C0097750D /* FBTranslationsLoader.h */; };
+		357CDC9A129879B90097750D /* FBUploadResultReceiver.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1991298733C0097750D /* FBUploadResultReceiver.h */; };
+		357CDC9B129879B90097750D /* FBXMLHandler.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD19B1298733C0097750D /* FBXMLHandler.h */; };
+		357CDC9C129879B90097750D /* Base64Transcoder.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD19F1298733C0097750D /* Base64Transcoder.h */; };
+		357CDC9D129879B90097750D /* hmac.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1A11298733C0097750D /* hmac.h */; };
+		357CDC9E129879B90097750D /* sha1.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1A31298733C0097750D /* sha1.h */; };
+		357CDC9F129879B90097750D /* MPDebug.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1A51298733C0097750D /* MPDebug.h */; };
+		357CDCA0129879B90097750D /* MPOAuth.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1A61298733C0097750D /* MPOAuth.h */; };
+		357CDCA1129879B90097750D /* MPOAuthAPI+KeychainAdditions.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1A71298733C0097750D /* MPOAuthAPI+KeychainAdditions.h */; };
+		357CDCA2129879B90097750D /* MPOAuthAPI.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1AB1298733C0097750D /* MPOAuthAPI.h */; };
+		357CDCA3129879B90097750D /* MPOAuthAPIRequestLoader.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1AD1298733C0097750D /* MPOAuthAPIRequestLoader.h */; };
+		357CDCA4129879B90097750D /* MPOAuthConnection.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1AF1298733C0097750D /* MPOAuthConnection.h */; };
+		357CDCA5129879B90097750D /* MPOAuthCredentialConcreteStore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1B11298733C0097750D /* MPOAuthCredentialConcreteStore.h */; };
+		357CDCA6129879B90097750D /* MPOAuthCredentialStore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1B31298733C0097750D /* MPOAuthCredentialStore.h */; };
+		357CDCA7129879B90097750D /* MPOAuthParameterFactory.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1B41298733C0097750D /* MPOAuthParameterFactory.h */; };
+		357CDCA8129879B90097750D /* MPOAuthSignatureParameter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1B51298733C0097750D /* MPOAuthSignatureParameter.h */; };
+		357CDCA9129879B90097750D /* MPOAuthURLRequest.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1B71298733C0097750D /* MPOAuthURLRequest.h */; };
+		357CDCAA129879B90097750D /* MPOAuthURLResponse.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1B91298733C0097750D /* MPOAuthURLResponse.h */; };
+		357CDCAB129879B90097750D /* MPURLRequestParameter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1BB1298733C0097750D /* MPURLRequestParameter.h */; };
+		357CDCAC129879B90097750D /* NSString+URLEscapingAdditions.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1BD1298733C0097750D /* NSString+URLEscapingAdditions.h */; };
+		357CDCAD129879B90097750D /* NSURL+MPURLParameterAdditions.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1BF1298733C0097750D /* NSURL+MPURLParameterAdditions.h */; };
+		357CDCAE129879B90097750D /* NSURLResponse+Encoding.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1C11298733C0097750D /* NSURLResponse+Encoding.h */; };
+		357CDCAF129879B90097750D /* bistream.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1C51298733C0097750D /* bistream.h */; };
+		357CDCB0129879B90097750D /* dtdvalid.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1C71298733C0097750D /* dtdvalid.h */; };
+		357CDCB1129879B90097750D /* isrcmem.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1C91298733C0097750D /* isrcmem.h */; };
+		357CDCB2129879B90097750D /* nametab.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1CA1298733C0097750D /* nametab.h */; };
+		357CDCB3129879B90097750D /* optcfg.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1CB1298733C0097750D /* optcfg.h */; };
+		357CDCB4129879B90097750D /* parsifal.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1CD1298733C0097750D /* parsifal.h */; };
+		357CDCB5129879B90097750D /* pns.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1CE1298733C0097750D /* pns.h */; };
+		357CDCB6129879B90097750D /* xmlcfg.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1CF1298733C0097750D /* xmlcfg.h */; };
+		357CDCB7129879B90097750D /* xmldef.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1D01298733C0097750D /* xmldef.h */; };
+		357CDCB8129879B90097750D /* xmldtd.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1D11298733C0097750D /* xmldtd.h */; };
+		357CDCB9129879B90097750D /* xmlhash.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1D31298733C0097750D /* xmlhash.h */; };
+		357CDCBA129879B90097750D /* xmlpool.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1D51298733C0097750D /* xmlpool.h */; };
+		357CDCBB129879B90097750D /* xmlsbuf.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1D71298733C0097750D /* xmlsbuf.h */; };
+		357CDCBC129879B90097750D /* xmlvect.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1D91298733D0097750D /* xmlvect.h */; };
+		357CDCBD129879B90097750D /* OFInviteService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1DB1298733D0097750D /* OFInviteService.h */; };
+		357CDCBE129879B90097750D /* OFLeaderboardService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1DE1298733D0097750D /* OFLeaderboardService.h */; };
+		357CDCBF129879B90097750D /* OFNewsletterSubscription.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1E11298733D0097750D /* OFNewsletterSubscription.h */; };
+		357CDCC0129879B90097750D /* OFDeviceContact.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1E31298733D0097750D /* OFDeviceContact.h */; };
+		357CDCC1129879B90097750D /* OFPlayerReview.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1E61298733D0097750D /* OFPlayerReview.h */; };
+		357CDCC2129879B90097750D /* OFGamerscore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1EA1298733D0097750D /* OFGamerscore.h */; };
+		357CDCC3129879B90097750D /* OFProfileService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1EC1298733D0097750D /* OFProfileService.h */; };
+		357CDCC4129879B90097750D /* OFUserGameStat.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1EF1298733D0097750D /* OFUserGameStat.h */; };
+		357CDCC5129879B90097750D /* OFPushNotificationService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1F21298733D0097750D /* OFPushNotificationService.h */; };
+		357CDCC6129879B90097750D /* OFImageUrl.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1F51298733D0097750D /* OFImageUrl.h */; };
+		357CDCC7129879B90097750D /* OFSocialNotification.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1F71298733D0097750D /* OFSocialNotification.h */; };
+		357CDCC8129879B90097750D /* OFSocialNotificationService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1F91298733D0097750D /* OFSocialNotificationService.h */; };
+		357CDCC9129879B90097750D /* OFTicker.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1FC1298733D0097750D /* OFTicker.h */; };
+		357CDCCA129879B90097750D /* OFTickerService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD1FE1298733D0097750D /* OFTickerService.h */; };
+		357CDCCB129879B90097750D /* OFHttpBasicCredential.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2011298733D0097750D /* OFHttpBasicCredential.h */; };
+		357CDCCC129879B90097750D /* OFUserService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2031298733D0097750D /* OFUserService.h */; };
+		357CDCCD129879B90097750D /* OFUsersCredential.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2061298733D0097750D /* OFUsersCredential.h */; };
+		357CDCCE129879B90097750D /* OFUsersCredentialService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2081298733D0097750D /* OFUsersCredentialService.h */; };
+		357CDCCF129879B90097750D /* OFUserSetting.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD20B1298733D0097750D /* OFUserSetting.h */; };
+		357CDCD0129879B90097750D /* OFUserSettingPushController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD20D1298733D0097750D /* OFUserSettingPushController.h */; };
+		357CDCD1129879B90097750D /* OFUserSettingService.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD20F1298733D0097750D /* OFUserSettingService.h */; };
+		357CDCD2129879B90097750D /* OFChallengeDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2121298733D0097750D /* OFChallengeDelegate.h */; };
+		357CDCD3129879B90097750D /* OFDelegatesContainer.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2131298733D0097750D /* OFDelegatesContainer.h */; };
+		357CDCD4129879B90097750D /* OFNotificationDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2151298733D0097750D /* OFNotificationDelegate.h */; };
+		357CDCD5129879B90097750D /* OpenFeintDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2161298733D0097750D /* OpenFeintDelegate.h */; };
+		357CDCD6129879B90097750D /* OFAbridgedHighScore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2181298733D0097750D /* OFAbridgedHighScore.h */; };
+		357CDCD7129879B90097750D /* OFAchievement.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2191298733D0097750D /* OFAchievement.h */; };
+		357CDCD8129879B90097750D /* OFAnnouncement.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD21A1298733D0097750D /* OFAnnouncement.h */; };
+		357CDCD9129879B90097750D /* OFChallenge.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD21B1298733D0097750D /* OFChallenge.h */; };
+		357CDCDA129879B90097750D /* OFChallengeDefinition.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD21C1298733D0097750D /* OFChallengeDefinition.h */; };
+		357CDCDB129879B90097750D /* OFChallengeToUser.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD21D1298733D0097750D /* OFChallengeToUser.h */; };
+		357CDCDC129879B90097750D /* OFCloudStorage.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD21E1298733D0097750D /* OFCloudStorage.h */; };
+		357CDCDD129879B90097750D /* OFCurrentUser.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD21F1298733D0097750D /* OFCurrentUser.h */; };
+		357CDCDE129879B90097750D /* OFDistributedScoreEnumerator.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2201298733D0097750D /* OFDistributedScoreEnumerator.h */; };
+		357CDCDF129879B90097750D /* OFForumPost.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2211298733D0097750D /* OFForumPost.h */; };
+		357CDCE0129879B90097750D /* OFHighScore.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2221298733D0097750D /* OFHighScore.h */; };
+		357CDCE1129879B90097750D /* OFInvite.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2231298733D0097750D /* OFInvite.h */; };
+		357CDCE2129879B90097750D /* OFInviteDefinition.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2241298733D0097750D /* OFInviteDefinition.h */; };
+		357CDCE3129879B90097750D /* OFLeaderboard.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2251298733D0097750D /* OFLeaderboard.h */; };
+		357CDCE4129879B90097750D /* OFPlayedGame.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2261298733D0097750D /* OFPlayedGame.h */; };
+		357CDCE5129879B90097750D /* OFRequestHandle.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2271298733D0097750D /* OFRequestHandle.h */; };
+		357CDCE6129879B90097750D /* OFScoreEnumerator.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2281298733D0097750D /* OFScoreEnumerator.h */; };
+		357CDCE7129879B90097750D /* OFSocialNotificationApi.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD2291298733D0097750D /* OFSocialNotificationApi.h */; };
+		357CDCE8129879B90097750D /* OFUser.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD22A1298733D0097750D /* OFUser.h */; };
+		357CDCE9129879B90097750D /* OpenFeint.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD22B1298733D0097750D /* OpenFeint.h */; };
+		357CDCEA129879B90097750D /* OpenFeintPrefix.pch in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD22C1298733D0097750D /* OpenFeintPrefix.pch */; };
+		357CDCEB129879B90097750D /* OpenFeintSettings.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD22D1298733D0097750D /* OpenFeintSettings.h */; };
+		357CDCEC129879B90097750D /* OFFacebookAccountController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD48F1298733F0097750D /* OFFacebookAccountController.h */; };
+		357CDCED129879B90097750D /* OFFacebookAccountLoginController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4911298733F0097750D /* OFFacebookAccountLoginController.h */; };
+		357CDCEE129879B90097750D /* OFHttpCredentialsCreateController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4941298733F0097750D /* OFHttpCredentialsCreateController.h */; };
+		357CDCEF129879B90097750D /* OFOpenFeintAccountLoginController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4961298733F0097750D /* OFOpenFeintAccountLoginController.h */; };
+		357CDCF0129879B90097750D /* OFSelectAccountTypeController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4991298733F0097750D /* OFSelectAccountTypeController.h */; };
+		357CDCF1129879B90097750D /* OFUsersCredentialCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD49B1298733F0097750D /* OFUsersCredentialCell.h */; };
+		357CDCF2129879B90097750D /* OFTwitterAccountLoginController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD49E1298733F0097750D /* OFTwitterAccountLoginController.h */; };
+		357CDCF3129879B90097750D /* OFDoBootstrapController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4A11298733F0097750D /* OFDoBootstrapController.h */; };
+		357CDCF4129879B90097750D /* OFEnableOpenFeintInDashboardController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4A31298733F0097750D /* OFEnableOpenFeintInDashboardController.h */; };
+		357CDCF5129879B90097750D /* OFExistingAccountController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4A51298733F0097750D /* OFExistingAccountController.h */; };
+		357CDCF6129879B90097750D /* OFGameCenterIntegrationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4A71298733F0097750D /* OFGameCenterIntegrationController.h */; };
+		357CDCF7129879B90097750D /* OFIntroNavigationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4A91298733F0097750D /* OFIntroNavigationController.h */; };
+		357CDCF8129879B90097750D /* OFLinkSocialNetworksController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4AB1298733F0097750D /* OFLinkSocialNetworksController.h */; };
+		357CDCF9129879B90097750D /* OFNewAccountController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4AD1298733F0097750D /* OFNewAccountController.h */; };
+		357CDCFA129879B90097750D /* OFUserFeintApprovalController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4AF1298733F0097750D /* OFUserFeintApprovalController.h */; };
+		357CDCFB129879B90097750D /* OFWebApprovalController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4B11298733F0097750D /* OFWebApprovalController.h */; };
+		357CDCFC129879B90097750D /* OFAccountSetupBaseController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4B3129873400097750D /* OFAccountSetupBaseController.h */; };
+		357CDCFD129879B90097750D /* OFChangeEmailController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4B5129873400097750D /* OFChangeEmailController.h */; };
+		357CDCFE129879B90097750D /* OFChangeNameController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4B7129873400097750D /* OFChangeNameController.h */; };
+		357CDCFF129879B90097750D /* OFChangePasswordController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4B9129873400097750D /* OFChangePasswordController.h */; };
+		357CDD00129879B90097750D /* OFResetPasswordController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4BB129873400097750D /* OFResetPasswordController.h */; };
+		357CDD01129879B90097750D /* OFUseNewOrOldAccountController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4BD129873400097750D /* OFUseNewOrOldAccountController.h */; };
+		357CDD02129879B90097750D /* OFDeadEndErrorController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4C1129873400097750D /* OFDeadEndErrorController.h */; };
+		357CDD03129879B90097750D /* OFMustBeOnlineErrorController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4C3129873400097750D /* OFMustBeOnlineErrorController.h */; };
+		357CDD04129879B90097750D /* OFServerMaintenanceNoticeController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4C5129873400097750D /* OFServerMaintenanceNoticeController.h */; };
+		357CDD05129879B90097750D /* OFFriendPickerController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4C8129873400097750D /* OFFriendPickerController.h */; };
+		357CDD06129879B90097750D /* OFLoadingController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4CA129873400097750D /* OFLoadingController.h */; };
+		357CDD07129879B90097750D /* OFShowMessageAndReturnController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4CC129873400097750D /* OFShowMessageAndReturnController.h */; };
+		357CDD08129879B90097750D /* OFWebViewController+Overridables.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4CE129873400097750D /* OFWebViewController+Overridables.h */; };
+		357CDD09129879B90097750D /* OFWebViewController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4D0129873400097750D /* OFWebViewController.h */; };
+		357CDD0A129879B90097750D /* OFBannerCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4D3129873400097750D /* OFBannerCell.h */; };
+		357CDD0B129879B90097750D /* OFBannerFrame.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4D5129873400097750D /* OFBannerFrame.h */; };
+		357CDD0C129879B90097750D /* OFBannerProvider.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4D7129873400097750D /* OFBannerProvider.h */; };
+		357CDD0D129879B90097750D /* OFContentFrameView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4D8129873400097750D /* OFContentFrameView.h */; };
+		357CDD0E129879B90097750D /* OFFramedContentWrapperView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4DA129873400097750D /* OFFramedContentWrapperView.h */; };
+		357CDD0F129879B90097750D /* OFFramedNavigationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4DC129873400097750D /* OFFramedNavigationController.h */; };
+		357CDD10129879B90097750D /* OFFramedNavigationControllerBehavior.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4DE129873400097750D /* OFFramedNavigationControllerBehavior.h */; };
+		357CDD11129879B90097750D /* OFPlayerBannerCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4DF129873400097750D /* OFPlayerBannerCell.h */; };
+		357CDD12129879B90097750D /* OFProfileComparisonUser.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4E1129873400097750D /* OFProfileComparisonUser.h */; };
+		357CDD13129879B90097750D /* OFProfileFrame.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4E3129873400097750D /* OFProfileFrame.h */; };
+		357CDD14129879B90097750D /* OFDefaultLeadingCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4E5129873400097750D /* OFDefaultLeadingCell.h */; };
+		357CDD15129879B90097750D /* OFPlainMessageTrailingCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4E7129873400097750D /* OFPlainMessageTrailingCell.h */; };
+		357CDD16129879B90097750D /* OFTrailingViewAllCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4E9129873400097750D /* OFTrailingViewAllCell.h */; };
+		357CDD17129879B90097750D /* OFPlainTableHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4EC129873400097750D /* OFPlainTableHeaderController.h */; };
+		357CDD18129879B90097750D /* OFWebNavContentController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4EF129873400097750D /* OFWebNavContentController.h */; };
+		357CDD19129879B90097750D /* OFWebNavController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4F1129873400097750D /* OFWebNavController.h */; };
+		357CDD1A129879B90097750D /* OFFacebookExtendedCredentialController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4F6129873400097750D /* OFFacebookExtendedCredentialController.h */; };
+		357CDD1B129879B90097750D /* OFTwitterExtendedCredentialController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4F9129873400097750D /* OFTwitterExtendedCredentialController.h */; };
+		357CDD1C129879B90097750D /* OFExtendedCredentialController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4FB129873400097750D /* OFExtendedCredentialController.h */; };
+		357CDD1D129879B90097750D /* OFResumeView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4FD129873400097750D /* OFResumeView.h */; };
+		357CDD1E129879B90097750D /* OFRootController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD4FF129873400097750D /* OFRootController.h */; };
+		357CDD1F129879B90097750D /* OFAchievementCompareListCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD503129873400097750D /* OFAchievementCompareListCell.h */; };
+		357CDD20129879B90097750D /* OFAchievementListController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD505129873400097750D /* OFAchievementListController.h */; };
+		357CDD21129879B90097750D /* OFAchievementProgressionList.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD507129873400097750D /* OFAchievementProgressionList.h */; };
+		357CDD22129879B90097750D /* OFAnnouncementBrowser.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD50A129873400097750D /* OFAnnouncementBrowser.h */; };
+		357CDD23129879B90097750D /* OFAnnouncementDetailController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD50C129873400097750D /* OFAnnouncementDetailController.h */; };
+		357CDD24129879B90097750D /* OFApplicationDescriptionController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD50F129873400097750D /* OFApplicationDescriptionController.h */; };
+		357CDD25129879B90097750D /* OFChallengeDefinitionStatsCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD512129873400097750D /* OFChallengeDefinitionStatsCell.h */; };
+		357CDD26129879B90097750D /* OFChallengeDetailCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD514129873400097750D /* OFChallengeDetailCell.h */; };
+		357CDD27129879B90097750D /* OFChallengeDetailController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD516129873400097750D /* OFChallengeDetailController.h */; };
+		357CDD28129879B90097750D /* OFChallengeDetailFrame.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD518129873400097750D /* OFChallengeDetailFrame.h */; };
+		357CDD29129879B90097750D /* OFChallengeDetailHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD51A129873400097750D /* OFChallengeDetailHeaderController.h */; };
+		357CDD2A129879B90097750D /* OFChallengeListController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD51C129873400097750D /* OFChallengeListController.h */; };
+		357CDD2B129879B90097750D /* OFChallengeSentCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD51E129873400097750D /* OFChallengeSentCell.h */; };
+		357CDD2C129879B90097750D /* OFChallengeToUserCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD520129873400097750D /* OFChallengeToUserCell.h */; };
+		357CDD2D129879B90097750D /* OFCompletedChallengeHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD522129873400097750D /* OFCompletedChallengeHeaderController.h */; };
+		357CDD2E129879B90097750D /* OFSendChallengeController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD524129873400097750D /* OFSendChallengeController.h */; };
+		357CDD2F129879B90097750D /* OFSendChallengeHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD526129873400097750D /* OFSendChallengeHeaderController.h */; };
+		357CDD30129879B90097750D /* OFChatRoomChatMessageCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD52A129873400097750D /* OFChatRoomChatMessageCell.h */; };
+		357CDD31129879B90097750D /* OFChatRoomController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD52C129873400097750D /* OFChatRoomController.h */; };
+		357CDD32129879B90097750D /* OFChatRoomMessageBoxController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD52E129873400097750D /* OFChatRoomMessageBoxController.h */; };
+		357CDD33129879B90097750D /* OFChatRoomDefinitionCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD531129873400097750D /* OFChatRoomDefinitionCell.h */; };
+		357CDD34129879B90097750D /* OFSelectChatRoomDefinitionController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD533129873400097750D /* OFSelectChatRoomDefinitionController.h */; };
+		357CDD35129879B90097750D /* OFChatRoomInstanceCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD536129873400097750D /* OFChatRoomInstanceCell.h */; };
+		357CDD36129879B90097750D /* OFSelectChatRoomInstanceController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD538129873400097750D /* OFSelectChatRoomInstanceController.h */; };
+		357CDD37129879B90097750D /* OFConversationCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD53B129873400097750D /* OFConversationCell.h */; };
+		357CDD38129879B90097750D /* OFConversationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD53D129873400097750D /* OFConversationController.h */; };
+		357CDD39129879B90097750D /* OFConversationMessageBoxController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD53F129873400097750D /* OFConversationMessageBoxController.h */; };
+		357CDD3A129879B90097750D /* OFOnlineStatusCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD541129873400097750D /* OFOnlineStatusCell.h */; };
+		357CDD3B129879B90097750D /* OFFanClubCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD544129873400097750D /* OFFanClubCell.h */; };
+		357CDD3C129879B90097750D /* OFFanClubController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD546129873400097750D /* OFFanClubController.h */; };
+		357CDD3D129879B90097750D /* OFFavoriteThisGameController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD549129873400097750D /* OFFavoriteThisGameController.h */; };
+		357CDD3E129879B90097750D /* OFFeaturedGamesController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD54C129873400097750D /* OFFeaturedGamesController.h */; };
+		357CDD3F129879B90097750D /* OFFindUserController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD54F129873400097750D /* OFFindUserController.h */; };
+		357CDD40129879B90097750D /* OFFindUserHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD551129873400097750D /* OFFindUserHeaderController.h */; };
+		357CDD41129879B90097750D /* OFForumPostCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD555129873400097750D /* OFForumPostCell.h */; };
+		357CDD42129879B90097750D /* OFForumThreadCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD557129873400097750D /* OFForumThreadCell.h */; };
+		357CDD43129879B90097750D /* OFForumTopicCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD559129873400097750D /* OFForumTopicCell.h */; };
+		357CDD44129879B90097750D /* OFForumThreadListController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD55B129873400097750D /* OFForumThreadListController.h */; };
+		357CDD45129879B90097750D /* OFForumThreadViewController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD55D129873400097750D /* OFForumThreadViewController.h */; };
+		357CDD46129879B90097750D /* OFForumTopicListController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD55F129873400097750D /* OFForumTopicListController.h */; };
+		357CDD47129879B90097750D /* OFPostNewMessage.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD561129873400097750D /* OFPostNewMessage.h */; };
+		357CDD48129879B90097750D /* OFFriendImporter.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD565129873400097750D /* OFFriendImporter.h */; };
+		357CDD49129879B90097750D /* OFImportFriendsController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD567129873400097750D /* OFImportFriendsController.h */; };
+		357CDD4A129879B90097750D /* OFFriendsController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD569129873400097750D /* OFFriendsController.h */; };
+		357CDD4B129879B90097750D /* OFFriendsHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD56B129873400097750D /* OFFriendsHeaderController.h */; };
+		357CDD4C129879B90097750D /* OFFullscreenImportFriendsMessage.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD56D129873400097750D /* OFFullscreenImportFriendsMessage.h */; };
+		357CDD4D129879B90097750D /* OFGameDiscoveryCategoryCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD570129873400097750D /* OFGameDiscoveryCategoryCell.h */; };
+		357CDD4E129879B90097750D /* OFGameDiscoveryController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD572129873400097750D /* OFGameDiscoveryController.h */; };
+		357CDD4F129879B90097750D /* OFGameDiscoveryImageHyperlinkCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD574129873400097750D /* OFGameDiscoveryImageHyperlinkCell.h */; };
+		357CDD50129879B90097750D /* OFGameDiscoveryNewsItemCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD576129873400097750D /* OFGameDiscoveryNewsItemCell.h */; };
+		357CDD51129879B90097750D /* OFGameDiscoveryNewsItemController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD578129873400097750D /* OFGameDiscoveryNewsItemController.h */; };
+		357CDD52129879B90097750D /* OFGameProfileController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD57B129873400097750D /* OFGameProfileController.h */; };
+		357CDD53129879B90097750D /* OFHelpController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD57E129873400097750D /* OFHelpController.h */; };
+		357CDD54129879B90097750D /* OFHighScoreAnnotation.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD581129873400097750D /* OFHighScoreAnnotation.h */; };
+		357CDD55129879B90097750D /* OFHighScoreAnnotationView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD583129873400097750D /* OFHighScoreAnnotationView.h */; };
+		357CDD56129879B90097750D /* OFHighScoreCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD585129873400097750D /* OFHighScoreCell.h */; };
+		357CDD57129879B90097750D /* OFHighScoreController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD587129873400097750D /* OFHighScoreController.h */; };
+		357CDD58129879B90097750D /* OFHighScoreMapViewController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD589129873400097750D /* OFHighScoreMapViewController.h */; };
+		357CDD59129879B90097750D /* OFInboxCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD58C129873400097750D /* OFInboxCell.h */; };
+		357CDD5A129879B90097750D /* OFInboxController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD58E129873400097750D /* OFInboxController.h */; };
+		357CDD5B129879B90097750D /* OFInboxIMActionCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD590129873400097750D /* OFInboxIMActionCell.h */; };
+		357CDD5C129879B90097750D /* OFInboxIMConversationsController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD592129873400097750D /* OFInboxIMConversationsController.h */; };
+		357CDD5D129879B90097750D /* OFInboxSubscribedForumThreadsController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD594129873400097750D /* OFInboxSubscribedForumThreadsController.h */; };
+		357CDD5E129879B90097750D /* OFInboxTopLevelController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD596129873400097750D /* OFInboxTopLevelController.h */; };
+		357CDD5F129879B90097750D /* OFContactCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD599129873400097750D /* OFContactCell.h */; };
+		357CDD60129879B90097750D /* OFInvitationsController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD59B129873400097750D /* OFInvitationsController.h */; };
+		357CDD61129879B90097750D /* OFInviteCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD59D129873400097750D /* OFInviteCell.h */; };
+		357CDD62129879B90097750D /* OFInviteCompleteController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD59F129873400097750D /* OFInviteCompleteController.h */; };
+		357CDD63129879B90097750D /* OFInviteFriendsController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5A1129873400097750D /* OFInviteFriendsController.h */; };
+		357CDD64129879B90097750D /* OFInviteFriendsHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5A3129873400097750D /* OFInviteFriendsHeaderController.h */; };
+		357CDD65129879B90097750D /* OFInviteNotificationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5A5129873400097750D /* OFInviteNotificationController.h */; };
+		357CDD66129879B90097750D /* OFSelectableContactCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5A7129873400097750D /* OFSelectableContactCell.h */; };
+		357CDD67129879B90097750D /* OFSelectContactsToInviteController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5A9129873400097750D /* OFSelectContactsToInviteController.h */; };
+		357CDD68129879B90097750D /* OFSelectContactsToInviteHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5AB129873400097750D /* OFSelectContactsToInviteHeaderController.h */; };
+		357CDD69129879B90097750D /* OFSelectFriendsToInviteController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5AD129873400097750D /* OFSelectFriendsToInviteController.h */; };
+		357CDD6A129879B90097750D /* OFSelectInviteTypeCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5AF129873400097750D /* OFSelectInviteTypeCell.h */; };
+		357CDD6B129879B90097750D /* OFSelectInviteTypeController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5B1129873400097750D /* OFSelectInviteTypeController.h */; };
+		357CDD6C129879B90097750D /* OFSelectInviteTypeHeaderController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5B3129873400097750D /* OFSelectInviteTypeHeaderController.h */; };
+		357CDD6D129879B90097750D /* OFViewInviteController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5B5129873400097750D /* OFViewInviteController.h */; };
+		357CDD6E129879B90097750D /* OFLeaderboardCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5B8129873400097750D /* OFLeaderboardCell.h */; };
+		357CDD6F129879B90097750D /* OFLeaderboardController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5BA129873400097750D /* OFLeaderboardController.h */; };
+		357CDD70129879B90097750D /* OfMyFeintController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5BD129873400097750D /* OfMyFeintController.h */; };
+		357CDD71129879B90097750D /* OFNewsLetterController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5C0129873400097750D /* OFNewsLetterController.h */; };
+		357CDD72129879B90097750D /* OFPlayedGameCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5C3129873400097750D /* OFPlayedGameCell.h */; };
+		357CDD73129879B90097750D /* OFPlayedGameController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5C5129873400097750D /* OFPlayedGameController.h */; };
+		357CDD74129879B90097750D /* OFProfileController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5C8129873400097750D /* OFProfileController.h */; };
+		357CDD75129879B90097750D /* OFRemoveCredentialController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5CB129873400097750D /* OFRemoveCredentialController.h */; };
+		357CDD76129879B90097750D /* OFRemoveDeviceFromAccountController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5CE129873400097750D /* OFRemoveDeviceFromAccountController.h */; };
+		357CDD77129879B90097750D /* OFProfilePictureCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5D1129873400097750D /* OFProfilePictureCell.h */; };
+		357CDD78129879B90097750D /* OFSelectProfilePictureController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5D3129873400097750D /* OFSelectProfilePictureController.h */; };
+		357CDD79129879B90097750D /* OFShareLocationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5D6129873400097750D /* OFShareLocationController.h */; };
+		357CDD7A129879B90097750D /* OFSelectableUserCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5D9129873400097750D /* OFSelectableUserCell.h */; };
+		357CDD7B129879B90097750D /* OFUserCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5DB129873400097750D /* OFUserCell.h */; };
+		357CDD7C129879B90097750D /* OFUserSettingActionCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5DE129873400097750D /* OFUserSettingActionCell.h */; };
+		357CDD7D129879B90097750D /* OFUserSettingCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5E0129873400097750D /* OFUserSettingCell.h */; };
+		357CDD7E129879B90097750D /* OFUserSettingController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5E2129873400097750D /* OFUserSettingController.h */; };
+		357CDD7F129879B90097750D /* OFUserSettingDelegate.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5E4129873400097750D /* OFUserSettingDelegate.h */; };
+		357CDD80129879B90097750D /* OFWhosPlayingCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5E7129873400097750D /* OFWhosPlayingCell.h */; };
+		357CDD81129879B90097750D /* OFWhosPlayingController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5E9129873400097750D /* OFWhosPlayingController.h */; };
+		357CDD82129879B90097750D /* OFSocialNotificationController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5EC129873400097750D /* OFSocialNotificationController.h */; };
+		357CDD83129879B90097750D /* OFFeaturedGameCell.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5EF129873400097750D /* OFFeaturedGameCell.h */; };
+		357CDD84129879B90097750D /* OFTabbedDashboardController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F1129873400097750D /* OFTabbedDashboardController.h */; };
+		357CDD85129879B90097750D /* OFTabbedDashboardPageController.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F3129873400097750D /* OFTabbedDashboardPageController.h */; };
+		357CDD86129879B90097750D /* OFTickerProxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F5129873400097750D /* OFTickerProxy.h */; };
+		357CDD87129879B90097750D /* OFTickerView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F7129873410097750D /* OFTickerView.h */; };
+		357CDD88129879B90097750D /* OFColors.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F9129873410097750D /* OFColors.h */; };
 		AA747D9F0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		357CDBA2129879A60097750D /* Copy Headers */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Headers";
+			dstSubfolderSpec = 0;
+			files = (
+				357CDBA4129879B90097750D /* OpenFeint_iOS_Prefix.pch in Copy Headers */,
+				357CDBA5129879B90097750D /* OFAchievementService.h in Copy Headers */,
+				357CDBA6129879B90097750D /* OFUnlockedAchievementNotificationData.h in Copy Headers */,
+				357CDBA7129879B90097750D /* OFAnnouncementService.h in Copy Headers */,
+				357CDBA8129879B90097750D /* OFApplicationDescription.h in Copy Headers */,
+				357CDBA9129879B90097750D /* OFApplicationDescriptionService.h in Copy Headers */,
+				357CDBAA129879B90097750D /* OFChallengeService+Private.h in Copy Headers */,
+				357CDBAB129879B90097750D /* OFChallengeService.h in Copy Headers */,
+				357CDBAC129879B90097750D /* OFReceivedChallengeNotificationData.h in Copy Headers */,
+				357CDBAD129879B90097750D /* OFChallengeDefinitionService.h in Copy Headers */,
+				357CDBAE129879B90097750D /* OFChallengeDefinitionStats.h in Copy Headers */,
+				357CDBAF129879B90097750D /* OFChatMessage.h in Copy Headers */,
+				357CDBB0129879B90097750D /* OFChatMessageService.h in Copy Headers */,
+				357CDBB1129879B90097750D /* OFChatRoomDefinition.h in Copy Headers */,
+				357CDBB2129879B90097750D /* OFChatRoomDefinitionService.h in Copy Headers */,
+				357CDBB3129879B90097750D /* OFChatRoomInstance.h in Copy Headers */,
+				357CDBB4129879B90097750D /* OFChatRoomInstanceService.h in Copy Headers */,
+				357CDBB5129879B90097750D /* OFClientApplicationService.h in Copy Headers */,
+				357CDBB6129879B90097750D /* OFGameProfilePageComparisonInfo.h in Copy Headers */,
+				357CDBB7129879B90097750D /* OFGameProfilePageInfo.h in Copy Headers */,
+				357CDBB8129879B90097750D /* OFCloudStorageBlob.h in Copy Headers */,
+				357CDBB9129879B90097750D /* OFCloudStorageService.h in Copy Headers */,
+				357CDBBA129879B90097750D /* OFCloudStorageStatus.h in Copy Headers */,
+				357CDBBB129879B90097750D /* OFCompressableData.h in Copy Headers */,
+				357CDBBC129879B90097750D /* OFS3Response.h in Copy Headers */,
+				357CDBBD129879B90097750D /* OFS3UploadParameters.h in Copy Headers */,
+				357CDBBE129879B90097750D /* OFForumService.h in Copy Headers */,
+				357CDBBF129879B90097750D /* OFForumThread.h in Copy Headers */,
+				357CDBC0129879B90097750D /* OFForumTopic.h in Copy Headers */,
+				357CDBC1129879B90097750D /* OFOnlineStatus.h in Copy Headers */,
+				357CDBC2129879B90097750D /* OFGamePlayer.h in Copy Headers */,
+				357CDBC3129879B90097750D /* OFFriendsService.h in Copy Headers */,
+				357CDBC4129879B90097750D /* OFHighScoreBatchEntry.h in Copy Headers */,
+				357CDBC5129879B90097750D /* OFHighScoreService.h in Copy Headers */,
+				357CDBC6129879B90097750D /* OFFBDialog.h in Copy Headers */,
+				357CDBC7129879B90097750D /* UITableViewCellContentView.h in Copy Headers */,
+				357CDBC8129879B90097750D /* OFDependencies.h in Copy Headers */,
+				357CDBC9129879B90097750D /* OFAchievementNotificationView.h in Copy Headers */,
+				357CDBCA129879B90097750D /* OFChallengeNotificationView.h in Copy Headers */,
+				357CDBCB129879B90097750D /* OFDashboardNotificationView.h in Copy Headers */,
+				357CDBCC129879B90097750D /* OFInputResponseOpenDashboard.h in Copy Headers */,
+				357CDBCD129879B90097750D /* OFInputResponsePerformSelector.h in Copy Headers */,
+				357CDBCE129879B90097750D /* OFInputResponsePushController.h in Copy Headers */,
+				357CDBCF129879B90097750D /* OFNotification.h in Copy Headers */,
+				357CDBD0129879B90097750D /* OFNotificationData.h in Copy Headers */,
+				357CDBD1129879B90097750D /* OFNotificationInputResponse.h in Copy Headers */,
+				357CDBD2129879B90097750D /* OFNotificationStatus.h in Copy Headers */,
+				357CDBD3129879B90097750D /* OFNotificationView.h in Copy Headers */,
+				357CDBD4129879B90097750D /* OFServerNotification.h in Copy Headers */,
+				357CDBD5129879B90097750D /* OFServerNotificationView.h in Copy Headers */,
+				357CDBD6129879B90097750D /* OFChoiceList.h in Copy Headers */,
+				357CDBD7129879B90097750D /* OFLocation.h in Copy Headers */,
+				357CDBD8129879B90097750D /* OpenFeint+AddOns.h in Copy Headers */,
+				357CDBD9129879B90097750D /* OpenFeint+Dashboard.h in Copy Headers */,
+				357CDBDA129879B90097750D /* OpenFeint+GameCenter.h in Copy Headers */,
+				357CDBDB129879B90097750D /* OpenFeint+NSNotification.h in Copy Headers */,
+				357CDBDC129879B90097750D /* OpenFeint+Private.h in Copy Headers */,
+				357CDBDD129879B90097750D /* OpenFeint+Settings.h in Copy Headers */,
+				357CDBDE129879B90097750D /* OpenFeint+UserOptions.h in Copy Headers */,
+				357CDBDF129879B90097750D /* OpenFeint+UserStats.h in Copy Headers */,
+				357CDBE0129879B90097750D /* OpenFeintAddOn.h in Copy Headers */,
+				357CDBE1129879B90097750D /* OFPoller.h in Copy Headers */,
+				357CDBE2129879B90097750D /* OFPollerResourceType.h in Copy Headers */,
+				357CDBE3129879B90097750D /* OFAsyncSocket.h in Copy Headers */,
+				357CDBE4129879B90097750D /* OFCRVStompClient.h in Copy Headers */,
+				357CDBE5129879B90097750D /* OFPresenceQueue.h in Copy Headers */,
+				357CDBE6129879B90097750D /* OFPresenceService.h in Copy Headers */,
+				357CDBE7129879B90097750D /* OFActionRequest.h in Copy Headers */,
+				357CDBE8129879B90097750D /* OFActionRequestType.h in Copy Headers */,
+				357CDBE9129879B90097750D /* OFProvider.h in Copy Headers */,
+				357CDBEA129879B90097750D /* OFProviderProtocol.h in Copy Headers */,
+				357CDBEB129879B90097750D /* OFReachabilityObserver.h in Copy Headers */,
+				357CDBEC129879B90097750D /* OFAchievementService+Private.h in Copy Headers */,
+				357CDBED129879B90097750D /* OFUnlockedAchievement.h in Copy Headers */,
+				357CDBEE129879B90097750D /* OFAnnouncementService+Private.h in Copy Headers */,
+				357CDBEF129879B90097750D /* OFResource+Overridables.h in Copy Headers */,
+				357CDBF0129879B90097750D /* OFResource.h in Copy Headers */,
+				357CDBF1129879B90097750D /* OFService+Overridables.h in Copy Headers */,
+				357CDBF2129879B90097750D /* OFService+Private.h in Copy Headers */,
+				357CDBF3129879B90097750D /* OFService.h in Copy Headers */,
+				357CDBF4129879B90097750D /* OFXmlResourceWriter.h in Copy Headers */,
+				357CDBF5129879B90097750D /* OFBootstrap.h in Copy Headers */,
+				357CDBF6129879B90097750D /* OFBootstrapService.h in Copy Headers */,
+				357CDBF7129879B90097750D /* OFClientApplicationService+Private.h in Copy Headers */,
+				357CDBF8129879B90097750D /* OFConversation.h in Copy Headers */,
+				357CDBF9129879B90097750D /* OFConversationService+Private.h in Copy Headers */,
+				357CDBFA129879B90097750D /* OFGameDiscoveryCategory.h in Copy Headers */,
+				357CDBFB129879B90097750D /* OFGameDiscoveryImageHyperlink.h in Copy Headers */,
+				357CDBFC129879B90097750D /* OFGameDiscoveryNewsItem.h in Copy Headers */,
+				357CDBFD129879B90097750D /* OFGameDiscoveryService.h in Copy Headers */,
+				357CDBFE129879B90097750D /* OFForumService+Private.h in Copy Headers */,
+				357CDBFF129879B90097750D /* OFHighScoreService+Private.h in Copy Headers */,
+				357CDC00129879B90097750D /* OFLeaderboard+Sync.h in Copy Headers */,
+				357CDC01129879B90097750D /* OFLeaderboardAggregation.h in Copy Headers */,
+				357CDC02129879B90097750D /* OFLeaderboardService+Private.h in Copy Headers */,
+				357CDC03129879B90097750D /* OFOffline.h in Copy Headers */,
+				357CDC04129879B90097750D /* OFOfflineService.h in Copy Headers */,
+				357CDC05129879B90097750D /* OFGameCenterAchievement.h in Copy Headers */,
+				357CDC06129879B90097750D /* OFGameCenterHighScore.h in Copy Headers */,
+				357CDC07129879B90097750D /* OFPaginatedSeries.h in Copy Headers */,
+				357CDC08129879B90097750D /* OFPaginatedSeriesHeader.h in Copy Headers */,
+				357CDC09129879B90097750D /* OFTableSectionDescription+ResourceAdditions.h in Copy Headers */,
+				357CDC0A129879B90097750D /* OFServerNotificationService.h in Copy Headers */,
+				357CDC0B129879B90097750D /* OFSocialNotificationService+Private.h in Copy Headers */,
+				357CDC0C129879B90097750D /* OFSubscription.h in Copy Headers */,
+				357CDC0D129879B90097750D /* OFSubscriptionService+Private.h in Copy Headers */,
+				357CDC0E129879B90097750D /* OFUserService+Private.h in Copy Headers */,
+				357CDC0F129879B90097750D /* OFAbuseReporter.h in Copy Headers */,
+				357CDC10129879B90097750D /* OFBase.h in Copy Headers */,
+				357CDC11129879B90097750D /* OFCallbackable.h in Copy Headers */,
+				357CDC12129879B90097750D /* OFDelegate.h in Copy Headers */,
+				357CDC13129879B90097750D /* OFDelegateChained.h in Copy Headers */,
+				357CDC14129879B90097750D /* OFHashedString.h in Copy Headers */,
+				357CDC15129879B90097750D /* OFLog.h in Copy Headers */,
+				357CDC16129879B90097750D /* OFPointer.h in Copy Headers */,
+				357CDC17129879B90097750D /* OFRetainedPtr.h in Copy Headers */,
+				357CDC18129879B90097750D /* OFRTTI.h in Copy Headers */,
+				357CDC19129879B90097750D /* OFRTTIRepository.h in Copy Headers */,
+				357CDC1A129879B90097750D /* OFSmartObject.h in Copy Headers */,
+				357CDC1B129879B90097750D /* OFStringUtility.h in Copy Headers */,
+				357CDC1C129879B90097750D /* OFBinaryKeyed.h in Copy Headers */,
+				357CDC1D129879B90097750D /* OFBinaryKeyedReader.h in Copy Headers */,
+				357CDC1E129879B90097750D /* OFBinaryKeyedWriter.h in Copy Headers */,
+				357CDC1F129879B90097750D /* OFBinaryReader.h in Copy Headers */,
+				357CDC20129879B90097750D /* OFBinarySdbmKeyedReader.h in Copy Headers */,
+				357CDC21129879B90097750D /* OFBinarySdbmKeyedWriter.h in Copy Headers */,
+				357CDC22129879B90097750D /* OFBinarySink.h in Copy Headers */,
+				357CDC23129879B90097750D /* OFBinarySource.h in Copy Headers */,
+				357CDC24129879B90097750D /* OFBinaryWriter.h in Copy Headers */,
+				357CDC25129879B90097750D /* OFDictionaryWriter.h in Copy Headers */,
+				357CDC26129879B90097750D /* OFHttpNestedQueryStringWriter.h in Copy Headers */,
+				357CDC27129879B90097750D /* OFHttpQueryParameter.h in Copy Headers */,
+				357CDC28129879B90097750D /* OFHttpQueryStringWriter.h in Copy Headers */,
+				357CDC29129879B90097750D /* OFInputSerializer.h in Copy Headers */,
+				357CDC2A129879B90097750D /* OFISerializer.h in Copy Headers */,
+				357CDC2B129879B90097750D /* OFISerializerKey.h in Copy Headers */,
+				357CDC2C129879B90097750D /* OFKeyValuePair.h in Copy Headers */,
+				357CDC2D129879B90097750D /* OFOutputSerializer.h in Copy Headers */,
+				357CDC2E129879B90097750D /* OFSdbmSerializerKey.h in Copy Headers */,
+				357CDC2F129879B90097750D /* OFTransactionalSaveFile.h in Copy Headers */,
+				357CDC30129879B90097750D /* OFXmlReader.h in Copy Headers */,
+				357CDC31129879B90097750D /* OFXmlWriter.h in Copy Headers */,
+				357CDC32129879B90097750D /* OFBlobDownloadObserver.h in Copy Headers */,
+				357CDC33129879B90097750D /* OFHttpRequest.h in Copy Headers */,
+				357CDC34129879B90097750D /* OFHttpRequestObserver.h in Copy Headers */,
+				357CDC35129879B90097750D /* OFHttpService.h in Copy Headers */,
+				357CDC36129879B90097750D /* OFHttpServiceObserver.h in Copy Headers */,
+				357CDC37129879B90097750D /* OFHttpServiceRequestContainer.h in Copy Headers */,
+				357CDC38129879B90097750D /* OFIReachabilityObserver.h in Copy Headers */,
+				357CDC39129879B90097750D /* OFReachability.h in Copy Headers */,
+				357CDC3A129879B90097750D /* OFSettings.h in Copy Headers */,
+				357CDC3B129879B90097750D /* OFSqlQuery.h in Copy Headers */,
+				357CDC3C129879B90097750D /* OFXmlDocument.h in Copy Headers */,
+				357CDC3D129879B90097750D /* OFXmlElement.h in Copy Headers */,
+				357CDC3E129879B90097750D /* OFFormControllerHelper+EditingSupport.h in Copy Headers */,
+				357CDC3F129879B90097750D /* OFFormControllerHelper+Overridables.h in Copy Headers */,
+				357CDC40129879B90097750D /* OFFormControllerHelper+Submit.h in Copy Headers */,
+				357CDC41129879B90097750D /* OFFormControllerHelper.h in Copy Headers */,
+				357CDC42129879B90097750D /* OFFormControllerHttpServiceObserver.h in Copy Headers */,
+				357CDC43129879B90097750D /* OFCustomBottomView.h in Copy Headers */,
+				357CDC44129879B90097750D /* OFNavigationController.h in Copy Headers */,
+				357CDC45129879B90097750D /* OFControllerHelpersCommon.h in Copy Headers */,
+				357CDC46129879B90097750D /* OFViewController.h in Copy Headers */,
+				357CDC47129879B90097750D /* OFViewHelper.h in Copy Headers */,
+				357CDC48129879B90097750D /* OFResourceViewHelper.h in Copy Headers */,
+				357CDC49129879B90097750D /* OFTableCellBackgroundView.h in Copy Headers */,
+				357CDC4A129879B90097750D /* OFTableCellHelper+Overridables.h in Copy Headers */,
+				357CDC4B129879B90097750D /* OFTableCellHelper.h in Copy Headers */,
+				357CDC4C129879B90097750D /* OFTableCellHelperActionCell.h in Copy Headers */,
+				357CDC4D129879B90097750D /* OFTableControllerHeader.h in Copy Headers */,
+				357CDC4E129879B90097750D /* OFTableControllerHelper+DataSource.h in Copy Headers */,
+				357CDC4F129879B90097750D /* OFTableControllerHelper+Overridables.h in Copy Headers */,
+				357CDC50129879B90097750D /* OFTableControllerHelper+ViewDelegate.h in Copy Headers */,
+				357CDC51129879B90097750D /* OFTableControllerHelper.h in Copy Headers */,
+				357CDC52129879B90097750D /* OFTableSectionCellDescription.h in Copy Headers */,
+				357CDC53129879B90097750D /* OFTableSectionDescription.h in Copy Headers */,
+				357CDC54129879B90097750D /* OFTableView.h in Copy Headers */,
+				357CDC55129879B90097750D /* OFTableSequenceControllerHelper+Overridables.h in Copy Headers */,
+				357CDC56129879B90097750D /* OFTableSequenceControllerHelper+ViewDelegate.h in Copy Headers */,
+				357CDC57129879B90097750D /* OFTableSequenceControllerHelper.h in Copy Headers */,
+				357CDC58129879B90097750D /* OFTableSequenceControllerHelper+Pagination.h in Copy Headers */,
+				357CDC59129879B90097750D /* OFTableSequenceControllerLoadMoreCell.h in Copy Headers */,
+				357CDC5A129879B90097750D /* OFTableSingleController+ViewDelegate.h in Copy Headers */,
+				357CDC5B129879B90097750D /* OFTableSingleControllerHelper+Overridables.h in Copy Headers */,
+				357CDC5C129879B90097750D /* OFTableSingleControllerHelper.h in Copy Headers */,
+				357CDC5D129879B90097750D /* OFTableStaticControllerHelper+Overridables.h in Copy Headers */,
+				357CDC5E129879B90097750D /* OFTableStaticControllerHelper.h in Copy Headers */,
+				357CDC5F129879B90097750D /* OFControllerLoader.h in Copy Headers */,
+				357CDC60129879B90097750D /* OFBadgeButton.h in Copy Headers */,
+				357CDC61129879B90097750D /* OFBadgeView.h in Copy Headers */,
+				357CDC62129879B90097750D /* OFButtonPanel.h in Copy Headers */,
+				357CDC63129879B90097750D /* OFDefaultButton.h in Copy Headers */,
+				357CDC64129879B90097750D /* OFDefaultTextField.h in Copy Headers */,
+				357CDC65129879B90097750D /* OFDefaultTextView.h in Copy Headers */,
+				357CDC66129879B90097750D /* OFExpandableSinglelineTextField.h in Copy Headers */,
+				357CDC67129879B90097750D /* OFImageView.h in Copy Headers */,
+				357CDC68129879B90097750D /* OFMultilineTextField.h in Copy Headers */,
+				357CDC69129879B90097750D /* OFPageSelectionView.h in Copy Headers */,
+				357CDC6A129879B90097750D /* OFPatternedGradientView.h in Copy Headers */,
+				357CDC6B129879B90097750D /* OFRoundedRectView.h in Copy Headers */,
+				357CDC6C129879B90097750D /* OFSegmentedView.h in Copy Headers */,
+				357CDC6D129879B90097750D /* OFTabBar.h in Copy Headers */,
+				357CDC6E129879B90097750D /* OFTabBarContainer.h in Copy Headers */,
+				357CDC6F129879B90097750D /* OFTabBarController.h in Copy Headers */,
+				357CDC70129879B90097750D /* OFTabBarControllerDelegate.h in Copy Headers */,
+				357CDC71129879B90097750D /* OFTabBarDelegate.h in Copy Headers */,
+				357CDC72129879B90097750D /* OFTabBarItem.h in Copy Headers */,
+				357CDC73129879B90097750D /* UIViewController+TabBar.h in Copy Headers */,
+				357CDC74129879B90097750D /* OFTabbedPageHeaderController.h in Copy Headers */,
+				357CDC75129879B90097750D /* OFToggleControl.h in Copy Headers */,
+				357CDC76129879B90097750D /* OFTouchReceiverView.h in Copy Headers */,
+				357CDC77129879B90097750D /* OFUserRelationshipIndicator.h in Copy Headers */,
+				357CDC78129879B90097750D /* OFSelectUserWidget.h in Copy Headers */,
+				357CDC79129879B90097750D /* IPhoneOSIntrospection.h in Copy Headers */,
+				357CDC7A129879B90097750D /* NSObject+WeakLinking.h in Copy Headers */,
+				357CDC7B129879B90097750D /* OFTimerHeartbeat.h in Copy Headers */,
+				357CDC7C129879B90097750D /* OFImageCache.h in Copy Headers */,
+				357CDC7D129879B90097750D /* OFImageLoader.h in Copy Headers */,
+				357CDC7E129879B90097750D /* OFMagicDelegate.h in Copy Headers */,
+				357CDC7F129879B90097750D /* CLLocation+OpenFeint.h in Copy Headers */,
+				357CDC80129879B90097750D /* NSDateFormatter+OpenFeint.h in Copy Headers */,
+				357CDC81129879B90097750D /* NSInvocation+OpenFeint.h in Copy Headers */,
+				357CDC82129879B90097750D /* UIApplication+OpenFeint.h in Copy Headers */,
+				357CDC83129879B90097750D /* UIButton+OpenFeint.h in Copy Headers */,
+				357CDC84129879B90097750D /* UILabel+OpenFeint.h in Copy Headers */,
+				357CDC85129879B90097750D /* UINavigationController+OpenFeint.h in Copy Headers */,
+				357CDC86129879B90097750D /* UIViewController+OpenFeint.h in Copy Headers */,
+				357CDC87129879B90097750D /* UIWindow+OpenFeint.h in Copy Headers */,
+				357CDC88129879B90097750D /* OFResourceLoader.h in Copy Headers */,
+				357CDC89129879B90097750D /* OFResourceControllerMap.h in Copy Headers */,
+				357CDC8A129879B90097750D /* OFResourceDataMap.h in Copy Headers */,
+				357CDC8B129879B90097750D /* OFResourceNameMap.h in Copy Headers */,
+				357CDC8C129879B90097750D /* OFViewDataGetter.h in Copy Headers */,
+				357CDC8D129879B90097750D /* OFViewDataMap.h in Copy Headers */,
+				357CDC8E129879B90097750D /* OFViewDataSetter.h in Copy Headers */,
+				357CDC8F129879B90097750D /* FBConnect.h in Copy Headers */,
+				357CDC90129879B90097750D /* FBConnectGlobal.h in Copy Headers */,
+				357CDC91129879B90097750D /* FBDialog.h in Copy Headers */,
+				357CDC92129879B90097750D /* FBLoginButton.h in Copy Headers */,
+				357CDC93129879B90097750D /* FBLoginDialog.h in Copy Headers */,
+				357CDC94129879B90097750D /* FBNativeStringUploader.h in Copy Headers */,
+				357CDC95129879B90097750D /* FBPermissionDialog.h in Copy Headers */,
+				357CDC96129879B90097750D /* FBRequest.h in Copy Headers */,
+				357CDC97129879B90097750D /* FBSession.h in Copy Headers */,
+				357CDC98129879B90097750D /* FBStreamDialog.h in Copy Headers */,
+				357CDC99129879B90097750D /* FBTranslationsLoader.h in Copy Headers */,
+				357CDC9A129879B90097750D /* FBUploadResultReceiver.h in Copy Headers */,
+				357CDC9B129879B90097750D /* FBXMLHandler.h in Copy Headers */,
+				357CDC9C129879B90097750D /* Base64Transcoder.h in Copy Headers */,
+				357CDC9D129879B90097750D /* hmac.h in Copy Headers */,
+				357CDC9E129879B90097750D /* sha1.h in Copy Headers */,
+				357CDC9F129879B90097750D /* MPDebug.h in Copy Headers */,
+				357CDCA0129879B90097750D /* MPOAuth.h in Copy Headers */,
+				357CDCA1129879B90097750D /* MPOAuthAPI+KeychainAdditions.h in Copy Headers */,
+				357CDCA2129879B90097750D /* MPOAuthAPI.h in Copy Headers */,
+				357CDCA3129879B90097750D /* MPOAuthAPIRequestLoader.h in Copy Headers */,
+				357CDCA4129879B90097750D /* MPOAuthConnection.h in Copy Headers */,
+				357CDCA5129879B90097750D /* MPOAuthCredentialConcreteStore.h in Copy Headers */,
+				357CDCA6129879B90097750D /* MPOAuthCredentialStore.h in Copy Headers */,
+				357CDCA7129879B90097750D /* MPOAuthParameterFactory.h in Copy Headers */,
+				357CDCA8129879B90097750D /* MPOAuthSignatureParameter.h in Copy Headers */,
+				357CDCA9129879B90097750D /* MPOAuthURLRequest.h in Copy Headers */,
+				357CDCAA129879B90097750D /* MPOAuthURLResponse.h in Copy Headers */,
+				357CDCAB129879B90097750D /* MPURLRequestParameter.h in Copy Headers */,
+				357CDCAC129879B90097750D /* NSString+URLEscapingAdditions.h in Copy Headers */,
+				357CDCAD129879B90097750D /* NSURL+MPURLParameterAdditions.h in Copy Headers */,
+				357CDCAE129879B90097750D /* NSURLResponse+Encoding.h in Copy Headers */,
+				357CDCAF129879B90097750D /* bistream.h in Copy Headers */,
+				357CDCB0129879B90097750D /* dtdvalid.h in Copy Headers */,
+				357CDCB1129879B90097750D /* isrcmem.h in Copy Headers */,
+				357CDCB2129879B90097750D /* nametab.h in Copy Headers */,
+				357CDCB3129879B90097750D /* optcfg.h in Copy Headers */,
+				357CDCB4129879B90097750D /* parsifal.h in Copy Headers */,
+				357CDCB5129879B90097750D /* pns.h in Copy Headers */,
+				357CDCB6129879B90097750D /* xmlcfg.h in Copy Headers */,
+				357CDCB7129879B90097750D /* xmldef.h in Copy Headers */,
+				357CDCB8129879B90097750D /* xmldtd.h in Copy Headers */,
+				357CDCB9129879B90097750D /* xmlhash.h in Copy Headers */,
+				357CDCBA129879B90097750D /* xmlpool.h in Copy Headers */,
+				357CDCBB129879B90097750D /* xmlsbuf.h in Copy Headers */,
+				357CDCBC129879B90097750D /* xmlvect.h in Copy Headers */,
+				357CDCBD129879B90097750D /* OFInviteService.h in Copy Headers */,
+				357CDCBE129879B90097750D /* OFLeaderboardService.h in Copy Headers */,
+				357CDCBF129879B90097750D /* OFNewsletterSubscription.h in Copy Headers */,
+				357CDCC0129879B90097750D /* OFDeviceContact.h in Copy Headers */,
+				357CDCC1129879B90097750D /* OFPlayerReview.h in Copy Headers */,
+				357CDCC2129879B90097750D /* OFGamerscore.h in Copy Headers */,
+				357CDCC3129879B90097750D /* OFProfileService.h in Copy Headers */,
+				357CDCC4129879B90097750D /* OFUserGameStat.h in Copy Headers */,
+				357CDCC5129879B90097750D /* OFPushNotificationService.h in Copy Headers */,
+				357CDCC6129879B90097750D /* OFImageUrl.h in Copy Headers */,
+				357CDCC7129879B90097750D /* OFSocialNotification.h in Copy Headers */,
+				357CDCC8129879B90097750D /* OFSocialNotificationService.h in Copy Headers */,
+				357CDCC9129879B90097750D /* OFTicker.h in Copy Headers */,
+				357CDCCA129879B90097750D /* OFTickerService.h in Copy Headers */,
+				357CDCCB129879B90097750D /* OFHttpBasicCredential.h in Copy Headers */,
+				357CDCCC129879B90097750D /* OFUserService.h in Copy Headers */,
+				357CDCCD129879B90097750D /* OFUsersCredential.h in Copy Headers */,
+				357CDCCE129879B90097750D /* OFUsersCredentialService.h in Copy Headers */,
+				357CDCCF129879B90097750D /* OFUserSetting.h in Copy Headers */,
+				357CDCD0129879B90097750D /* OFUserSettingPushController.h in Copy Headers */,
+				357CDCD1129879B90097750D /* OFUserSettingService.h in Copy Headers */,
+				357CDCD2129879B90097750D /* OFChallengeDelegate.h in Copy Headers */,
+				357CDCD3129879B90097750D /* OFDelegatesContainer.h in Copy Headers */,
+				357CDCD4129879B90097750D /* OFNotificationDelegate.h in Copy Headers */,
+				357CDCD5129879B90097750D /* OpenFeintDelegate.h in Copy Headers */,
+				357CDCD6129879B90097750D /* OFAbridgedHighScore.h in Copy Headers */,
+				357CDCD7129879B90097750D /* OFAchievement.h in Copy Headers */,
+				357CDCD8129879B90097750D /* OFAnnouncement.h in Copy Headers */,
+				357CDCD9129879B90097750D /* OFChallenge.h in Copy Headers */,
+				357CDCDA129879B90097750D /* OFChallengeDefinition.h in Copy Headers */,
+				357CDCDB129879B90097750D /* OFChallengeToUser.h in Copy Headers */,
+				357CDCDC129879B90097750D /* OFCloudStorage.h in Copy Headers */,
+				357CDCDD129879B90097750D /* OFCurrentUser.h in Copy Headers */,
+				357CDCDE129879B90097750D /* OFDistributedScoreEnumerator.h in Copy Headers */,
+				357CDCDF129879B90097750D /* OFForumPost.h in Copy Headers */,
+				357CDCE0129879B90097750D /* OFHighScore.h in Copy Headers */,
+				357CDCE1129879B90097750D /* OFInvite.h in Copy Headers */,
+				357CDCE2129879B90097750D /* OFInviteDefinition.h in Copy Headers */,
+				357CDCE3129879B90097750D /* OFLeaderboard.h in Copy Headers */,
+				357CDCE4129879B90097750D /* OFPlayedGame.h in Copy Headers */,
+				357CDCE5129879B90097750D /* OFRequestHandle.h in Copy Headers */,
+				357CDCE6129879B90097750D /* OFScoreEnumerator.h in Copy Headers */,
+				357CDCE7129879B90097750D /* OFSocialNotificationApi.h in Copy Headers */,
+				357CDCE8129879B90097750D /* OFUser.h in Copy Headers */,
+				357CDCE9129879B90097750D /* OpenFeint.h in Copy Headers */,
+				357CDCEA129879B90097750D /* OpenFeintPrefix.pch in Copy Headers */,
+				357CDCEB129879B90097750D /* OpenFeintSettings.h in Copy Headers */,
+				357CDCEC129879B90097750D /* OFFacebookAccountController.h in Copy Headers */,
+				357CDCED129879B90097750D /* OFFacebookAccountLoginController.h in Copy Headers */,
+				357CDCEE129879B90097750D /* OFHttpCredentialsCreateController.h in Copy Headers */,
+				357CDCEF129879B90097750D /* OFOpenFeintAccountLoginController.h in Copy Headers */,
+				357CDCF0129879B90097750D /* OFSelectAccountTypeController.h in Copy Headers */,
+				357CDCF1129879B90097750D /* OFUsersCredentialCell.h in Copy Headers */,
+				357CDCF2129879B90097750D /* OFTwitterAccountLoginController.h in Copy Headers */,
+				357CDCF3129879B90097750D /* OFDoBootstrapController.h in Copy Headers */,
+				357CDCF4129879B90097750D /* OFEnableOpenFeintInDashboardController.h in Copy Headers */,
+				357CDCF5129879B90097750D /* OFExistingAccountController.h in Copy Headers */,
+				357CDCF6129879B90097750D /* OFGameCenterIntegrationController.h in Copy Headers */,
+				357CDCF7129879B90097750D /* OFIntroNavigationController.h in Copy Headers */,
+				357CDCF8129879B90097750D /* OFLinkSocialNetworksController.h in Copy Headers */,
+				357CDCF9129879B90097750D /* OFNewAccountController.h in Copy Headers */,
+				357CDCFA129879B90097750D /* OFUserFeintApprovalController.h in Copy Headers */,
+				357CDCFB129879B90097750D /* OFWebApprovalController.h in Copy Headers */,
+				357CDCFC129879B90097750D /* OFAccountSetupBaseController.h in Copy Headers */,
+				357CDCFD129879B90097750D /* OFChangeEmailController.h in Copy Headers */,
+				357CDCFE129879B90097750D /* OFChangeNameController.h in Copy Headers */,
+				357CDCFF129879B90097750D /* OFChangePasswordController.h in Copy Headers */,
+				357CDD00129879B90097750D /* OFResetPasswordController.h in Copy Headers */,
+				357CDD01129879B90097750D /* OFUseNewOrOldAccountController.h in Copy Headers */,
+				357CDD02129879B90097750D /* OFDeadEndErrorController.h in Copy Headers */,
+				357CDD03129879B90097750D /* OFMustBeOnlineErrorController.h in Copy Headers */,
+				357CDD04129879B90097750D /* OFServerMaintenanceNoticeController.h in Copy Headers */,
+				357CDD05129879B90097750D /* OFFriendPickerController.h in Copy Headers */,
+				357CDD06129879B90097750D /* OFLoadingController.h in Copy Headers */,
+				357CDD07129879B90097750D /* OFShowMessageAndReturnController.h in Copy Headers */,
+				357CDD08129879B90097750D /* OFWebViewController+Overridables.h in Copy Headers */,
+				357CDD09129879B90097750D /* OFWebViewController.h in Copy Headers */,
+				357CDD0A129879B90097750D /* OFBannerCell.h in Copy Headers */,
+				357CDD0B129879B90097750D /* OFBannerFrame.h in Copy Headers */,
+				357CDD0C129879B90097750D /* OFBannerProvider.h in Copy Headers */,
+				357CDD0D129879B90097750D /* OFContentFrameView.h in Copy Headers */,
+				357CDD0E129879B90097750D /* OFFramedContentWrapperView.h in Copy Headers */,
+				357CDD0F129879B90097750D /* OFFramedNavigationController.h in Copy Headers */,
+				357CDD10129879B90097750D /* OFFramedNavigationControllerBehavior.h in Copy Headers */,
+				357CDD11129879B90097750D /* OFPlayerBannerCell.h in Copy Headers */,
+				357CDD12129879B90097750D /* OFProfileComparisonUser.h in Copy Headers */,
+				357CDD13129879B90097750D /* OFProfileFrame.h in Copy Headers */,
+				357CDD14129879B90097750D /* OFDefaultLeadingCell.h in Copy Headers */,
+				357CDD15129879B90097750D /* OFPlainMessageTrailingCell.h in Copy Headers */,
+				357CDD16129879B90097750D /* OFTrailingViewAllCell.h in Copy Headers */,
+				357CDD17129879B90097750D /* OFPlainTableHeaderController.h in Copy Headers */,
+				357CDD18129879B90097750D /* OFWebNavContentController.h in Copy Headers */,
+				357CDD19129879B90097750D /* OFWebNavController.h in Copy Headers */,
+				357CDD1A129879B90097750D /* OFFacebookExtendedCredentialController.h in Copy Headers */,
+				357CDD1B129879B90097750D /* OFTwitterExtendedCredentialController.h in Copy Headers */,
+				357CDD1C129879B90097750D /* OFExtendedCredentialController.h in Copy Headers */,
+				357CDD1D129879B90097750D /* OFResumeView.h in Copy Headers */,
+				357CDD1E129879B90097750D /* OFRootController.h in Copy Headers */,
+				357CDD1F129879B90097750D /* OFAchievementCompareListCell.h in Copy Headers */,
+				357CDD20129879B90097750D /* OFAchievementListController.h in Copy Headers */,
+				357CDD21129879B90097750D /* OFAchievementProgressionList.h in Copy Headers */,
+				357CDD22129879B90097750D /* OFAnnouncementBrowser.h in Copy Headers */,
+				357CDD23129879B90097750D /* OFAnnouncementDetailController.h in Copy Headers */,
+				357CDD24129879B90097750D /* OFApplicationDescriptionController.h in Copy Headers */,
+				357CDD25129879B90097750D /* OFChallengeDefinitionStatsCell.h in Copy Headers */,
+				357CDD26129879B90097750D /* OFChallengeDetailCell.h in Copy Headers */,
+				357CDD27129879B90097750D /* OFChallengeDetailController.h in Copy Headers */,
+				357CDD28129879B90097750D /* OFChallengeDetailFrame.h in Copy Headers */,
+				357CDD29129879B90097750D /* OFChallengeDetailHeaderController.h in Copy Headers */,
+				357CDD2A129879B90097750D /* OFChallengeListController.h in Copy Headers */,
+				357CDD2B129879B90097750D /* OFChallengeSentCell.h in Copy Headers */,
+				357CDD2C129879B90097750D /* OFChallengeToUserCell.h in Copy Headers */,
+				357CDD2D129879B90097750D /* OFCompletedChallengeHeaderController.h in Copy Headers */,
+				357CDD2E129879B90097750D /* OFSendChallengeController.h in Copy Headers */,
+				357CDD2F129879B90097750D /* OFSendChallengeHeaderController.h in Copy Headers */,
+				357CDD30129879B90097750D /* OFChatRoomChatMessageCell.h in Copy Headers */,
+				357CDD31129879B90097750D /* OFChatRoomController.h in Copy Headers */,
+				357CDD32129879B90097750D /* OFChatRoomMessageBoxController.h in Copy Headers */,
+				357CDD33129879B90097750D /* OFChatRoomDefinitionCell.h in Copy Headers */,
+				357CDD34129879B90097750D /* OFSelectChatRoomDefinitionController.h in Copy Headers */,
+				357CDD35129879B90097750D /* OFChatRoomInstanceCell.h in Copy Headers */,
+				357CDD36129879B90097750D /* OFSelectChatRoomInstanceController.h in Copy Headers */,
+				357CDD37129879B90097750D /* OFConversationCell.h in Copy Headers */,
+				357CDD38129879B90097750D /* OFConversationController.h in Copy Headers */,
+				357CDD39129879B90097750D /* OFConversationMessageBoxController.h in Copy Headers */,
+				357CDD3A129879B90097750D /* OFOnlineStatusCell.h in Copy Headers */,
+				357CDD3B129879B90097750D /* OFFanClubCell.h in Copy Headers */,
+				357CDD3C129879B90097750D /* OFFanClubController.h in Copy Headers */,
+				357CDD3D129879B90097750D /* OFFavoriteThisGameController.h in Copy Headers */,
+				357CDD3E129879B90097750D /* OFFeaturedGamesController.h in Copy Headers */,
+				357CDD3F129879B90097750D /* OFFindUserController.h in Copy Headers */,
+				357CDD40129879B90097750D /* OFFindUserHeaderController.h in Copy Headers */,
+				357CDD41129879B90097750D /* OFForumPostCell.h in Copy Headers */,
+				357CDD42129879B90097750D /* OFForumThreadCell.h in Copy Headers */,
+				357CDD43129879B90097750D /* OFForumTopicCell.h in Copy Headers */,
+				357CDD44129879B90097750D /* OFForumThreadListController.h in Copy Headers */,
+				357CDD45129879B90097750D /* OFForumThreadViewController.h in Copy Headers */,
+				357CDD46129879B90097750D /* OFForumTopicListController.h in Copy Headers */,
+				357CDD47129879B90097750D /* OFPostNewMessage.h in Copy Headers */,
+				357CDD48129879B90097750D /* OFFriendImporter.h in Copy Headers */,
+				357CDD49129879B90097750D /* OFImportFriendsController.h in Copy Headers */,
+				357CDD4A129879B90097750D /* OFFriendsController.h in Copy Headers */,
+				357CDD4B129879B90097750D /* OFFriendsHeaderController.h in Copy Headers */,
+				357CDD4C129879B90097750D /* OFFullscreenImportFriendsMessage.h in Copy Headers */,
+				357CDD4D129879B90097750D /* OFGameDiscoveryCategoryCell.h in Copy Headers */,
+				357CDD4E129879B90097750D /* OFGameDiscoveryController.h in Copy Headers */,
+				357CDD4F129879B90097750D /* OFGameDiscoveryImageHyperlinkCell.h in Copy Headers */,
+				357CDD50129879B90097750D /* OFGameDiscoveryNewsItemCell.h in Copy Headers */,
+				357CDD51129879B90097750D /* OFGameDiscoveryNewsItemController.h in Copy Headers */,
+				357CDD52129879B90097750D /* OFGameProfileController.h in Copy Headers */,
+				357CDD53129879B90097750D /* OFHelpController.h in Copy Headers */,
+				357CDD54129879B90097750D /* OFHighScoreAnnotation.h in Copy Headers */,
+				357CDD55129879B90097750D /* OFHighScoreAnnotationView.h in Copy Headers */,
+				357CDD56129879B90097750D /* OFHighScoreCell.h in Copy Headers */,
+				357CDD57129879B90097750D /* OFHighScoreController.h in Copy Headers */,
+				357CDD58129879B90097750D /* OFHighScoreMapViewController.h in Copy Headers */,
+				357CDD59129879B90097750D /* OFInboxCell.h in Copy Headers */,
+				357CDD5A129879B90097750D /* OFInboxController.h in Copy Headers */,
+				357CDD5B129879B90097750D /* OFInboxIMActionCell.h in Copy Headers */,
+				357CDD5C129879B90097750D /* OFInboxIMConversationsController.h in Copy Headers */,
+				357CDD5D129879B90097750D /* OFInboxSubscribedForumThreadsController.h in Copy Headers */,
+				357CDD5E129879B90097750D /* OFInboxTopLevelController.h in Copy Headers */,
+				357CDD5F129879B90097750D /* OFContactCell.h in Copy Headers */,
+				357CDD60129879B90097750D /* OFInvitationsController.h in Copy Headers */,
+				357CDD61129879B90097750D /* OFInviteCell.h in Copy Headers */,
+				357CDD62129879B90097750D /* OFInviteCompleteController.h in Copy Headers */,
+				357CDD63129879B90097750D /* OFInviteFriendsController.h in Copy Headers */,
+				357CDD64129879B90097750D /* OFInviteFriendsHeaderController.h in Copy Headers */,
+				357CDD65129879B90097750D /* OFInviteNotificationController.h in Copy Headers */,
+				357CDD66129879B90097750D /* OFSelectableContactCell.h in Copy Headers */,
+				357CDD67129879B90097750D /* OFSelectContactsToInviteController.h in Copy Headers */,
+				357CDD68129879B90097750D /* OFSelectContactsToInviteHeaderController.h in Copy Headers */,
+				357CDD69129879B90097750D /* OFSelectFriendsToInviteController.h in Copy Headers */,
+				357CDD6A129879B90097750D /* OFSelectInviteTypeCell.h in Copy Headers */,
+				357CDD6B129879B90097750D /* OFSelectInviteTypeController.h in Copy Headers */,
+				357CDD6C129879B90097750D /* OFSelectInviteTypeHeaderController.h in Copy Headers */,
+				357CDD6D129879B90097750D /* OFViewInviteController.h in Copy Headers */,
+				357CDD6E129879B90097750D /* OFLeaderboardCell.h in Copy Headers */,
+				357CDD6F129879B90097750D /* OFLeaderboardController.h in Copy Headers */,
+				357CDD70129879B90097750D /* OfMyFeintController.h in Copy Headers */,
+				357CDD71129879B90097750D /* OFNewsLetterController.h in Copy Headers */,
+				357CDD72129879B90097750D /* OFPlayedGameCell.h in Copy Headers */,
+				357CDD73129879B90097750D /* OFPlayedGameController.h in Copy Headers */,
+				357CDD74129879B90097750D /* OFProfileController.h in Copy Headers */,
+				357CDD75129879B90097750D /* OFRemoveCredentialController.h in Copy Headers */,
+				357CDD76129879B90097750D /* OFRemoveDeviceFromAccountController.h in Copy Headers */,
+				357CDD77129879B90097750D /* OFProfilePictureCell.h in Copy Headers */,
+				357CDD78129879B90097750D /* OFSelectProfilePictureController.h in Copy Headers */,
+				357CDD79129879B90097750D /* OFShareLocationController.h in Copy Headers */,
+				357CDD7A129879B90097750D /* OFSelectableUserCell.h in Copy Headers */,
+				357CDD7B129879B90097750D /* OFUserCell.h in Copy Headers */,
+				357CDD7C129879B90097750D /* OFUserSettingActionCell.h in Copy Headers */,
+				357CDD7D129879B90097750D /* OFUserSettingCell.h in Copy Headers */,
+				357CDD7E129879B90097750D /* OFUserSettingController.h in Copy Headers */,
+				357CDD7F129879B90097750D /* OFUserSettingDelegate.h in Copy Headers */,
+				357CDD80129879B90097750D /* OFWhosPlayingCell.h in Copy Headers */,
+				357CDD81129879B90097750D /* OFWhosPlayingController.h in Copy Headers */,
+				357CDD82129879B90097750D /* OFSocialNotificationController.h in Copy Headers */,
+				357CDD83129879B90097750D /* OFFeaturedGameCell.h in Copy Headers */,
+				357CDD84129879B90097750D /* OFTabbedDashboardController.h in Copy Headers */,
+				357CDD85129879B90097750D /* OFTabbedDashboardPageController.h in Copy Headers */,
+				357CDD86129879B90097750D /* OFTickerProxy.h in Copy Headers */,
+				357CDD87129879B90097750D /* OFTickerView.h in Copy Headers */,
+				357CDD88129879B90097750D /* OFColors.h in Copy Headers */,
+			);
+			name = "Copy Headers";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		357CCF7A1298733B0097750D /* OFAchievementService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFAchievementService.h; sourceTree = "<group>"; };
@@ -6463,9 +7463,55 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* OpenFeint-iOS-Static */,
+				357CDB9A1298793E0097750D /* OpenFeint-iOS */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		357CDB9E129879510097750D /* Build static lib */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build static lib";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator4.1 -target ${PROJECT_NAME}-iOS-Static -configuration ${CONFIGURATION} build\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos4.1 -target ${PROJECT_NAME}-iOS-Static -configuration ${CONFIGURATION} build";
+		};
+		357CDBA01298796A0097750D /* Build universal lib */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build universal lib";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Paths\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}-iOS-Static.a\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}-iOS-Static.a\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &>/dev/null\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\"\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\"\n\n# Generate universal binary from desktop, device, and simulator builds.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\"\n\n# Move files to appropriate locations in framework paths.\ncp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\"\nln -sf \"${FRAMEWORK}/Versions/A\" \"${FRAMEWORK}/Versions/Current\"\nln -sf \"${FRAMEWORK}/Versions/Current/Headers\" \"${FRAMEWORK}/Headers\"\nln -sf \"${FRAMEWORK}/Versions/Current/Resources\" \"${FRAMEWORK}/Resources\"\nln -sf \"${FRAMEWORK}/Versions/Current/${PRODUCT_NAME}\" \"${FRAMEWORK}/${PRODUCT_NAME}\"";
+		};
+		357CDD8A129879FB0097750D /* Copy Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Paths\nPROJECT_RESOURCE_DIR=\"${PROJECT_DIR}/OpenFeint/resources\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\"\nRESOURCE_DIR=\"${FRAMEWORK}/Resources\"\n\nrsync -azp \"${PROJECT_RESOURCE_DIR}/\" \"${RESOURCE_DIR}/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2AAC07B0554694100DB518D /* Sources */ = {
@@ -6984,6 +8030,27 @@
 			};
 			name = Release;
 		};
+		357CDB9B1298793E0097750D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "OpenFeint-iOS";
+			};
+			name = Debug;
+		};
+		357CDB9C1298793E0097750D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "OpenFeint-iOS";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -7001,6 +8068,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		357CDBA3129879A60097750D /* Build configuration list for PBXAggregateTarget "OpenFeint-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				357CDB9B1298793E0097750D /* Debug */,
+				357CDB9C1298793E0097750D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
