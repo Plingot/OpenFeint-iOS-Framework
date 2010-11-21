@@ -1458,6 +1458,10 @@
 		357CDD86129879B90097750D /* OFTickerProxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F5129873400097750D /* OFTickerProxy.h */; };
 		357CDD87129879B90097750D /* OFTickerView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F7129873410097750D /* OFTickerView.h */; };
 		357CDD88129879B90097750D /* OFColors.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD5F9129873410097750D /* OFColors.h */; };
+		357CE39C12988A930097750D /* OFSmartObject.inl in Headers */ = {isa = PBXBuildFile; fileRef = 357CD0871298733C0097750D /* OFSmartObject.inl */; };
+		357CE39D12988AA40097750D /* OFSmartObject.inl in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0871298733C0097750D /* OFSmartObject.inl */; };
+		357CE3A012988AFA0097750D /* OFISerializer.inl in Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A61298733C0097750D /* OFISerializer.inl */; };
+		357CE3A112988B090097750D /* OFISerializer.inl in Copy Headers */ = {isa = PBXBuildFile; fileRef = 357CD0A61298733C0097750D /* OFISerializer.inl */; };
 		AA747D9F0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -1467,7 +1471,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 357CDDAE12987DF00097750D /* Cleanup OpenFeint-iOS */;
+			remoteGlobalIDString = 357CDDAE12987DF00097750D;
 			remoteInfo = "Cleanup OpenFeint-iOS";
 		};
 /* End PBXContainerItemProxy section */
@@ -1479,6 +1483,8 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Headers";
 			dstSubfolderSpec = 0;
 			files = (
+				357CE3A112988B090097750D /* OFISerializer.inl in Copy Headers */,
+				357CE39D12988AA40097750D /* OFSmartObject.inl in Copy Headers */,
 				357CDBA4129879B90097750D /* OpenFeint_iOS_Prefix.pch in Copy Headers */,
 				357CDBA5129879B90097750D /* OFAchievementService.h in Copy Headers */,
 				357CDBA6129879B90097750D /* OFUnlockedAchievementNotificationData.h in Copy Headers */,
@@ -6953,6 +6959,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				357CE3A012988AFA0097750D /* OFISerializer.inl in Headers */,
+				357CE39C12988A930097750D /* OFSmartObject.inl in Headers */,
 				AA747D9F0F9514B9006C5449 /* OpenFeint_iOS_Prefix.pch in Headers */,
 				357CD5FB129873410097750D /* OFAchievementService.h in Headers */,
 				357CD5FD129873410097750D /* OFUnlockedAchievementNotificationData.h in Headers */,
@@ -7518,7 +7526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Paths\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}-iOS-Static.a\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}-iOS-Static.a\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &>/dev/null\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\"\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\"\n\n# Generate universal binary from desktop, device, and simulator builds.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\"\n\n# Move files to appropriate locations in framework paths.\ncp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\"\nln -sf \"${FRAMEWORK}/Versions/A\" \"${FRAMEWORK}/Versions/Current\"\nln -sf \"${FRAMEWORK}/Versions/Current/Headers\" \"${FRAMEWORK}/Headers\"\nln -sf \"${FRAMEWORK}/Versions/Current/Resources\" \"${FRAMEWORK}/Resources\"\nln -sf \"${FRAMEWORK}/Versions/Current/${PRODUCT_NAME}\" \"${FRAMEWORK}/${PRODUCT_NAME}\"";
+			shellScript = "# Paths\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}-iOS-Static.a\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}-iOS-Static.a\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &>/dev/null\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\"\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\"\n\n# Generate universal binary from desktop, device, and simulator builds.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\"\n\n# Move files to appropriate locations in framework paths.\ncp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\"\ncd \"${FRAMEWORK}\"\nln -sf \"A\" \"Versions/Current\"\nln -sf \"Versions/Current/Headers\" \"Headers\"\nln -sf \"Versions/Current/Resources\" \"Resources\"\nln -sf \"Versions/Current/${PRODUCT_NAME}\" \"${PRODUCT_NAME}\"";
 		};
 		357CDD8A129879FB0097750D /* Copy Resources */ = {
 			isa = PBXShellScriptBuildPhase;
