@@ -19,7 +19,6 @@
 
 @interface OFAchievementService : OFService
 {
-	BOOL mAutomaticallyPromptToPostUnlocks;
     NSString* mCustomUrlWithSocialNotification;
 	NSMutableArray* onlySubmitToGameCenterDeferedAchievementIds; //only used if the open feint has not been approved, but gameCenter is logged in
 	NSMutableArray* onlySubmitToGameCenterDeferedAchievementPercentCompletes;
@@ -47,8 +46,6 @@ OPENFEINT_DECLARE_AS_SERVICE(OFAchievementService);
 + (OFRequestHandle*) submitQueuedUpadteAchievements:(const OFDelegate&)onSuccess onFailure:(const OFDelegate&)onFailure;
 
 - (void) onAchievementUpdated:(OFPaginatedSeries*)page nextCall:(OFDelegateChained*)nextCall duringSync:(BOOL)duringSync fromBatch:(BOOL) fromBatch;
-
-+ (void)setAutomaticallyPromptToPostUnlocks:(BOOL)automaticallyPrompt;
 
 
 @property (nonatomic, retain) NSString* mCustomUrlWithSocialNotification;

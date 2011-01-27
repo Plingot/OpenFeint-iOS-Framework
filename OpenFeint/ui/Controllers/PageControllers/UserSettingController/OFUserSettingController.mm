@@ -27,6 +27,8 @@
 #import "OFHttpCredentialsCreateController.h"
 #import "OFOpenFeintAccountLoginController.h"
 #import "OpenFeint+NSNotification.h"
+#import "OFTableSectionDescription.h"
+#import "OFUserSetting.h"
 
 @implementation OFUserSettingController
 
@@ -83,6 +85,39 @@
 {
 	[OpenFeint logoutUser];
 	[OpenFeint dismissDashboard];
+}
+
+-(void)removeSettingNamed:(NSString*)name fromTableSectionDescription:(OFTableSectionDescription*)tableSecDes
+{
+	for(uint j = 0; j < tableSecDes.page.objects.count; j++)
+	{
+		OFUserSetting* setting = (OFUserSetting*)[tableSecDes.page.objects objectAtIndex:j];
+		if([setting.name isEqualToString:name])
+		{
+			[tableSecDes.page.objects removeObjectAtIndex:j];
+			[tableSecDes.expandedViews removeObjectAtIndex:j];
+		}
+	}
+}
+
+-(void)_onDataLoaded:(OFPaginatedSeries*)resources isIncremental:(BOOL)isIncremental
+{
+	//Sometimes people make you write code that paves your entrance to hell...
+	//We are manually stripping the switches for twitterstream integratoin and facebook posting integration out here since it is too much of a pain to rip them out of the server
+	for(uint i = 0; i < resources.objects.count; i++)
+	{
+		OFTableSectionDescription* tableSecDes = (OFTableSectionDescription*)[resources.objects objectAtIndex:i];
+		if([tableSecDes.title isEqualToString:@"Twitter Permissions"])
+		{
+			[self removeSettingNamed:@"Stream Integration" fromTableSectionDescription:tableSecDes];
+		}
+		else if([tableSecDes.title isEqualToString:@"Facebook Permissions"])
+		{
+			[self removeSettingNamed:@"News Feed Integration" fromTableSectionDescription:tableSecDes];
+		}
+	}
+	
+	[super _onDataLoaded:resources isIncremental:isIncremental];
 }
 
 - (IBAction)logout

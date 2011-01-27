@@ -207,6 +207,32 @@ void OFViewHelper::enableAllControls(UIView* rootView, bool isEnabled)
 	}
 }
 
+UIFont* OFViewHelper::getFontToFitStringInSize(NSString const* text, CGSize size, UIFont const* font, uint maxFontSize, uint minFontSize)
+{
+	if(minFontSize > maxFontSize || minFontSize == 0 || maxFontSize == 0)
+	{
+		//Invalid cases
+		return nil;
+	}
+	
+	//Go from max font size to min, along the way - see if any fits in side the size passed in.  If we find one that fits inside,
+	//return that font immediately.
+	UIFont* fontToFitInRect = nil;
+	for(uint i = maxFontSize; i > minFontSize; i--)
+	{
+		fontToFitInRect = [font fontWithSize:i];
+		CGSize constraintSize = CGSizeMake(size.width, MAXFLOAT);
+		CGSize sizeWithFont = [text sizeWithFont:fontToFitInRect constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+		if(sizeWithFont.height <= size.height)
+		{
+			return fontToFitInRect;
+		}
+	}
+	
+	return [font fontWithSize:minFontSize];
+	
+}
+
 static void showParentsOfRecursive(UIView* view)
 {	
 	UIView* parent = view.superview;

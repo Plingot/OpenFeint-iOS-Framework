@@ -219,6 +219,23 @@ comparedToUserId:(NSString*)comparedToUserId
 	return [OFHighScoreService getPageWithLoggedInUserWithPageSize:HIGH_SCORE_PAGE_SIZE forLeaderboard:leaderboardId onSuccess:onSuccess onFailure:onFailure];
 }
 
++ (OFRequestHandle*) getHighScoreNearCurrentUserForLeaderboard:(NSString*)leaderboardId andBetterCount:(uint)betterCount andWorseCount:(uint)worseCount onSuccess:(const OFDelegate&)onSuccess onFailure:(const OFDelegate&)onFailure
+{
+	OFPointer<OFHttpNestedQueryStringWriter> params = new OFHttpNestedQueryStringWriter;
+	params->io("leaderboard_id", leaderboardId);	
+	params->io("near_user_id", @"me");
+	params->io("better_count", betterCount);
+	params->io("worse_count", worseCount);
+	
+	return [[self sharedInstance]
+			getAction:@"client_applications/@me/high_scores.xml"
+			withParameters:params
+			withSuccess:onSuccess
+			withFailure:onFailure
+			withRequestType:OFActionRequestSilent
+			withNotice:nil];
+}
+
 - (void)_uploadBlobs:(OFPaginatedSeries*)resources
 {
 	unsigned int highScoreCnt = [resources.objects count];

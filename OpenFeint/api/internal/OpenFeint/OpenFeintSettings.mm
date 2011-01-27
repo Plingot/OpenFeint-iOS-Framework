@@ -25,7 +25,6 @@ const NSString* OpenFeintSettingAlwaysAskForApprovalInDebug = @"OpenFeintSetting
 const NSString* OpenFeintSettingDisableIncompleteDelegateWarning = @"OpenFeintSettingDisableIncompleteDelegateWarning";
 const NSString* OpenFeintSettingPresentationWindow = @"OpenFeintSettingPresentationWindow";
 const NSString* OpenFeintSettingInitialUserId = @"OpenFeintSettingInitialUserId";
-const NSString* OpenFeintSettingPromptToPostAchievementUnlock = @"OpenFeintSettingPromptToPostAchievementUnlock";
 const NSString* OpenFeintSettingOverrideSuffixString = @"OpenFeintSettingOverrideSuffixString";
 const NSString* OpenFeintSettingOverrideClassNamePrefixString = @"OpenFeintSettingOverrideClassNamePrefixString";
 const NSString* OpenFeintSettingDisableCloudStorageCompression = @"OpenFeintSettingDisableCloudStorageCompression";

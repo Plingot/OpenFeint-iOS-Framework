@@ -628,40 +628,17 @@ namespace
 	}
 }
 
-+(void)finishAchievementsPage:(OFPaginatedSeries*)page duringSync:(BOOL)duringSync fromBatch:(BOOL) fromBatch {
-    OFAchievementService* instance = [OFAchievementService sharedInstance];
++(void)finishAchievementsPage:(OFPaginatedSeries*)page duringSync:(BOOL)duringSync fromBatch:(BOOL) fromBatch 
+{
 	unsigned int achievementCnt = [page count];
-    if (achievementCnt == 1)
-	{
-        OFUnlockedAchievement* unlockedAchievement = [page objectAtIndex:0];
 	
-		if (!duringSync && instance->mAutomaticallyPromptToPostUnlocks && unlockedAchievement.percentComplete == 100.0)
-        {
-            if ([instance->mCustomUrlWithSocialNotification length] > 0)
-                [OFSocialNotificationService sendWithAchievement:unlockedAchievement withSocialNotificationUrl:instance->mCustomUrlWithSocialNotification];
-            else
-                [OFSocialNotificationService sendWithAchievement:unlockedAchievement];
-        }
-	}
-	else if (achievementCnt > 1)
+	if (achievementCnt > 1)
 	{
-		uint unlockedCount = 0;
-		for(uint i = 0; i < [page count]; i++)
-		{
-			OFUnlockedAchievement* unlockedAchievement = [page objectAtIndex:i];
-			if(unlockedAchievement.percentComplete == 100.0)
-			{
-				unlockedCount++;
-			}
-		}
-		
 		if (!duringSync)
 		{
 			OFNotificationData* notice = [OFNotificationData dataWithText:@"Submitted Achievements To Server" andCategory:kNotificationCategoryAchievement andType:kNotificationTypeSuccess];
 			[[OFNotification sharedInstance] showBackgroundNotice:notice andStatus:OFNotificationStatusSuccess];
 		}
-		if (!duringSync && instance->mAutomaticallyPromptToPostUnlocks && unlockedCount > 0)
-			[OFSocialNotificationService sendWithAchievements:unlockedCount];
 	}
 	
     

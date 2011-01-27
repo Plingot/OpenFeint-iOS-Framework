@@ -26,15 +26,21 @@
 #import "OFUnlockedAchievement.h"
 #import "OFAchievement.h"
 #import "OFSocialNotificationApi.h"
+#import "OFDelegateChained.h"
+#import "OFSendSocialNotificationController.h"
 
 @implementation OFSocialNotificationService (Private)
 
 + (void)_notificationSent
 {
+	[OFSocialNotificationApi sendSuccess];
+	[OFSendSocialNotificationController sendSuccess];
 }
 
 + (void)_notificationFailed
 {
+	[OFSocialNotificationApi sendFailure];
+	[OFSendSocialNotificationController sendFailure];
 }
 
 + (BOOL)canReceiveCallbacksNow
@@ -42,102 +48,7 @@
 	return true;
 }
 
-+ (void)onFailure
-{
-	[OFSocialNotificationApi sendFailure];
-}
-
-+ (BOOL)_hasGlobalPermissionsOnLinkedCredentials:(NSMutableArray*)usersCredentials
-{
-	NSEnumerator* usersCredentialsEnumerator = [usersCredentials objectEnumerator];
-	OFUsersCredential* userCredential = nil;
-	while((userCredential = [usersCredentialsEnumerator nextObject]))
-	{
-		if(![userCredential isHttpBasic] && userCredential.hasGlobalPermissions == true)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-+ (void)_requestPermissionToSendSocialNotification:(OFSocialNotification*)socialNotification withCredentialTypes:(NSArray*)credentials
-{
-	if([OpenFeint userHasRememberedChoiceForNotifications])
-	{
-		if([OpenFeint userAllowsNotifications])
-		{
-			[self sendWithoutRequestingPermissionWithSocialNotification:socialNotification];
-		}
-	}
-	else
-	{
-		[OpenFeint launchRequestUserPermissionForSocialNotification:socialNotification withCredentialTypes:(NSArray*)credentials];
-	}
-}
-
-+ (void)onSuccess:(OFPaginatedSeries*)usersCredentialsPaginatedResources withSocialNotification:(OFSocialNotification*)socialNotification
-{
-	OFTableSectionDescription* usersCredentialsTableSection = [usersCredentialsPaginatedResources.objects objectAtIndex:0];
-	OFPaginatedSeries* usersCredentialsPaginated = usersCredentialsTableSection.page;
-	NSMutableArray* usersCredentials = usersCredentialsPaginated.objects;
-	if([self _hasGlobalPermissionsOnLinkedCredentials:usersCredentials])
-	{
-		[self _requestPermissionToSendSocialNotification:socialNotification withCredentialTypes:usersCredentials];
-	}
-	
-	[OFSocialNotificationApi sendSuccess];
-}
-
-
-+ (OFRequestHandle*)sendWithSocialNotification:(OFSocialNotification*)socialNotification
-{
-	return [OFUsersCredentialService getIndexOnSuccess:OFDelegate(self, @selector(onSuccess:withSocialNotification:), socialNotification) 
-											 onFailure:OFDelegate(self, @selector(onFailure)) 
-						  onlyIncludeLinkedCredentials:true];
-}
-
-+ (void)sendWithAchievement:(OFUnlockedAchievement*)achievement
-{
-    [OFSocialNotificationService sendWithAchievement:achievement withSocialNotificationUrl:nil];
-}
-
-+ (void)sendWithAchievement:(OFUnlockedAchievement*)achievement withSocialNotificationUrl:(NSString*)url
-{
-    OFLOCALIZECOMMENT("Multipart string")
-	NSString* notificationText = [NSString 
-		stringWithFormat:OFLOCALSTRING(@"I unlocked \"%@\" in \"%@\"!"),
-		achievement.achievement.title,
-		[OpenFeint applicationShortDisplayName]];
-
-    OFSocialNotification* notice = [[[OFSocialNotification alloc]
-                                     initWithText:notificationText
-                                     imageType:@"achievement_definitions"
-                                     imageId:achievement.resourceId
-                                     linkedUrl:url] autorelease];
-
-	notice.imageUrl = achievement.achievement.iconUrl;
-
-	[OFSocialNotificationService sendWithSocialNotification:notice];
-}
-
-+ (void)sendWithAchievements:(uint)countUnlocked
-{
-    OFLOCALIZECOMMENT("Multipart string")
-	NSString* notificationText = [NSString 
-								  stringWithFormat:OFLOCALSTRING(@"I unlocked %i achievements in \"%@\"!"),
-								  countUnlocked,
-								  [OpenFeint applicationShortDisplayName]];
-	
-	OFSocialNotification* notice = [[[OFSocialNotification alloc] 
-									 initWithText:notificationText 
-									 imageType:@"achievement_definitions"
-									 imageId:@"game_icon"] autorelease];
-	
-	[OFSocialNotificationService sendWithSocialNotification:notice];
-}
-
-+ (void)sendWithoutRequestingPermissionWithSocialNotification:(OFSocialNotification*)socialNotification
++ (void)sendSocialNotification:(OFSocialNotification*)socialNotification
 {
 	OFDelegate success = OFDelegate(self, @selector(_notificationSent));	
 	OFDelegate failure = OFDelegate(self, @selector(_notificationFailed));
@@ -149,6 +60,26 @@
 	OFRetainedPtr<NSString> url = socialNotification.url;
 	params->io("msg", msg);
 	params->io("image_type", image_type);
+	
+	for(uint i = 0; i < [socialNotification.sendToNetworks count]; i++)
+	{
+		NSNumber* typeNumber = [socialNotification.sendToNetworks objectAtIndex:i];
+		switch([typeNumber intValue])
+		{
+			case ESocialNetworkCellType_FACEBOOK:
+			{
+				params->io("networks[]", @"Fbconnect");			
+			}
+			break;
+				
+			case ESocialNetworkCellType_TWITTER:
+			{
+				params->io("networks[]", @"Twitter");
+			}
+			break;
+		};
+	}
+	
 	if([socialNotification.imageType isEqualToString:@"notification_images"])
 	{
 		params->io("image_name", image_name_or_id);

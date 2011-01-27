@@ -50,4 +50,7 @@
 
 - (void)cleanupSubviews;
 
+- (void)presentNonFullScreenModalViewController:(UIViewController*)_modalViewController animated:(BOOL)animated;
+- (void)dismissNonFullScreenModalViewControllerAnimated:(BOOL)animated;
+
 @end

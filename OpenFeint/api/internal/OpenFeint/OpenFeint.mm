@@ -68,6 +68,7 @@
 #import "OFCloudStorageService.h"
 #import "OFPresenceService.h"
 #import "OFInviteService.h"
+#import "OFTimeStampService.h"
 
 #import "OFChallengeDetailController.h"
 #import "OFCompressableData.h"
@@ -86,12 +87,12 @@ OFIntroNavigationController *gOFretainedIntroController;
 
 + (NSUInteger)versionNumber
 {
-	return 11022010;
+	return 12102010;
 }
 
 + (NSString*)releaseVersionString
 {
-	return @"2.7.5";
+	return @"2.8";
 }
 
 + (void) initializeWithProductKey:(NSString*)productKey 
@@ -135,6 +136,7 @@ OFIntroNavigationController *gOFretainedIntroController;
 	[OFCloudStorageService initializeService];
 	[OFPresenceService initializeService];
 	[OFInviteService initializeService];
+	[OFTimeStampService initializeService];
 	
 	OpenFeint* instance = [OpenFeint sharedInstance];
 	instance->mCachedLocalUser = nil;
@@ -224,8 +226,6 @@ OFIntroNavigationController *gOFretainedIntroController;
 	[OpenFeint setUnviewedChallengesCount:0];
 	[OpenFeint setPendingFriendsCount:0];
 	
-	[OFAchievementService setAutomaticallyPromptToPostUnlocks:[[settings objectForKey:OpenFeintSettingPromptToPostAchievementUnlock] boolValue]];
-	
 	OFControllerLoader::setOverrideAssetFileSuffix([settings objectForKey:OpenFeintSettingOverrideSuffixString]);
 	OFControllerLoader::setOverrideClassNamePrefix([settings objectForKey:OpenFeintSettingOverrideClassNamePrefixString]);
 
@@ -302,6 +302,7 @@ OFIntroNavigationController *gOFretainedIntroController;
 	[OFBootstrapService shutdownService];
 	[OFOfflineService shutdownService];
 	[OFInviteService shutdownService];
+	[OFTimeStampService shutdownService];
 	
 	[OFPresenceService shutdownService];
 	

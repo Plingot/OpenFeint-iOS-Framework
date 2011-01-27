@@ -23,6 +23,7 @@
 
 	IBOutlet UIButton* sendButton;
 	IBOutlet UIImageView* backgroundView;
+	IBOutlet UIImageView* backgroundBoarderView;
 	
 	NSString* conversationId;
 	NSString* initialText;

@@ -21,9 +21,5 @@
 
 @interface OFSocialNotificationService (Private)
 
-+ (void)sendWithAchievement:(OFUnlockedAchievement*)achievement;
-+ (void)sendWithAchievement:(OFUnlockedAchievement*)achievement withSocialNotificationUrl:(NSString*)url;
-+ (void)sendWithAchievements:(uint)countUnlocked;
-+ (void)sendWithoutRequestingPermissionWithSocialNotification:(OFSocialNotification*)socialNotification;
-+ (OFRequestHandle*)sendWithSocialNotification:(OFSocialNotification*)socialNotification;
++ (void)sendSocialNotification:(OFSocialNotification*)socialNotification;
 @end

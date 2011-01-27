@@ -15,6 +15,7 @@
 #import "OFSocialNotificationApi.h"
 #import "OFSocialNotificationService.h"
 #import "OFRequestHandle.h"
+#import "OpenFeint+Dashboard.h"
 
 static id sharedDelegate = nil;
 
@@ -38,13 +39,12 @@ static NSString* customUrl = nil;
 	customUrl = [url retain];
 }
 
-+ (OFRequestHandle*)sendWithText:(NSString*)text imageNamed:(NSString*)imageName
++ (void)sendWithPrepopulatedText:(NSString*)text originalMessage:(NSString*)message imageNamed:(NSString*)imageName;
 {
-	OFRequestHandle* handle = nil;
-	handle = [OFSocialNotificationService sendWithText:text imageNamed:imageName linkedUrl:customUrl];
-	
-	[OFRequestHandlesForModule addHandle:handle forModule:[OFSocialNotificationApi class]];
-	return handle;
+	[OpenFeint launchDashboardWithSocialNotificationWithPrepopulatedText:text 
+														 originialMessage:message
+															   imageName:imageName
+															   linkedUrl:customUrl];
 }
 
 + (void)sendSuccess
@@ -61,6 +61,11 @@ static NSString* customUrl = nil;
 	{
 		[sharedDelegate didFailSendSocialNotification];
 	}
+}
+
+- (bool)canReceiveCallbacksNow
+{
+	return true;
 }
 
 @end

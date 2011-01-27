@@ -16,7 +16,7 @@
 
 @implementation OFDelegatesContainer
 
-@synthesize openFeintDelegate, challengeDelegate, notificationDelegate;
+@synthesize openFeintDelegate, challengeDelegate, notificationDelegate, bragDelegate;
 #ifdef OF_PREMIUM
 @synthesize inviteDelegate;
 #endif

@@ -25,8 +25,5 @@ OPENFEINT_DECLARE_AS_SERVICE(OFSocialNotificationService);
 
 + (void)getImageUrlForNotificationImageNamed:(NSString*)imageName onSuccess:(OFDelegate const&)onSuccess onFailure:(OFDelegate const&)onFailure;
 
-+ (OFRequestHandle*)sendWithText:(NSString*)text;
-+ (OFRequestHandle*)sendWithText:(NSString*)text imageNamed:(NSString*)imageName;
-+ (OFRequestHandle*)sendWithText:(NSString*)text imageNamed:(NSString*)imageName linkedUrl:(NSString*)url;
 
 @end

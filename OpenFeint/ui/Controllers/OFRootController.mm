@@ -235,23 +235,46 @@
 	return interfaceOrientation == [OpenFeint getDashboardOrientation];
 }
 
+- (void)presentNonFullScreenModalViewController:(UIViewController*)_modalViewController animated:(BOOL)animated
+{
+	self.nonFullscreenModalController = _modalViewController;
+	[self.contentController.view addSubview:nonFullscreenModalController.view];
+	[_modalViewController viewWillAppear:YES];
+	nonFullscreenModalController.view.frame = self.contentController.view.bounds;;
+	
+	if (animated)
+	{
+		CATransition* animation = [CATransition animation];
+		animation.type = kCATransitionMoveIn;
+		animation.subtype = kCATransitionFromTop;
+		animation.duration = 0.5f;
+		animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+		[[nonFullscreenModalController.view layer] addAnimation:animation forKey:nil];
+	}
+}
+
+- (void)dismissNonFullScreenModalViewControllerAnimated:(BOOL)animated
+{
+	nonFullscreenModalController.view.hidden = YES;
+	
+	if (animated)
+	{
+		CATransition* animation = [CATransition animation];
+		animation.type = kCATransitionReveal;
+		animation.subtype = kCATransitionFromBottom;
+		animation.duration = 0.5f;
+		animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+		[[nonFullscreenModalController.view layer] addAnimation:animation forKey:nil];
+		
+		nonFullscreenModalController.view.hidden = YES;
+	}
+}
+
 - (void)presentModalViewController:(UIViewController *)_modalViewController animated:(BOOL)animated
 {
     if ([OpenFeint isLargeScreen])
     {
-        self.nonFullscreenModalController = _modalViewController;
-        [self.contentController.view addSubview:nonFullscreenModalController.view];
-        nonFullscreenModalController.view.frame = self.contentController.view.bounds;;
-        
-        if (animated)
-        {
-            CATransition* animation = [CATransition animation];
-            animation.type = kCATransitionMoveIn;
-            animation.subtype = kCATransitionFromTop;
-            animation.duration = 0.5f;
-            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            [[nonFullscreenModalController.view layer] addAnimation:animation forKey:nil];
-        }
+		[self presentNonFullScreenModalViewController:_modalViewController animated:animated];
     }
     else
     {
@@ -263,19 +286,7 @@
 {
     if ([OpenFeint isLargeScreen])
     {
-        nonFullscreenModalController.view.hidden = YES;
-        
-        if (animated)
-        {
-            CATransition* animation = [CATransition animation];
-            animation.type = kCATransitionReveal;
-            animation.subtype = kCATransitionFromBottom;
-            animation.duration = 0.5f;
-            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-            [[nonFullscreenModalController.view layer] addAnimation:animation forKey:nil];
-            
-            nonFullscreenModalController.view.hidden = YES;
-        }
+		[self dismissNonFullScreenModalViewControllerAnimated:animated];
     }
     else
     {

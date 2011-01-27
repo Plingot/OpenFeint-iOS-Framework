@@ -21,6 +21,7 @@
 @synthesize imageIdentifier;
 @synthesize imageUrl;
 @synthesize url;
+@synthesize sendToNetworks;
 
 -(id)initWithText:(NSString*)_text imageType:(NSString*)_imageType imageIdentifier:(NSString*)_imageIdentifier linkedUrl:(NSString*)_url
 {
@@ -32,6 +33,7 @@
 		self.imageIdentifier = _imageIdentifier;
 		self.imageUrl = nil;
 		self.url = _url;
+		self.sendToNetworks = [[[NSMutableArray alloc] init] autorelease];
 	}
 	return self;
 }
@@ -63,6 +65,26 @@
     return [self initWithText:_text imageType:_imageType imageIdentifier:_imageId linkedUrl:_url];
 }
 
+- (void)addSendToNetwork:(ESocialNetworkCellType)network
+{
+	for(uint i = 0; i < [self.sendToNetworks count]; i++)
+	{
+		NSNumber* typeNumber = [self.sendToNetworks objectAtIndex:i];
+		if(network == [typeNumber intValue])
+		{
+			//We are already marked to send to that network
+			return;
+		}
+	}
+	
+	[self.sendToNetworks addObject:[NSNumber numberWithInt:network]];
+}
+
+- (void)clearSendToNetworks
+{
+	[self.sendToNetworks removeAllObjects];
+}
+
 - (void)dealloc
 {
 	self.text = nil;
@@ -70,6 +92,7 @@
 	self.imageIdentifier = nil;
 	self.imageUrl = nil;
 	self.url = nil;
+	self.sendToNetworks = nil;
 	[super dealloc];
 }
 

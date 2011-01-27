@@ -79,6 +79,7 @@ OPENFEINT_DEFINE_SERVICE(OFOfflineService)
 					{
 						OFOffline* offline = (OFOffline*)obj;
 						[OFLeaderboardService synchLeaderboardsList:offline.leaderboards aggregateLeaderboards:offline.leaderboardAggregations forUser:nil setSynchTime:NO];
+						[OFAchievementService synchAchievementsList:offline.achievements forUser:nil];
 					}
 					else if ([obj isKindOfClass:[OFGameProfilePageInfo class]])
 					{

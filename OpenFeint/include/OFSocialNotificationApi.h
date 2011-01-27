@@ -13,8 +13,12 @@
 //  limitations under the License.
 
 @class OFRequestHandle;
+@class OFAchievement;
+@class OFHighScore;
+@class OFLeaderboard;
 
 @protocol OFSocialNotificationApiDelegate;
+@protocol OFSocialNotificationSubmitTextOverrideDelegate;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// The public interface for OFSocialNotificationApi allows you to post notifications to
@@ -41,12 +45,14 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 /// Prompt the current user to post to social networks.
 ///
-/// @param text			Text to attach to the notification
+/// @param text			The prepopulated text that is not editable in the message.
+/// @param message		The suggested message for the user to send.  This is editable by the user, and if nil is passed here we
+///						fill in placeholder text of "Add a Message!".  The place holder text will no be sent along with the social notification.
 /// @param imageName	Name of the image on the developer dashboard
 ///
 /// @note imageName can be nil if there is no imgage to post.
 //////////////////////////////////////////////////////////////////////////////////////////
-+ (OFRequestHandle*)sendWithText:(NSString*)text imageNamed:(NSString*)imageName;
++ (void)sendWithPrepopulatedText:(NSString*)text originalMessage:(NSString*)message imageNamed:(NSString*)imageName;
 
 //////////////////////////////////////////////////////////////////////////////////////////
 /// @internal

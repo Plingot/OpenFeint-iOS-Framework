@@ -31,7 +31,8 @@
 	if (is3Point2SystemVersion())
 	{
 		CGSize keyboardSize = [[dict objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-		if([OpenFeint isInLandscapeMode])
+		UIInterfaceOrientation activeOrientation = [OpenFeint getDashboardOrientation];
+		if(activeOrientation == UIInterfaceOrientationLandscapeLeft || activeOrientation == UIInterfaceOrientationLandscapeRight)
 		{
 			//The frame is unrotated.
 			float temp = keyboardSize.width;

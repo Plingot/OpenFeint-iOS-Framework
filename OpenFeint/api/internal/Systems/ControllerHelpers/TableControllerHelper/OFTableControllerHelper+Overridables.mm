@@ -199,13 +199,13 @@
 			//TODO: customize accessory view?
 		}
 
-		if (_isLeading)
+		if (_isLeading && !_cell.userInteractionEnabled)
 		{
 			UIImage* bgImage = [OFImageLoader loadImage:@"OFLeadingCellBackground.png"];
 			background.image = bgImage;
 			selectedBackground.image = bgImage;
 		}
-		else if (_isTrailing)
+		else if (_isTrailing && !_cell.userInteractionEnabled)
 		{
 			UIImage* bgImage = [OFImageLoader loadImage:@"OFTableCellDefaultBackground.png"];
 			background.image = bgImage;

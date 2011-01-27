@@ -47,10 +47,6 @@
     if ([OpenFeint isLargeScreen])
     {
         self.view.frame = CGRectMake(0.0f, 0.0f,[OpenFeint getDashboardBounds].size.width, 43.0f);
-        CGRect buttonFrame = sendButton.frame;
-        buttonFrame.origin.y = 4.f;
-        buttonFrame.size.height = 31.f;
-        sendButton.frame = buttonFrame;        
     }
     else
     {
@@ -59,6 +55,9 @@
         frame.size.height = 22.f;
         messageField.frame = frame;
     }
+	
+	backgroundBoarderView.image = [backgroundBoarderView.image stretchableImageWithLeftCapWidth:(backgroundBoarderView.image.size.width/2) 
+																	 topCapHeight:(backgroundBoarderView.image.size.height/2) ];
 	
 	messageField.maxLines = 5;
 	messageField.minLines = 1;

@@ -46,19 +46,4 @@ OPENFEINT_DEFINE_SERVICE(OFSocialNotificationService);
 		withNotice:nil];
 }
 
-+ (OFRequestHandle*)sendWithText:(NSString *)text
-{
-	return [self sendWithSocialNotification:[[[OFSocialNotification alloc] initWithText:text] autorelease]];
-}
-
-+ (OFRequestHandle*)sendWithText:(NSString*)text imageNamed:(NSString*)imageName
-{
-	return [self sendWithSocialNotification:[[[OFSocialNotification alloc] initWithText:text imageNamed:imageName] autorelease]];
-}
-
-+ (OFRequestHandle*)sendWithText:(NSString*)text imageNamed:(NSString*)imageName linkedUrl:(NSString*)url
-{
-	return [self sendWithSocialNotification:[[[OFSocialNotification alloc] initWithText:text imageNamed:imageName linkedUrl:url] autorelease]];
-}
-
 @end

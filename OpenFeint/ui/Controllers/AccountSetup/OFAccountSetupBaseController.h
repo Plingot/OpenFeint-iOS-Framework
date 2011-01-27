@@ -40,4 +40,6 @@
 - (void)setCancelDelegate:(OFDelegate const&)delegate;
 - (void)setCompletionDelegate:(OFDelegate const&)delegate;
 
+- (BOOL)isComplete; //Override this is you have multiple things to do before you push a new controller.
+
 @end

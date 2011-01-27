@@ -16,13 +16,12 @@
 
 @interface OFFacebookAccountLoginController : OFFacebookAccountController
 {
-	UISwitch* streamIntegrationSwitch;
-	UILabel* streamIntegrationLabel;
 	UILabel* findFriendsLabel;
+	UIViewController* controllerToPopTo;
+	BOOL isComplete;
 }
 
-@property (nonatomic, retain) IBOutlet UISwitch* streamIntegrationSwitch;
-@property (nonatomic, retain) IBOutlet UILabel* streamIntegrationLabel;
 @property (nonatomic, retain) IBOutlet UILabel* findFriendsLabel;
+@property (nonatomic, retain) UIViewController* controllerToPopTo;
 
 @end

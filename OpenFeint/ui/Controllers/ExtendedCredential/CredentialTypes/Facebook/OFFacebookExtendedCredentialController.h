@@ -38,6 +38,7 @@
 - (void)setSocialNotification:(OFSocialNotification*)_notification;
 
 - (IBAction)login;
-- (IBAction)dismiss;
+- (void)dismiss;
+- (IBAction)skip;
 
 @end

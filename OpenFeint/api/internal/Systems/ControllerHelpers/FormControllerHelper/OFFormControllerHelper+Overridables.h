@@ -29,6 +29,7 @@ class OFISerializer;
 
 // Optional
 - (void)onBeforeFormSubmitted;
+- (void)onAfterFormSubmitted;
 - (void)onPresentingErrorDialog;
 - (void)populateViewDataMap:(OFViewDataMap*)dataMap;
 - (bool)shouldUseOAuth;

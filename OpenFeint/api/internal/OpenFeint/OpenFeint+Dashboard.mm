@@ -19,6 +19,9 @@
 #import "OFApplicationDescriptionController.h"
 #import "OFSelectInviteTypeController.h"
 #import "OFConversationController.h"
+#import "OFSendSocialNotificationController.h"
+#import "OFGameProfilePageInfo.h"
+#import "OpenFeint+UserOptions.h"
 
 const NSString* OpenFeintDashBoardTabNowPlaying = @"GameProfile";
 const NSString* OpenFeintDashBoardTabMyFeint = @"MyFeint";
@@ -114,6 +117,26 @@ const NSString* OpenFeintControllerHighScores = @"HighScore";
 {
 	NSArray* controllers = [NSArray arrayWithObject:[OFConversationController conversationWithId:nil withUser:user initialText:initialText]];
 	[OpenFeint launchDashboardWithDelegate:nil tabControllerName:OpenFeintDashBoardTabMyFeint andControllers:controllers];
+}
+
++ (void)launchDashboardWithSocialNotificationWithPrepopulatedText:(NSString*)prepopulatedText originialMessage:(NSString*)originalMessage imageName:(NSString*)imageName linkedUrl:(NSString*)url;
+{
+	OFSendSocialNotificationController* controller = (OFSendSocialNotificationController*)OFControllerLoader::load(@"SendSocialNotification");
+	[controller setPrepopulatedText:prepopulatedText andOriginalMessage:originalMessage];
+	
+	if(imageName && ![imageName isEqualToString:@""])
+	{
+		[controller setImageName:imageName linkedUrl:url];
+	}
+	else
+	{
+		[controller setImageType:@"achievement_definitions" imageId:@"game_icon" linkedUrl:url];
+		[controller setImageUrl:[OpenFeint localGameProfileInfo].iconUrl defaultImage:nil];
+	}
+
+	[controller setDismissDashboardWhenSent:YES];
+	NSArray* controllers = [NSArray arrayWithObject:controller];
+	[OpenFeint launchDashboardWithDelegate:nil tabControllerName:OpenFeintDashBoardTabNowPlaying andControllers:controllers];
 }
 
 @end

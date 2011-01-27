@@ -58,7 +58,7 @@
 			NSMutableArray* sections = [NSMutableArray arrayWithCapacity:[resources count]];
 			for (OFTableSectionDescription* section in resources.objects)
 			{
-				if ([section.page count] > 0 || [self getLeadingCellControllerNameForSection:section])
+				if ([section.page count] > 0 || [section.staticCells count] > 0 || [self getLeadingCellControllerNameForSection:section])
 					[sections addObject:section];
 			}
 			

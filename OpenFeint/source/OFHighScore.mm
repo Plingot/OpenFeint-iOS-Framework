@@ -19,12 +19,15 @@
 #import "OFResourceDataMap.h"
 #import "OFUser.h"
 #import "OFS3UploadParameters.h"
+#import "OFPaginatedSeries.h"
 
 #import "OFUser.h"
 
 static id sharedDelegate = nil;
 
 @interface OFHighScore (Private)
++ (void)_getHighScoresNearCurrentUserSuccess:(OFPaginatedSeries*)resources;
++ (void)_getHighScoresNearCurrentUserFailure;
 - (void)_submitToSuccess;
 - (void)_submitToFailure;
 - (void)_downloadBlobSuccess:(OFHighScore*)score;
@@ -74,6 +77,18 @@ static id sharedDelegate = nil;
 	return highScores;
 }
 
++ (OFRequestHandle*)getHighScoresNearCurrentUserForLeaderboard:(OFLeaderboard*)leaderboard andBetterCount:(uint)betterCount andWorseCount:(uint)worseCount
+{
+	OFRequestHandle* handle = nil;
+	handle = [OFHighScoreService getHighScoreNearCurrentUserForLeaderboard:leaderboard.resourceId
+															andBetterCount:betterCount
+															 andWorseCount:worseCount
+																 onSuccess:OFDelegate(self, @selector(_getHighScoresNearCurrentUserSuccess:))
+																 onFailure:OFDelegate(self, @selector(_getHighScoresNearCurrentUserFailure))];
+	[OFRequestHandlesForModule addHandle:handle forModule:[OFHighScore class]];
+	return handle;
+}
+
 - (OFHighScore*)initForSubmissionWithScore:(int64_t)submitScore
 {
 	self = [super init];
@@ -116,6 +131,22 @@ static id sharedDelegate = nil;
 		[OFRequestHandlesForModule addHandle:handle forModule:[OFHighScore class]];
 	}
 	return handle;
+}
+
++ (void)_getHighScoresNearCurrentUserSuccess:(OFPaginatedSeries*)resources
+{
+	if(sharedDelegate && [sharedDelegate respondsToSelector:@selector(didGetHighScoresNearCurrentUser:)])
+	{
+		[sharedDelegate didGetHighScoresNearCurrentUser:resources.objects];
+	}
+}
+
++ (void)_getHighScoresNearCurrentUserFailure
+{
+	if(sharedDelegate && [sharedDelegate respondsToSelector:@selector(didFailGetHighScoresNearCurrentUser)])
+	{
+		[sharedDelegate didFailGetHighScoresNearCurrentUser];
+	}
 }
 
 - (void)_submitToSuccess
@@ -366,6 +397,11 @@ static id sharedDelegate = nil;
 + (NSString*)getResourceDiscoveredNotification
 {
 	return @"openfeint_high_score_discovered";
+}
+
++ (bool)canReceiveCallbacksNow
+{
+	return true;
 }
 
 - (bool)canReceiveCallbacksNow

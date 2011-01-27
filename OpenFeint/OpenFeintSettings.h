@@ -116,16 +116,6 @@ extern const NSString* OpenFeintSettingInitialUserId;
 
 ////////////////////////////////////////////////////////////
 ///
-/// @type		NSNumber bool
-/// @default	false 
-/// @behavior	If this is true then OpenFeint will automatically prompt the user to post achievements to twitter
-///				and/or facebook when they are successfully unlocked. If false, the prompt is not shown automatically.
-///
-////////////////////////////////////////////////////////////
-extern const NSString* OpenFeintSettingPromptToPostAchievementUnlock;
-
-////////////////////////////////////////////////////////////
-///
 /// @type		NSString
 /// @default	nil
 /// @behavior	If this setting is present, then OpenFeint will attempt to load nibs with the given suffix

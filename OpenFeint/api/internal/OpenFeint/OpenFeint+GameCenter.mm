@@ -271,13 +271,10 @@ namespace {
 }
 
 +(void)initializeGameCenter {
-    if([self isUsingGameCenter]) 
+	//Its possible to log into gamecenter when openfeint is not approved.  If that is the case and we do login to OpenFeint, then we don't want to reinitialize this data.
+    if([self isUsingGameCenter] && !gameCenter) 
 	{
-		//Its possible to log into gamecenter when openfeint is not approved.  If that and we do login to OpenFeint, then we don't want to reinitialize this data.
-		if(!gameCenter)  
-		{
 			gameCenter = [OpenFeintGameCenter new];
-		}
     }
 	else
 	{

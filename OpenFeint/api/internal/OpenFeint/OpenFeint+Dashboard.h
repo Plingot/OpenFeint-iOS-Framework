@@ -29,6 +29,7 @@
 + (void)launchDashboardWithInvitePage;
 + (void)launchDashboardWithSpecificInvite:(NSString*)inviteIdentifier;
 + (void)launchDashboardWithIMToUser:(OFUser*)user initialText:(NSString*)initialText;
++ (void)launchDashboardWithSocialNotificationWithPrepopulatedText:(NSString*)prepopulatedText originialMessage:(NSString*)originalMessage imageName:(NSString*)imageName linkedUrl:(NSString*)url;
 @end
 
 ////////////////////////////////////////////////////////////

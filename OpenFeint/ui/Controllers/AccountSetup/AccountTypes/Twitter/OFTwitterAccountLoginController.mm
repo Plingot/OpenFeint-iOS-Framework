@@ -25,7 +25,7 @@
 
 @implementation OFTwitterAccountLoginController
 
-@synthesize streamIntegrationSwitch, streamIntegrationLabel, submitButton, contentView, integrationInfoLabel;
+@synthesize submitButton, contentView, integrationInfoLabel, controllerToPopTo;
 
 - (void)setupForConnectTwitter
 {
@@ -36,18 +36,9 @@
 {
 	if (!self.addingAdditionalCredential)
 	{
-		self.streamIntegrationSwitch.hidden = YES;
-		self.streamIntegrationLabel.hidden = YES;
-		if ([OpenFeint isInLandscapeMode])
-		{
-			CGRect objectRect = self.submitButton.frame;
-			objectRect.origin.y = self.streamIntegrationLabel.frame.origin.y;
-			self.submitButton.frame = objectRect;
-		}
-		else
+		if(![OpenFeint isInLandscapeMode])
 		{
 			CGRect objectRect = self.privacyDisclosure.frame;
-			objectRect.origin.y = self.streamIntegrationLabel.frame.origin.y;
 			self.privacyDisclosure.frame = objectRect;
 			
 			objectRect = self.submitButton.frame;
@@ -93,8 +84,8 @@
 	
 	if (self.addingAdditionalCredential)
 	{
-		bool enableStreamIntegration = streamIntegrationSwitch.on;
-		parameterStream->io("enable_stream_integration", enableStreamIntegration);
+		//The user now must send every message manually, there is no more need for this.
+		parameterStream->io("enable_stream_integration", @"true");
 	}
 }
 
@@ -136,13 +127,17 @@
 	}	
 }
 
+- (UIViewController*)getControllerToPopTo
+{
+	return self.controllerToPopTo ? self.controllerToPopTo : [super getControllerToPopTo];
+}
+
 - (void)dealloc
 {
-	self.streamIntegrationSwitch = nil;
-	self.streamIntegrationLabel = nil;
 	self.submitButton = nil;
 	self.contentView = nil;
 	self.integrationInfoLabel = nil;
+	self.controllerToPopTo = nil;
 	[super dealloc];
 }
 

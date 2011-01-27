@@ -338,13 +338,4 @@ OPENFEINT_DEFINE_SERVICE(OFAchievementService);
 	return handle;
 }
 
-+ (void)setAutomaticallyPromptToPostUnlocks:(BOOL)automaticallyPrompt
-{
-	OFAchievementService* service = [self sharedInstance];
-	if (service)
-	{
-		service->mAutomaticallyPromptToPostUnlocks = automaticallyPrompt;
-	}
-}
-
 @end

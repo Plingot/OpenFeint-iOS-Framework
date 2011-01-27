@@ -25,17 +25,24 @@
 	UIImageView* fbLoggedInStatusImageView;
 	UIInterfaceOrientation orientationBeforeFix;
 	UIView* invisibleKeyboardTrap;
+	BOOL getPostingPermission;
 	
 @package
 	OFFBDialog* loginDialog;
 	bool skipLoginOnAppear;
+	bool updateServerPostingPermissions;
 }
 
 - (void)promptToLogin;
 - (void)closeLoginDialog;
 
+//Override
+- (NSString*)_getFormSubmissionUrl;
+- (void)_session:(FBSession*)session didLogin:(FBUID)uid;
+
 @property (nonatomic, assign) FBUID fbuid;
 @property (nonatomic, retain) NSURL* urlToLaunch;
 @property (nonatomic, retain) IBOutlet UIImageView* fbLoggedInStatusImageView;
 @property (nonatomic, retain) FBSession* fbSession;
+@property (nonatomic, assign) BOOL getPostingPermission;
 @end

@@ -39,6 +39,7 @@ struct sqlite3;
 #ifdef OF_PREMIUM
 + (id<OFInviteDelegate>)getInviteDelegate;
 #endif
++ (id<OFBragDelegate>)getBragDelegate;
 + (UIInterfaceOrientation)getDashboardOrientation;
 + (BOOL)isInLandscapeMode;
 + (BOOL)isInLandscapeModeOniPad;
@@ -61,11 +62,10 @@ struct sqlite3;
 + (void)presentConfirmAccountModal:(OFDelegate&)onCompletionDelegate useModalInDashboard:(BOOL)useModalInDashboard;
 
 + (void)launchGetExtendedCredentialsFlowForRequest:(OFActionRequest*)request withData:(NSData*)data andNoticeUserData:(id)notificationUserData;
-+ (void)launchRequestUserPermissionForSocialNotification:(OFSocialNotification*)socialNotification withCredentialTypes:(NSArray*)credentials;
 
 + (UIWindow*)getTopApplicationWindow;
 + (UIView*) getTopLevelView;
-+ (UIViewController*)getRootController;
++ (OFRootController*)getRootController;
 + (UINavigationController*)getActiveNavigationController;
 + (void)reloadInactiveTabBars;
 + (bool)isShowingFullScreen;

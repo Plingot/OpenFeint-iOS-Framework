@@ -23,17 +23,18 @@
 
 #import "OpenFeint+Private.h"
 #import "OpenFeint+UserOptions.h"
+#import "OFImageLoader.h"
+#import "OFFormControllerHelper+Overridables.h"
+#import "OFFormControllerHelper+Submit.h"
 
 @implementation OFFacebookAccountLoginController
 
-@synthesize streamIntegrationSwitch, streamIntegrationLabel, findFriendsLabel;
+@synthesize findFriendsLabel, controllerToPopTo;
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	if (!self.addingAdditionalCredential)
 	{
-		self.streamIntegrationSwitch.hidden = YES;
-		self.streamIntegrationLabel.hidden = YES;
 		CGRect disclosureRect = self.privacyDisclosure.frame;
 		disclosureRect.origin.y = self.findFriendsLabel.frame.origin.y;
 		self.privacyDisclosure.frame = disclosureRect;
@@ -63,8 +64,8 @@
 	
 	if (self.addingAdditionalCredential)
 	{
-		bool enableStreamIntegration = streamIntegrationSwitch.on;
-		parameterStream->io("enable_stream_integration", enableStreamIntegration);
+		//The user now has to press the send button for every notification, so stream integration should always be on
+		parameterStream->io("enable_stream_integration", @"true");
 	}
 }
 
@@ -73,9 +74,14 @@
 	return self.addingAdditionalCredential ? @"users_credential" : @"credential";
 }
 
-- (NSString*)getFormSubmissionUrl
+- (NSString*)_getFormSubmissionUrl
 {
 	return self.addingAdditionalCredential ? @"users_credentials.xml" : @"session.xml";
+}
+
+- (void)_session:(FBSession*)session didLogin:(FBUID)uid
+{
+	[self onSubmitForm:nil];
 }
 
 - (NSString*)getLoadingScreenText
@@ -88,25 +94,47 @@
 	// Can assume that facebook authorization was successful.
 	[OpenFeint setLoggedInUserHasFbconnectCredential:YES];  // Update the local option flag to reflect success.  [Joe]
 	
+	OFShowMessageAndReturnController* nextController;
 	if (self.addingAdditionalCredential)
 	{
-		OFShowMessageAndReturnController* nextController =  (OFShowMessageAndReturnController*)OFControllerLoader::load(@"ShowMessageAndReturn");
+		nextController =  (OFShowMessageAndReturnController*)OFControllerLoader::load(@"ShowMessageAndReturn");
 		nextController.messageTitleLabel.text = OFLOCALSTRING(@"Connected to Facebook");
 		nextController.messageLabel.text = OFLOCALSTRING(@"Your OpenFeint account is now connected to Facebook. Any of your Facebook friends with OpenFeint will be added to your My Friends list.");
 		nextController.title = OFLOCALSTRING(@"Finding Friends");
-		return nextController;
 	}
 	else
 	{
-		return [super getStandardLoggedInController];
+		nextController = [super getStandardLoggedInController];
 	}	
+	return nextController;
+}
+
+- (BOOL)isComplete
+{
+	return isComplete;
+}
+
+- (void)onAfterFormSubmitted
+{
+	isComplete = self.getPostingPermission ? updateServerPostingPermissions : YES;
+	[super onAfterFormSubmitted];
+}
+
+- (UIViewController*)getControllerToPopTo
+{
+	return self.controllerToPopTo ? self.controllerToPopTo : [super getControllerToPopTo];
+}
+
+- (void)dialogDidCancel:(FBDialog*)dialog
+{
+	[super dialogDidCancel:dialog];
+	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)dealloc
 {
-	self.streamIntegrationLabel = nil;
-	self.streamIntegrationSwitch = nil;
 	self.findFriendsLabel = nil;
+	self.controllerToPopTo = nil;
 	[super dealloc];
 }
 @end

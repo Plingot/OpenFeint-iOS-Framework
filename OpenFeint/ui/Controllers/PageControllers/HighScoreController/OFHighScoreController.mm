@@ -35,6 +35,9 @@
 #import "OFDelegatesContainer.h"
 #import "OpenFeint+GameCenter.h"
 #import "OFFramedNavigationController.h"
+#import "OFSendSocialNotificationController.h"
+#import "OpenFeint+Settings.h"
+#import "OFSocialNotificationApi.h"
 
 //matches the game center definitions
 namespace {
@@ -325,6 +328,48 @@ namespace {
 	   delegate:nil 
 	   cancelButtonTitle:OFLOCALSTRING(@"OK") 
 	   otherButtonTitles:nil] autorelease] show];
+}
+
+- (NSString*)getTrailingCellControllerNameForSection:(OFTableSectionDescription*)section
+{
+	if([section.title isEqualToString:@"My Score"])
+	{
+		OFHighScore* myScore = [section.page.objects objectAtIndex:0];
+		if(myScore.rank != -1)
+		{
+			return @"ShareHighScore";
+		}
+	}
+	
+	return nil;
+}
+
+- (void)onTrailingCellWasClickedForSection:(OFTableSectionDescription*)section
+{
+	if([section.title isEqual:@"My Score"])
+	{
+		OFHighScore* score = [section.page.objects objectAtIndex:0];
+		OFSendSocialNotificationController* controller = (OFSendSocialNotificationController*)OFControllerLoader::load(@"SendSocialNotification");
+		
+		NSString* prepopulatedText = nil;
+		NSString* originalMessage = nil;
+		id submitTextDelegate =  [OpenFeint getBragDelegate];
+		if(submitTextDelegate && [submitTextDelegate respondsToSelector:@selector(bragAboutHighScore:onLeaderboard:overridePrepopulatedText:overrideOriginalMessage:)])
+		{
+			[submitTextDelegate bragAboutHighScore:score onLeaderboard:leaderboard overridePrepopulatedText:prepopulatedText overrideOriginalMessage:originalMessage];
+		}
+		
+		if(!prepopulatedText)
+		{
+			NSString* scoreText = score.displayText ? score.displayText : [NSString stringWithFormat:@"%d", score.score]; 
+			prepopulatedText = [NSString stringWithFormat:@"I scored %@ on the %@ leaderboard in %@.", scoreText, leaderboard.name, [OpenFeint applicationDisplayName]]; 
+		}
+
+		[controller setPrepopulatedText:prepopulatedText andOriginalMessage:originalMessage];
+		[controller setImageType:@"achievement_definitions" imageId:@"game_icon" linkedUrl:nil];  //This is the only way to get the game icon in a social notification.  See technical debt task #814
+		[controller setImageUrl:[OpenFeint localGameProfileInfo].iconUrl defaultImage:nil];
+		[self.navigationController pushViewController:controller animated:YES];
+	}
 }
 
 @end

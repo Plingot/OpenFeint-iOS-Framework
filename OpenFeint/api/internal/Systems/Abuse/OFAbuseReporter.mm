@@ -17,6 +17,7 @@
 #import "OpenFeint+Private.h"
 #import "MPOAuthAPIRequestLoader.h"
 #import "OFHttpNestedQueryStringWriter.h"
+#import "OFRootController.h"
 
 namespace  
 {

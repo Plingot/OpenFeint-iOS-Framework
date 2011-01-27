@@ -28,6 +28,8 @@ public:
 	static void enableAllControls(UIView* rootView, bool isEnabled);
 	static CGSize sizeThatFitsTight(UIView* rootView);
 	
+	static UIFont* getFontToFitStringInSize(NSString const* text, CGSize size, UIFont const* font, uint maxFontSize, uint minFontSize);
+	
 	//Give a UIView or a UIViewConroller to see all parents (all the way up) or immediate children of a view.
 	static void showParentsOf(id viewOrController);
 	static void showChildrenOf(id viewOrController);

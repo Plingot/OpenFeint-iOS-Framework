@@ -48,6 +48,8 @@
 #ifdef OF_PREMIUM
 #import "OFInviteDelegate.h"
 #endif
+#import "OFBragDelegate.h"
+
 // NOTE: Delegates are not retained
 @interface OFDelegatesContainer : NSObject
 {
@@ -57,6 +59,7 @@
 #ifdef OF_PREMIUM
 	id<OFInviteDelegate> inviteDelegate;
 #endif
+	id<OFBragDelegate> bragDelegate;
 }
 
 // This will most likely be the same as your UIApplicationDelegate
@@ -66,6 +69,8 @@
 #ifdef OF_PREMIUM
 @property (nonatomic, assign) id<OFInviteDelegate> inviteDelegate;
 #endif
+@property (nonatomic, assign) id<OFBragDelegate> bragDelegate;
+
 + (OFDelegatesContainer*)containerWithOpenFeintDelegate:(id<OpenFeintDelegate>)openFeintDelegate;
 
 + (OFDelegatesContainer*)containerWithOpenFeintDelegate:(id<OpenFeintDelegate>)openFeintDelegate

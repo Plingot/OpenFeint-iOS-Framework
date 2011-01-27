@@ -16,17 +16,15 @@
 
 @interface OFTwitterAccountLoginController : OFAccountSetupBaseController 
 {
-	UISwitch* streamIntegrationSwitch;
-	UILabel* streamIntegrationLabel;
 	UIButton* submitButton;
 	UIView* contentView;
 	UILabel* integrationInfoLabel;
+	UIViewController* controllerToPopTo;
 }
 
-@property (nonatomic, retain) IBOutlet UISwitch* streamIntegrationSwitch;
-@property (nonatomic, retain) IBOutlet UILabel* streamIntegrationLabel;
 @property (nonatomic, retain) IBOutlet UIButton* submitButton;
 @property (nonatomic, retain) IBOutlet UIView* contentView;
 @property (nonatomic, retain) IBOutlet UILabel* integrationInfoLabel;
+@property (nonatomic, retain) UIViewController* controllerToPopTo;
 
 @end

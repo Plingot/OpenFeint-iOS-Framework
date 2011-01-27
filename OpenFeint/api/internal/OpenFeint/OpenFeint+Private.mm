@@ -42,7 +42,6 @@
 #import "OFDelegateChained.h"
 #import "OFUsersCredential.h"
 #import "OFExtendedCredentialController.h"
-#import "OFSocialNotificationController.h"
 #import "OFTableControllerHelper.h"
 #import "OFRootController.h"
 #import "OFDoBootstrapController.h"
@@ -524,27 +523,14 @@ extern OFIntroNavigationController *gOFretainedIntroController;
 		}
 	}
 
-	[OpenFeint presentModalOverlay:firstController];
-}
-
-+ (void)launchRequestUserPermissionForSocialNotification:(OFSocialNotification*)socialNotification withCredentialTypes:(NSArray*)credentials
-{
-	OFSocialNotificationController* modal = (OFSocialNotificationController*)OFControllerLoader::load(@"SocialNotification");
-	modal.socialNotification = socialNotification;
-    
-	for (OFUsersCredential* credential in credentials)
+	if([OpenFeint getRootController])
 	{
-		if ([credential isFacebook])
-        {
-            [modal addSocialNetworkIcon:[OFImageLoader loadImage:@"OFFacebookIcon.png"]];
-        }
-        else if ([credential isTwitter])
-        {
-            [modal addSocialNetworkIcon:[OFImageLoader loadImage:@"OFTwitterIcon.png"]];
-        }
+		[[OpenFeint getRootController] presentNonFullScreenModalViewController:firstController animated:YES];
 	}
-	
-	[OpenFeint presentModalOverlay:modal opaque:NO];
+	else
+	{
+		[OpenFeint presentModalOverlay:firstController];
+	}
 }
 
 // XXX obviously this is always going to make the view fullscreen
@@ -1096,6 +1082,13 @@ extern OFIntroNavigationController *gOFretainedIntroController;
 	return instance->mDelegatesContainer.inviteDelegate;
 }
 #endif
+
++ (id<OFBragDelegate>)getBragDelegate
+{
+	OpenFeint* instance = [OpenFeint sharedInstance];
+	return instance->mDelegatesContainer.bragDelegate;
+}
+
 + (UIInterfaceOrientation)getDashboardOrientation
 {
 	return [OpenFeint sharedInstance] ? [OpenFeint sharedInstance]->mDashboardOrientation : UIInterfaceOrientationPortrait;
@@ -1177,7 +1170,7 @@ extern OFIntroNavigationController *gOFretainedIntroController;
 	return [root view];
 }
 
-+ (UIViewController*)getRootController
++ (OFRootController*)getRootController
 {
 	OpenFeint* instance = [OpenFeint sharedInstance];
 	return instance ? instance->mOFRootController : nil;

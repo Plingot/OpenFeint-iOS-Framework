@@ -23,6 +23,11 @@
 	// do nothing
 }
 
+- (void)onAfterFormSubmitted
+{
+	// do nothing
+}
+
 - (void)onPresentingErrorDialog
 {
 	// do nothing

@@ -22,6 +22,7 @@
 #import "OFSocialNotification.h"
 #import "OFImageView.h"
 #import "OpenFeint+Private.h"
+#import "OFRootController.h"
 
 @implementation OFTwitterExtendedCredentialController
 
@@ -64,7 +65,7 @@
 
 - (IBAction)dismiss
 {
-	[OpenFeint dismissDashboard];
+	[[OpenFeint getRootController] dismissNonFullScreenModalViewControllerAnimated:YES];
 }
 
 - (IBAction)onSubmitForm:(UIView*)sender

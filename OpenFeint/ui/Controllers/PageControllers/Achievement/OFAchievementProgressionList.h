@@ -26,6 +26,7 @@
 	UIView* progressionBubbleContainer;
 	UILabel* progressAmountBubbleLabel;
 	UIView* gamerScoreContainer;
+	UIImageView* disclosureIcon;
 	
 	BOOL textNeedsRearrangement;
 	
@@ -41,6 +42,7 @@
 @property (nonatomic, retain) IBOutlet UIView* progressionBubbleContainer;
 @property (nonatomic, retain) IBOutlet UILabel* progressAmountBubbleLabel;
 @property (nonatomic, retain) IBOutlet UIView* gamerScoreContainer;
+@property (nonatomic, retain) IBOutlet UIImageView* disclosureIcon;
 
 - (void)onResourceChanged:(OFResource*)resource;
 

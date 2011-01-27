@@ -82,6 +82,20 @@ typedef enum
 + (NSArray*)allHighScoresForCurrentUser;
 
 //////////////////////////////////////////////////////////////////////////////////////////
+/// Get an NSArray* of scores near the users high score.  The array will contain the users highscore in the middle of the worse and better scores.
+///
+/// @param leaderboard		The leaderboard which you want to search for high scores.
+/// @param betterCount		The amount of scores you want that are better than the current user's score. Max is 50.
+/// @param worseCount		The amount of scores you want that are worse than the current user's score. Max is 50.
+///
+/// @return OFRequestHandle for the server request.  Use this to cancel the request
+///
+/// @note Invokes		- (void)didGetHighScoresNearCurrentUser:(NSArray*)scores; on success and
+///						- (void)didFailGetHighScoresNearCurrentUser:(NSArray*)scores; on failure
+//////////////////////////////////////////////////////////////////////////////////////////
++ (OFRequestHandle*)getHighScoresNearCurrentUserForLeaderboard:(OFLeaderboard*)leaderboard andBetterCount:(uint)betterCount andWorseCount:(uint)worseCount;
+
+//////////////////////////////////////////////////////////////////////////////////////////
 /// Initializes a HighScore for sumbittion.  Use OFLeaderboard's submitScore: to submit 
 /// this score to a leaderboard.
 ///
@@ -211,5 +225,18 @@ typedef enum
 /// @param score	The score which failed to download the blob data.
 //////////////////////////////////////////////////////////////////////////////////////////
 - (void)didFailDownloadBlob:(OFHighScore*)score;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Invoked when getHighScoresNearCurrentUser:andBetterCount:andWorseCount: successfully completes
+///
+/// @param score	The array of scores from Best at index 0, to the worst.  The current  
+///					players score will be in this list as well.
+//////////////////////////////////////////////////////////////////////////////////////////
+- (void)didGetHighScoresNearCurrentUser:(NSArray*)scores;
+
+//////////////////////////////////////////////////////////////////////////////////////////
+/// Invoked when getHighScoresNearCurrentUser:andBetterCount:andWorseCount: fails
+//////////////////////////////////////////////////////////////////////////////////////////
+- (void)didFailGetHighScoresNearCurrentUser;
 
 @end

@@ -138,12 +138,20 @@
 	}
 }
 
+- (BOOL)isComplete
+{
+	return YES;
+}
+
 - (void)onFormSubmitted
 {
 	if (self.addingAdditionalCredential)
 	{
 		[OpenFeint setLoggedInUserHasNonDeviceCredential:YES];
-		[self pushCompletionControllerOrPopOut];
+		if([self isComplete])
+		{
+			[self pushCompletionControllerOrPopOut];
+		}
 	}
 	else
 	{

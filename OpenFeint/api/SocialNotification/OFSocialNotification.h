@@ -14,12 +14,20 @@
 
 #pragma once
 
+enum ESocialNetworkCellType
+{
+	ESocialNetworkCellType_FACEBOOK = 0,
+	ESocialNetworkCellType_TWITTER,
+	ESocialNetworkCellType_COUNT,
+};
+
 @interface OFSocialNotification : NSObject {
 	NSString* text;
 	NSString* imageType;
 	NSString* imageIdentifier;
 	NSString* imageUrl;
 	NSString* url;
+	NSMutableArray* sendToNetworks;
 }
 
 @property(nonatomic, retain) NSString* text;
@@ -27,11 +35,15 @@
 @property(nonatomic, retain) NSString* imageIdentifier;
 @property(nonatomic, retain) NSString* imageUrl;
 @property(nonatomic, retain) NSString* url;
+@property(nonatomic, retain) NSMutableArray* sendToNetworks;
 
 - (id)initWithText:(NSString*)_text;
 - (id)initWithText:(NSString*)_text imageNamed:(NSString*)_imageName;
 - (id)initWithText:(NSString*)_text imageNamed:(NSString*)_imageName linkedUrl:(NSString*)_url;
 - (id)initWithText:(NSString*)_text imageType:(NSString*)_imageType imageId:(NSString*)_imageId;
 - (id)initWithText:(NSString*)_text imageType:(NSString*)_imageType imageId:(NSString*)_imageId linkedUrl:(NSString*)_url;
+
+- (void)addSendToNetwork:(ESocialNetworkCellType)network;
+- (void)clearSendToNetworks;
 
 @end

@@ -84,6 +84,8 @@ static NSString* parseErrorXml(NSData* errorXml)
 						   withRequestType:OFActionRequestForeground
 						   withNotice:[OFNotificationData foreGroundDataWithText:[self getLoadingScreenText]]
 						   requiringAuthentication:[self shouldUseOAuth]];
+	
+	[self onAfterFormSubmitted];
 }
 
 - (void)_requestRespondedBehavior:(MPOAuthAPIRequestLoader*)response

@@ -27,12 +27,14 @@
 	NSString* applicationId;
 	NSString* applicationIconUrl;
 	BOOL doesUserHaveApplication;
+	OFTableCellHelper* achievementProgressionListLeading;
 }
 
 @property (nonatomic, retain) NSString* applicationName;
 @property (nonatomic, retain) NSString* applicationId;
 @property (nonatomic, retain) NSString* applicationIconUrl;
 @property (nonatomic) BOOL doesUserHaveApplication;
+@property (nonatomic, retain) OFTableCellHelper* achievementProgressionListLeading;
 
 - (void)populateContextualDataFromPlayedGame:(OFPlayedGame*)playedGame;
 - (void)postPushAchievementListController;

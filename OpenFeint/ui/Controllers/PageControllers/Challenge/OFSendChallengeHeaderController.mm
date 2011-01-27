@@ -72,7 +72,6 @@
 	OFDelegate failure(self, @selector(_challengeDefinitionDownloadFailed));
 	[OFChallengeDefinitionService getChallengeDefinitionWithId:sendChallengeController.challengeDefinitionId onSuccess:success onFailure:failure];	
 	self.userMessageTextField.closeKeyboardOnReturn = YES;
-	self.userMessageTextField.manageScrollViewOnFocus = YES;
 	self.view.autoresizingMask = UIViewAutoresizingNone; 
 	
 	self.tryAgainButton.hidden = ![self allowCreateStrongerChallenge];

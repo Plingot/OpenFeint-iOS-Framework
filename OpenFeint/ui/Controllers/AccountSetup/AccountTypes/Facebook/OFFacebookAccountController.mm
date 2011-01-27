@@ -63,13 +63,30 @@
 @synthesize urlToLaunch;
 @synthesize fbLoggedInStatusImageView;
 @synthesize fbSession;
+@synthesize getPostingPermission;
 
 - (void)addHiddenParameters:(OFISerializer*)parameterStream
 {
 	[super addHiddenParameters:parameterStream];
 	
 	OFRetainedPtr <NSString> credentialsType = @"fbconnect"; 
-	parameterStream->io("credential_type", credentialsType);	
+	parameterStream->io("credential_type", credentialsType);
+	
+	if(updateServerPostingPermissions)
+	{
+		OFRetainedPtr <NSString> hasExtendedCredentials = @"true"; 
+		parameterStream->io("credential[has_extended_credentials]", hasExtendedCredentials);	
+	}
+}
+
+- (NSString*)getFormSubmissionUrl
+{
+	return (updateServerPostingPermissions ? @"extended_credentials.xml" : [self _getFormSubmissionUrl]);
+}
+
+- (void)onAfterFormSubmitted
+{
+	updateServerPostingPermissions = false;
 }
 
 - (void)closeLoginDialog
@@ -81,6 +98,17 @@
 		[loginDialog dismissWithSuccess:NO animated:YES];
 		OFSafeRelease(loginDialog);
 	}
+}
+
+- (NSString*)_getFormSubmissionUrl
+{
+	//Children must override this if they want to do more then
+	return @"";
+}
+
+- (void)_session:(FBSession*)session didLogin:(FBUID)uid
+{
+	//Override
 }
 
 - (bool)shouldUseOAuth
@@ -111,8 +139,6 @@
 	
 	loginDialog = [[OFFBDialog alloc] initWithSession:session];
 	loginDialog.delegate = self;
-	
-
 	
     if ([OpenFeint isLargeScreen])
     {
@@ -155,10 +181,40 @@
 
 - (void)session:(FBSession*)session didLogin:(FBUID)uid
 {
-	[self closeLoginDialog];
 	self.fbuid = uid;
 	self.fbSession = session;
 	self.fbLoggedInStatusImageView.image = [OFImageLoader loadImage:@"OpenFeintStatusIconNotificationSuccess.png"];
+	[self closeLoginDialog];
+	
+	[self _session:session didLogin:uid];
+	
+	if(self.getPostingPermission)
+	{
+		FBPermissionDialog* dialog = [[[FBPermissionDialog alloc] init] autorelease];
+		dialog.delegate = self; 
+		dialog.permission = @"publish_stream"/*,read_friendlists"*/; 
+		[dialog show];
+	}
+}
+
+- (void)dialogDidCancel:(FBDialog*)dialog
+{
+	[self closeLoginDialog];
+}
+
+- (void)dialogDidSucceed:(FBDialog*)dialog
+{
+	if (loginDialog == dialog)
+		return;
+	
+	updateServerPostingPermissions = YES;
+	
+	//Since requesting additional permission to post to the facebook users wall
+	//will always be the last "action" on all children (currently) then we can submit here.
+	//If this changes, then we should do something similar to what we do in 
+	//- (void)session:(FBSession*)session didLogin:(FBUID)uid
+	//with [self _session:session didLogin:uid]
+	[self onSubmitForm:nil];
 }
 
 - (void)displayError:(NSString*)errorString
@@ -181,12 +237,6 @@
 - (void)requestWasCancelled
 {
 	[self displayError:OFLOCALSTRING(@"Unable to get your name from Facebook. Please make sure the proper permissions are set on your profile at http://www.facebook.com/")]; 
-}
-	
-- (void)dialogDidCancel:(FBDialog*)dialog
-{
-	[self closeLoginDialog];
-	[[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)dialog:(FBDialog*)dialog didFailWithError:(NSError*)error

@@ -20,7 +20,7 @@
 
 @implementation OFAchievementProgressionList
 
-@synthesize titleLabel, descriptionLabel, unlockedIcon, gamerScoreLabel, progressBackground, progressBar, progressionBubbleContainer, progressAmountBubbleLabel, gamerScoreContainer;
+@synthesize titleLabel, descriptionLabel, unlockedIcon, gamerScoreLabel, progressBackground, progressBar, progressionBubbleContainer, progressAmountBubbleLabel, gamerScoreContainer, disclosureIcon;
 
 - (void)layoutSubviews
 {	
@@ -67,6 +67,9 @@
 		
 		progressionBubbleContainer.frame = bubbleFrame;
 	}
+
+	gamerScoreContainer.hidden = self.userInteractionEnabled;
+	disclosureIcon.hidden = !self.userInteractionEnabled;
 }
 
 - (void)onResourceChanged:(OFResource*)resource

@@ -26,17 +26,32 @@
 #import "OFDefaultLeadingCell.h"
 #import "OFUser.h"
 #import "OFApplicationDescriptionController.h"
+#import "OFTableSequenceControllerHelper+Overridables.h"
+#import "OFTableSectionDescription.h"
 
 @implementation OFAchievementListController
 
-@synthesize applicationName, applicationId, applicationIconUrl, doesUserHaveApplication;
+@synthesize applicationName, applicationId, applicationIconUrl, doesUserHaveApplication, achievementProgressionListLeading;
+
+- (BOOL)isComparingToOtherUser
+{
+	return ([self getPageComparisonUser].resourceId &&
+			![[self getPageComparisonUser].resourceId isEqualToString:@""] &&
+			![[self getPageComparisonUser].resourceId isEqualToString:[OpenFeint lastLoggedInUserId]]);
+}
 
 - (void)dealloc
 {
 	self.applicationName = nil;
 	self.applicationId = nil;
 	self.applicationIconUrl = nil;
+	self.achievementProgressionListLeading = nil;
 	[super dealloc];
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
 }
 
 - (void)populateResourceMap:(OFResourceControllerMap*)resourceMap
@@ -51,6 +66,13 @@
 
 - (void)onCellWasClicked:(OFResource*)cellResource indexPathInTable:(NSIndexPath*)indexPath
 {
+	UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+	
+	if(self.achievementProgressionListLeading == cell)
+	{
+		//Currently the only cell resource that is nil is the static cell to share achievements
+		[self.navigationController pushViewController:OFControllerLoader::load(@"SelectAchievementToShare") animated:YES];
+	}
 }
 
 - (NSString*)getNoDataFoundMessage
@@ -60,16 +82,86 @@
 
 - (void)doIndexActionWithPage:(unsigned int)oneBasedPageNumber onSuccess:(const OFDelegate&)success onFailure:(const OFDelegate&)failure
 {
-	[OFAchievementService getAchievementsForApplication:applicationId 
-										 comparedToUser:[self getPageComparisonUser].resourceId
-												   page:oneBasedPageNumber
-											  onSuccess:success 
-											  onFailure:failure];
+	if([self isComparingToOtherUser])
+	{
+		//get compared to user info
+		[OFAchievementService getAchievementsForApplication:applicationId 
+											 comparedToUser:[self getPageComparisonUser].resourceId
+													   page:oneBasedPageNumber
+												  onSuccess:success 
+												  onFailure:failure];
+	}
+	else
+	{
+		//Don't make a server call, we have the achievement information locally.
+		success.invoke([OFPaginatedSeries paginatedSeriesFromArray:[OFAchievement achievements]]);
+	}
+
 }
 
 - (void)doIndexActionOnSuccess:(const OFDelegate&)success onFailure:(const OFDelegate&)failure
-{
+{	
 	[self doIndexActionWithPage:1 onSuccess:success onFailure:failure];
+}
+
+- (void)_onDataLoaded:(OFPaginatedSeries*)resources isIncremental:(BOOL)isIncremental
+{	
+	if([self isComparingToOtherUser])
+	{
+		[super _onDataLoaded:resources isIncremental:isIncremental];
+	}
+	else
+	{
+		NSArray* achievements = [OFAchievement achievements];
+		uint totalAchievementCount = [achievements count];
+		uint unlockedAchievementCount = 0;
+		for(uint i = 0; i < [achievements count]; i++)
+		{
+			OFAchievement* achievement = [achievements objectAtIndex:i];
+			if(achievement.percentComplete == 100.0)
+			{
+				unlockedAchievementCount++;
+			}
+		}
+		
+		OFTableSectionDescription* mainAchievementTableSection = [OFTableSectionDescription sectionWithTitle:[NSString stringWithFormat:@"%d/%d Achievements Unlocked", unlockedAchievementCount, totalAchievementCount] andPage:resources];
+		
+		OFPaginatedSeries* series = nil;
+
+		if(unlockedAchievementCount > 0 && [OpenFeint isOnline])
+		{
+			//Add a leading section for the "share" button if you have any unlocked achievements and you are online
+			NSMutableArray* tableDescriptions = [[[NSMutableArray alloc] init] autorelease];
+			OFTableSectionDescription* leadingTableSection = nil;
+			
+			self.achievementProgressionListLeading = (OFTableCellHelper*)OFControllerLoader::loadCell(@"AchievementProgressionListLeading");
+			leadingTableSection = [OFTableSectionDescription sectionWithTitle:@"" andStaticCells:[NSMutableArray arrayWithObject:achievementProgressionListLeading]];
+			
+			[tableDescriptions addObject:leadingTableSection];
+			[tableDescriptions addObject:mainAchievementTableSection];
+			
+			series = [OFPaginatedSeries paginatedSeriesFromArray:tableDescriptions];
+		}
+		else
+		{
+			//Just stick the achievements in there.
+			series = [OFPaginatedSeries paginatedSeriesWithObject:mainAchievementTableSection];
+		}
+		
+		[super _onDataLoaded:series isIncremental:isIncremental];
+	}
+}
+
+- (bool)usePlainTableSectionHeaders
+{
+	if([self isComparingToOtherUser])
+	{
+		return [super usePlainTableSectionHeaders];
+	}
+	else
+	{
+		return true;
+	}
 }
 
 - (void)populateContextualDataFromPlayedGame:(OFPlayedGame*)playedGame
@@ -88,9 +180,7 @@
 
 - (void)postPushAchievementListController
 {	
-	if([self getPageComparisonUser].resourceId &&
-	   ![[self getPageComparisonUser].resourceId isEqualToString:@""] &&
-	   ![[self getPageComparisonUser].resourceId isEqualToString:[OpenFeint lastLoggedInUserId]])
+	if([self isComparingToOtherUser])
 	{
 		//We are comparing to another user, use the comparision cells
 		mResourceMap.get()->addResource([OFAchievement class], @"AchievementCompareList");
@@ -114,18 +204,25 @@
 
 - (void)onLeadingCellWasLoaded:(OFTableCellHelper*)leadingCell forSection:(OFTableSectionDescription*)section
 {
-	OFDefaultLeadingCell* defaultCell = (OFDefaultLeadingCell*)leadingCell;
-	[defaultCell enableLeftIconViewWithImageUrl:applicationIconUrl andDefaultImage:@"OFDefaultApplicationIcon.png"];
-	defaultCell.headerLabel.text = applicationName;
-	[defaultCell populateRightIconsAsComparison:[self getPageComparisonUser]];
+	if([self isComparingToOtherUser])
+	{
+		OFDefaultLeadingCell* defaultCell = (OFDefaultLeadingCell*)leadingCell;
+		[defaultCell enableLeftIconViewWithImageUrl:applicationIconUrl andDefaultImage:@"OFDefaultApplicationIcon.png"];
+		defaultCell.headerLabel.text = applicationName;
+		[defaultCell populateRightIconsAsComparison:[self getPageComparisonUser]];
+	}
 }
 
 - (NSString*)getLeadingCellControllerNameForSection:(OFTableSectionDescription*)section
 {
-	if ([self getPageComparisonUser])
+	if([self isComparingToOtherUser])
+	{
 		return @"DefaultLeading";
+	}
 	else
+	{
 		return nil;
+	}
 }
 
 - (NSString*)getTableHeaderControllerName

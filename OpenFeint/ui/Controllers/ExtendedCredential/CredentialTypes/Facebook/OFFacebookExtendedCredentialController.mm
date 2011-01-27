@@ -26,6 +26,8 @@
 #import "OFImageView.h"
 #import "OFImageLoader.h"
 #import "OpenFeint+Private.h"
+#import "OFRootController.h"
+#import "OFSendSocialNotificationController.h"
 
 @implementation OFFacebookExtendedCredentialController
 
@@ -33,24 +35,12 @@
 {
 	[super awakeFromNib];
 	skipLoginOnAppear = YES;
-}
-
-- (NSString*)getFormSubmissionUrl 
-{
-	return @"extended_credentials.xml";
+	self.getPostingPermission = YES;
 }
 
 -(NSString*)singularResourceName
 {
 	return @"credential";
-}
-
-- (void)addHiddenParameters:(OFISerializer*)parameterStream
-{
-	[super addHiddenParameters:parameterStream];
-	
-	OFRetainedPtr <NSString> hasExtendedCredentials = @"true"; 
-	parameterStream->io("credential[has_extended_credentials]", hasExtendedCredentials);	
 }
 
 - (void)displayError:(NSString*)errorString
@@ -99,9 +89,15 @@
 	[super promptToLogin];
 }
 
-- (IBAction)dismiss
+- (void)dismiss
 {
-	[OpenFeint dismissDashboard];
+	[[OpenFeint getRootController] dismissNonFullScreenModalViewControllerAnimated:YES];
+}
+
+- (IBAction)skip
+{
+	[self dismiss];
+	[OFSendSocialNotificationController dismiss];
 }
 
 -(void)onFormSubmitted
@@ -120,35 +116,6 @@
 
 - (void)registerActionsNow
 {
-}
-
-- (void)dialogDidCancel:(FBDialog*)dialog
-{
-	[self closeLoginDialog];
-}
-
-- (void)dialogDidSucceed:(FBDialog*)dialog
-{
-	if (loginDialog == dialog)
-		return;
-		
-	[self onSubmitForm:nil];
-}
-
--(void)showExtendedPermissionsDialog
-{
-	FBPermissionDialog* dialog = [[[FBPermissionDialog alloc] init] autorelease];
-	dialog.delegate = self; 
-	dialog.permission = @"publish_stream"/*,read_friendlists"*/; 
-	[dialog show];
-}
-
-- (void)session:(FBSession*)session didLogin:(FBUID)uid
-{
-	self.fbuid = uid;
-	self.fbSession = session;
-	self.fbLoggedInStatusImageView.image = [OFImageLoader loadImage:@"OpenFeintStatusIconNotificationSuccess.png"];
-	[self showExtendedPermissionsDialog];
 }
 
 - (void)setNextController:(UIViewController<OFExtendedCredentialController>*)_next
