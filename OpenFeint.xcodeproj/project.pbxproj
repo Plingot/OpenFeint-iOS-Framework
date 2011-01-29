@@ -1469,6 +1469,8 @@
 		3567AAE112F1BC980025BAA2 /* OFTickerProxy.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 3567A54212F1BC530025BAA2 /* OFTickerProxy.h */; };
 		3567AAE212F1BC980025BAA2 /* OFTickerView.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 3567A54412F1BC530025BAA2 /* OFTickerView.h */; };
 		3567AAE312F1BC980025BAA2 /* OFColors.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 3567A54612F1BC530025BAA2 /* OFColors.h */; };
+		356D695012F4487200EF8414 /* OFSmartObject.inl in Copy Headers */ = {isa = PBXBuildFile; fileRef = 35679FB812F1BC510025BAA2 /* OFSmartObject.inl */; };
+		356D695412F4488900EF8414 /* OFISerializer.inl in Copy Headers */ = {isa = PBXBuildFile; fileRef = 35679FD712F1BC510025BAA2 /* OFISerializer.inl */; };
 		357CD9A8129874620097750D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357CD9A7129874620097750D /* UIKit.framework */; };
 		357CD9AC1298746A0097750D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357CD9AB1298746A0097750D /* CoreGraphics.framework */; };
 		357CD9B0129874710097750D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357CD9AF129874710097750D /* QuartzCore.framework */; };
@@ -1501,6 +1503,8 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Headers";
 			dstSubfolderSpec = 0;
 			files = (
+				356D695412F4488900EF8414 /* OFISerializer.inl in Copy Headers */,
+				356D695012F4487200EF8414 /* OFSmartObject.inl in Copy Headers */,
 				3567A8F812F1BC980025BAA2 /* OFAchievementService.h in Copy Headers */,
 				3567A8F912F1BC980025BAA2 /* OFUnlockedAchievementNotificationData.h in Copy Headers */,
 				3567A8FA12F1BC980025BAA2 /* OFAnnouncementService.h in Copy Headers */,
