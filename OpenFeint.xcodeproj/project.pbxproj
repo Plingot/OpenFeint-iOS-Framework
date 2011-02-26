@@ -2128,8 +2128,8 @@
 		35679F3412F1BC510025BAA2 /* OFPoller.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OFPoller.mm; sourceTree = "<group>"; };
 		35679F3512F1BC510025BAA2 /* OFPollerResourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFPollerResourceType.h; sourceTree = "<group>"; };
 		35679F3612F1BC510025BAA2 /* OFPollerResourceType.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OFPollerResourceType.mm; sourceTree = "<group>"; };
-		35679F3812F1BC510025BAA2 /* OFAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFAsyncSocket.h; sourceTree = "<group>"; };
-		35679F3912F1BC510025BAA2 /* OFAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFAsyncSocket.m; sourceTree = "<group>"; };
+		35679F3812F1BC510025BAA2 /* OFAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OFAsyncSocket.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		35679F3912F1BC510025BAA2 /* OFAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OFAsyncSocket.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		35679F3A12F1BC510025BAA2 /* OFCRVStompClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFCRVStompClient.h; sourceTree = "<group>"; };
 		35679F3B12F1BC510025BAA2 /* OFCRVStompClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFCRVStompClient.m; sourceTree = "<group>"; };
 		35679F3C12F1BC510025BAA2 /* OFPresenceQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFPresenceQueue.h; sourceTree = "<group>"; };

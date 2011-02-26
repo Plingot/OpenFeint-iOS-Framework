@@ -14,10 +14,10 @@
 @class OFAsyncReadPacket;
 @class OFAsyncWritePacket;
 
-extern NSString *const AsyncSocketException;
-extern NSString *const AsyncSocketErrorDomain;
+extern NSString *const OFAsyncSocketException;
+extern NSString *const OFAsyncSocketErrorDomain;
 
-enum AsyncSocketError
+enum OFAsyncSocketError
 {
 	AsyncSocketCFSocketError = kCFSocketError,	// From CFSocketError enum.
 	AsyncSocketNoError = 0,						// Never used.
@@ -27,7 +27,7 @@ enum AsyncSocketError
 	AsyncSocketReadTimeoutError,
 	AsyncSocketWriteTimeoutError
 };
-typedef enum AsyncSocketError AsyncSocketError;
+typedef enum OFAsyncSocketError OFAsyncSocketError;
 
 @interface NSObject (OFAsyncSocketDelegate)
 

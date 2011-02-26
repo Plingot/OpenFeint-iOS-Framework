@@ -29,8 +29,8 @@
 #define READALL_CHUNKSIZE	256         // Incremental increase in buffer size
 #define WRITE_CHUNKSIZE    (1024 * 4)   // Limit on size of each write pass
 
-NSString *const AsyncSocketException = @"AsyncSocketException";
-NSString *const AsyncSocketErrorDomain = @"AsyncSocketErrorDomain";
+NSString *const OFAsyncSocketException = @"OFAsyncSocketException";
+NSString *const OFAsyncSocketErrorDomain = @"OFAsyncSocketErrorDomain";
 
 // Mutex lock used by all instances of AsyncSocket, to protect getaddrinfo.
 // The man page says it is not thread-safe. (As of Mac OS X 10.4.7, and possibly earlier)
@@ -779,10 +779,10 @@ static void MyCFWriteStreamCallback(CFWriteStreamRef stream, CFStreamEventType t
 - (BOOL)acceptOnAddress:(NSString *)hostaddr port:(UInt16)port error:(NSError **)errPtr
 {
 	if (theDelegate == NULL)
-		[NSException raise:AsyncSocketException format:@"Attempting to accept without a delegate. Set a delegate first."];
+		[NSException raise:OFAsyncSocketException format:@"Attempting to accept without a delegate. Set a delegate first."];
 	
 	if (theSocket4 != NULL || theSocket6 != NULL)
-		[NSException raise:AsyncSocketException format:@"Attempting to accept while connected or accepting connections. Disconnect first."];
+		[NSException raise:OFAsyncSocketException format:@"Attempting to accept while connected or accepting connections. Disconnect first."];
 	
 	// Set up the listen sockaddr structs if needed.
 	
@@ -983,12 +983,12 @@ Failed:
 {
 	if(theDelegate == NULL)
 	{
-		[NSException raise:AsyncSocketException format:@"Attempting to connect without a delegate. Set a delegate first."];
+		[NSException raise:OFAsyncSocketException format:@"Attempting to connect without a delegate. Set a delegate first."];
 	}
 	
 	if(theSocket4 != NULL || theSocket6 != NULL)
 	{
-		[NSException raise:AsyncSocketException format:@"Attempting to connect while connected or accepting connections. Disconnect first."];
+		[NSException raise:OFAsyncSocketException format:@"Attempting to connect while connected or accepting connections. Disconnect first."];
 	}
 	
 	if(![self createStreamsToHost:hostname onPort:port error:errPtr]) goto Failed;
@@ -1029,12 +1029,12 @@ Failed:
 {
 	if (theDelegate == NULL)
 	{
-		[NSException raise:AsyncSocketException format:@"Attempting to connect without a delegate. Set a delegate first."];
+		[NSException raise:OFAsyncSocketException format:@"Attempting to connect without a delegate. Set a delegate first."];
 	}
 	
 	if (theSocket4 != NULL || theSocket6 != NULL)
 	{
-		[NSException raise:AsyncSocketException format:@"Attempting to connect while connected or accepting connections. Disconnect first."];
+		[NSException raise:OFAsyncSocketException format:@"Attempting to connect while connected or accepting connections. Disconnect first."];
 	}
 	
 	if(![self createSocketForAddress:remoteAddr error:errPtr])   goto Failed;
@@ -1820,7 +1820,7 @@ Failed:
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncSocketErrorDomain code:AsyncSocketCFSocketError userInfo:info];
+	return [NSError errorWithDomain:OFAsyncSocketErrorDomain code:AsyncSocketCFSocketError userInfo:info];
 }
 
 - (NSError *)getStreamError
@@ -1852,7 +1852,7 @@ Failed:
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncSocketErrorDomain code:AsyncSocketCanceledError userInfo:info];
+	return [NSError errorWithDomain:OFAsyncSocketErrorDomain code:AsyncSocketCanceledError userInfo:info];
 }
 
 /**
@@ -1866,7 +1866,7 @@ Failed:
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncSocketErrorDomain code:AsyncSocketConnectTimeoutError userInfo:info];
+	return [NSError errorWithDomain:OFAsyncSocketErrorDomain code:AsyncSocketConnectTimeoutError userInfo:info];
 }
 
 /**
@@ -1880,7 +1880,7 @@ Failed:
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncSocketErrorDomain code:AsyncSocketReadMaxedOutError userInfo:info];
+	return [NSError errorWithDomain:OFAsyncSocketErrorDomain code:AsyncSocketReadMaxedOutError userInfo:info];
 }
 
 /**
@@ -1894,7 +1894,7 @@ Failed:
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncSocketErrorDomain code:AsyncSocketReadTimeoutError userInfo:info];
+	return [NSError errorWithDomain:OFAsyncSocketErrorDomain code:AsyncSocketReadTimeoutError userInfo:info];
 }
 
 /**
@@ -1908,7 +1908,7 @@ Failed:
 	
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncSocketErrorDomain code:AsyncSocketWriteTimeoutError userInfo:info];
+	return [NSError errorWithDomain:OFAsyncSocketErrorDomain code:AsyncSocketWriteTimeoutError userInfo:info];
 }
 
 - (NSError *)errorFromCFStreamError:(CFStreamError)err
